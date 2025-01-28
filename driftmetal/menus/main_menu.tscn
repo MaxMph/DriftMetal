@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://3rr86m2dkblj"]
+
+[ext_resource type="Script" path="res://menus/main_menu.gd" id="1_l3xge"]
+[ext_resource type="Texture2D" uid="uid://ckidsojsmvaey" path="res://UI and Sprites/exit_sign.png" id="3_7t2j8"]
+[ext_resource type="Texture2D" uid="uid://d0qpbr6dfbpcd" path="res://UI and Sprites/Signs-5679-256x180-120x84.jpg" id="4_bw4xm"]
+
+[node name="main menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l3xge")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Start_Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("4_bw4xm")
+flat = true
+
+[node name="exit_button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("3_7t2j8")
+flat = true
+icon_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit_button" to="." method="_on_exit_button_pressed"]

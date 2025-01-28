@@ -1,23 +1,217 @@
-[gd_scene load_steps=4 format=3 uid="uid://icneu4u2nv6f"]
+[gd_scene load_steps=19 format=3 uid="uid://icneu4u2nv6f"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_2n4kb"]
+[ext_resource type="Script" path="res://Player/player.gd" id="1_2n4kb"]
+[ext_resource type="Script" path="res://Player/control.gd" id="2_6n7t3"]
+[ext_resource type="PackedScene" uid="uid://cl02pdg67hftu" path="res://Player/rope.tscn" id="2_jmeai"]
+[ext_resource type="Script" path="res://Player/buy_menu.gd" id="3_ji1sy"]
+[ext_resource type="Texture2D" uid="uid://c4yeidxxtsc4" path="res://UI and Sprites/prosthetic stuff/leg_icon_1.png" id="4_dua1o"]
+[ext_resource type="Theme" uid="uid://ce3e385ktv028" path="res://level_scenes/button_theme_1.tres" id="4_gcyx6"]
+[ext_resource type="Texture2D" uid="uid://45gmjlionu3a" path="res://UI and Sprites/prosthetic stuff/leg_icon_2.png" id="5_hbd0n"]
+[ext_resource type="Texture2D" uid="uid://b7k3orrmdnd4o" path="res://UI and Sprites/prosthetic stuff/base_limb_UI1.png" id="5_rtj26"]
+[ext_resource type="Texture2D" uid="uid://d3gdweqcubmj" path="res://UI and Sprites/prosthetic stuff/arm_1.png" id="6_lj1a0"]
+[ext_resource type="Texture2D" uid="uid://tcawp6ve6cew" path="res://UI and Sprites/prosthetic stuff/arm_2.png" id="7_tp11p"]
+[ext_resource type="Texture2D" uid="uid://eovnyg0lus2g" path="res://UI and Sprites/prosthetic stuff/leg_1.png" id="8_lb6s1"]
+[ext_resource type="Texture2D" uid="uid://ohd0govgwnpu" path="res://UI and Sprites/prosthetic stuff/leg_2.png" id="9_kcapb"]
+[ext_resource type="Script" path="res://Player/rod_hud.gd" id="12_khr0s"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_02hfc"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_nq2ls"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bcjao"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o17f2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pxgs"]
+bg_color = Color(0.920995, 0.920995, 0.920995, 1)
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_2n4kb")
 
-[node name="head" type="Node3D" parent="."]
+[node name="head_holder" type="Node3D" parent="."]
+
+[node name="head" type="Node3D" parent="head_holder"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Camera3D" type="Camera3D" parent="head"]
+[node name="Camera3D" type="Camera3D" parent="head_holder/head"]
 
-[node name="cam_player" type="AnimationPlayer" parent="head/Camera3D"]
+[node name="cam_player" type="AnimationPlayer" parent="head_holder/head/Camera3D"]
+
+[node name="interact_cast" type="RayCast3D" parent="head_holder/head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.510793)
+target_position = Vector3(0, 0, -2)
+
+[node name="fishing rod" type="Node3D" parent="head_holder/head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, -0.23, -0.759)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="head_holder/head/Camera3D/fishing rod"]
+transform = Transform3D(0.1, 0, 0, 0, 0.507, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_02hfc")
+skeleton = NodePath("../../interact_cast")
+
+[node name="lure_marker" type="Marker3D" parent="head_holder/head/Camera3D/fishing rod"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.479836, -0.0536269)
+
+[node name="rope" parent="head_holder/head/Camera3D/fishing rod/lure_marker" instance=ExtResource("2_jmeai")]
+visible = false
 
 [node name="playermesh" type="MeshInstance3D" parent="."]
+cast_shadow = 0
 mesh = SubResource("CapsuleMesh_nq2ls")
 
 [node name="player_col" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_bcjao")
+
+[node name="cam_pos" type="Node" parent="."]
+
+[node name="Marker_1" type="Marker3D" parent="cam_pos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Marker_2" type="Marker3D" parent="cam_pos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="UI and Menus" type="Node" parent="."]
+
+[node name="Control" type="Control" parent="UI and Menus"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_6n7t3")
+
+[node name="fps label" type="Label" parent="UI and Menus/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="buy_menu" type="Control" parent="UI and Menus"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_ji1sy")
+
+[node name="left leg" type="Button" parent="UI and Menus/buy_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -36.0
+offset_right = -12.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_gcyx6")
+icon = ExtResource("4_dua1o")
+icon_alignment = 1
+
+[node name="right leg" type="Button" parent="UI and Menus/buy_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -36.0
+offset_right = 68.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_gcyx6")
+icon = ExtResource("5_hbd0n")
+icon_alignment = 1
+
+[node name="Panel" type="Panel" parent="UI and Menus/buy_menu"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -100.0
+offset_right = 220.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="limb_UI" type="Control" parent="UI and Menus"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="BaseLimbUi1" type="Sprite2D" parent="UI and Menus/limb_UI"]
+position = Vector2(-9, 68)
+texture = ExtResource("5_rtj26")
+
+[node name="Arm1" type="Sprite2D" parent="UI and Menus/limb_UI/BaseLimbUi1"]
+texture = ExtResource("6_lj1a0")
+
+[node name="Arm2" type="Sprite2D" parent="UI and Menus/limb_UI/BaseLimbUi1"]
+visible = false
+texture = ExtResource("7_tp11p")
+
+[node name="Leg1" type="Sprite2D" parent="UI and Menus/limb_UI/BaseLimbUi1"]
+visible = false
+texture = ExtResource("8_lb6s1")
+
+[node name="Leg2" type="Sprite2D" parent="UI and Menus/limb_UI/BaseLimbUi1"]
+visible = false
+texture = ExtResource("9_kcapb")
+
+[node name="rod_hud" type="Control" parent="UI and Menus"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -800.0
+offset_top = -480.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("12_khr0s")
+
+[node name="cast_strength" type="ProgressBar" parent="UI and Menus/rod_hud"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -76.0
+offset_right = -18.0
+offset_bottom = -49.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2, 2)
+theme_override_styles/background = SubResource("StyleBoxFlat_o17f2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3pxgs")
+max_value = 8.0
+fill_mode = 3
+show_percentage = false
+
+[connection signal="pressed" from="UI and Menus/buy_menu/left leg" to="UI and Menus/buy_menu" method="_on_left_leg_pressed"]
+[connection signal="pressed" from="UI and Menus/buy_menu/right leg" to="UI and Menus/buy_menu" method="_on_right_leg_pressed"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw5hqaeu4u8e5"]
+
+[ext_resource type="Script" path="res://textures/shaders/water stuff/rigid_body_3d.gd" id="1_waxhx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x827r"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_gev75"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tgscv"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_yrkq1"]
+
+[node name="lure" type="RigidBody3D"]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_waxhx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+shape = SubResource("SphereShape3D_x827r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0304599, 0)
+mesh = SubResource("SphereMesh_gev75")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0160857, 0)
+material_override = SubResource("StandardMaterial3D_tgscv")
+mesh = SubResource("SphereMesh_yrkq1")

@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://cfbs7vvakrld6"]
+
+[ext_resource type="Shader" path="res://textures/shaders/water stuff/gerstner.gdshader" id="1_5j26d"]
+[ext_resource type="Script" path="res://textures/shaders/water stuff/gerstner_waves.gd" id="1_qnie3"]
+[ext_resource type="Script" path="res://textures/shaders/water stuff/rigid_body_3d.gd" id="3_gwgni"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u7vyw"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_11gac"]
+sky_material = SubResource("ProceduralSkyMaterial_u7vyw")
+
+[sub_resource type="Environment" id="Environment_fg4u7"]
+background_mode = 2
+sky = SubResource("Sky_11gac")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ljjy"]
+render_priority = 0
+shader = ExtResource("1_5j26d")
+shader_parameter/water_colour = Color(0.213683, 0.314077, 0.4602, 1)
+shader_parameter/deep_water_colour = Color(0.136826, 0.136826, 0.136826, 1)
+shader_parameter/wave_a = Vector3(0.12, 0.4, 10)
+shader_parameter/wave_a_dir = Vector2(1, 0)
+shader_parameter/wave_b = Vector3(1, 0.25, 20)
+shader_parameter/wave_b_dir = Vector2(1, 1)
+shader_parameter/wave_c = Vector3(1, 0.15, 1)
+shader_parameter/wave_c_dir = Vector2(1, 0.5)
+shader_parameter/foam_level = 0.4
+shader_parameter/time = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_2s641"]
+material = SubResource("ShaderMaterial_7ljjy")
+size = Vector2(20, 20)
+subdivide_width = 40
+subdivide_depth = 40
+orientation = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_k2ons"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_blrvn"]
+
+[node name="gerstner waves" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fg4u7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_2s641")
+script = ExtResource("1_qnie3")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 4, 13)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+script = ExtResource("3_gwgni")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, 0)
+shape = SubResource("SphereShape3D_k2ons")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+mesh = SubResource("SphereMesh_blrvn")
