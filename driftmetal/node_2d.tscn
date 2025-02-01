@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://22xqwfy12ouv"]
+
+[ext_resource type="Theme" uid="uid://ce3e385ktv028" path="res://level_scenes/button_theme_1.tres" id="1_gjn81"]
+[ext_resource type="Texture2D" uid="uid://45gmjlionu3a" path="res://UI and Sprites/prosthetic stuff/leg_icon_2.png" id="2_fgmun"]
+[ext_resource type="Texture2D" uid="uid://c4yeidxxtsc4" path="res://UI and Sprites/prosthetic stuff/leg_icon_1.png" id="3_b7lkc"]
+[ext_resource type="Texture2D" uid="uid://hhjhflycqbnd" path="res://textures/metal_7765.jpg" id="4_mwfb4"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -65.5
+offset_right = 46.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="rightleg" type="VBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="right leg" type="Button" parent="Control/VBoxContainer/rightleg"]
+layout_mode = 2
+theme = ExtResource("1_gjn81")
+icon = ExtResource("2_fgmun")
+icon_alignment = 1
+
+[node name="cost" type="Label" parent="Control/VBoxContainer/rightleg"]
+layout_mode = 2
+text = "$60"
+horizontal_alignment = 1
+
+[node name="leftleg" type="VBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="left leg" type="Button" parent="Control/VBoxContainer/leftleg"]
+layout_mode = 2
+theme = ExtResource("1_gjn81")
+icon = ExtResource("3_b7lkc")
+icon_alignment = 1
+
+[node name="cost" type="Label" parent="Control/VBoxContainer/leftleg"]
+layout_mode = 2
+text = "$60"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = -135.0
+offset_right = 172.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_mwfb4")

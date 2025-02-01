@@ -29,25 +29,25 @@ varying float wave_height;
 void fragment() {
 	//float depthRaw = texture(DEPTH_TEXTURE, SCREEN_UV).r * 2.0 - 1.0;
 	//float water_depth = PROJECTION_MATRIX[3][2] / (depthRaw + PROJECTION_MATRIX[2][2]);
-	
+
 	// Normalmaps
 	vec2 direction = vec2(-1.0, 0.0);
 	NORMAL_MAP = texture(noise, UV + direction * TIME * 0.05).xyz;
 	NORMAL_MAP_DEPTH = 0.5;
-	
+
 	// Refraction
 	vec2 offset = vec2(0.0);
 //	if (water_depth - VERTEX.z > 0.0) {
 //		offset = mix(NORMALMAP.xy - vec2(0.5), NORMAL.xz/10.0, 0.3);
 //	}
-	
+
 	//vec4 bg = texture(SCREEN_TEXTURE, SCREEN_UV + (offset * 0.2));
 	//float foam_ammount = clamp((foam_level - water_depth - VERTEX.z) / foam_level, 0.0, 1.0);
 	vec4 colour = mix(water_colour, deep_water_colour, 1.0-clamp((wave_height)/1.0, 0, 1));
 	//colour = mix(colour, vec4(1.0), foam_ammount);
-	
+
 	//float fog_factor = exp(-0.2 * water_depth/20.0);
-	
+
 	// Set everything
 	//EMISSION = mix(colour, bg, fog_factor).xyz * (1.0 - colour.a);
 	ALBEDO = colour.xyz;
@@ -60,13 +60,13 @@ vec3 gerstnerWave(vec3 wave, vec2 wave_dir, vec3 p, inout vec3 tangent, inout ve
 	float amplitude = wave.x;
 	float steepness = wave.y;
 	float wavelength = wave.z;
-	
+
 	float k = 2.0 * PI / wavelength;
 	float c = sqrt(9.8 / k); // phase speed
 	vec2 d = normalize(wave_dir);
 	float f = k * (dot(d, p.xz) - (c * t));
 	float a = steepness / k;
-	
+
 	tangent += normalize(vec3(
 		1.0 - d.x * d.x * steepness * sin(f),
 		d.x * steepness * cos(f),
@@ -77,7 +77,7 @@ vec3 gerstnerWave(vec3 wave, vec2 wave_dir, vec3 p, inout vec3 tangent, inout ve
 		d.y * steepness * cos(f),
 		1.0 - (d.y * d.y * steepness * sin(f))
 	));
-	
+
 	return vec3(
 		d.x * (a * cos(f)),
 		amplitude * a * sin(f),
@@ -90,18 +90,18 @@ void vertex() {
 	vec3 p = VERTEX.xyz;
 	vec3 tangent = vec3(1.0, 0.0, 0.0);
 	vec3 binormal = vec3(0.0, 0.0, 1.0);
-	
+
 	p += gerstnerWave(wave_a, wave_a_dir, original_p, tangent, binormal, TIME);
 	p += gerstnerWave(wave_b, wave_b_dir, original_p, tangent, binormal, TIME);
 	p += gerstnerWave(wave_c, wave_c_dir, original_p, tangent, binormal, TIME);
-	
+
 	vec3 normal = normalize(cross(binormal, tangent));
-	
+
 	VERTEX = p;
 	TANGENT = tangent;
 	BINORMAL = binormal;
 	NORMAL = normal;
-	
+
 	CAMERA = INV_VIEW_MATRIX;
 	wave_height = p.y;
 }

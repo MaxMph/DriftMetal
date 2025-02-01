@@ -29,3 +29,5 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0160857, 0)
 material_override = SubResource("StandardMaterial3D_tgscv")
 mesh = SubResource("SphereMesh_yrkq1")
+
+[node name="wait_timer" type="Timer" parent="."]

@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://bghxutvig7h0p"]
+
+[ext_resource type="Theme" uid="uid://ce3e385ktv028" path="res://level_scenes/button_theme_1.tres" id="5_2o31a"]
+[ext_resource type="Texture2D" uid="uid://45gmjlionu3a" path="res://UI and Sprites/prosthetic stuff/leg_icon_2.png" id="6_bqiox"]
+[ext_resource type="Texture2D" uid="uid://c4yeidxxtsc4" path="res://UI and Sprites/prosthetic stuff/leg_icon_1.png" id="7_giipr"]
+[ext_resource type="Texture2D" uid="uid://hhjhflycqbnd" path="res://textures/metal_7765.jpg" id="8_y1n71"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="prosthetics" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="prosthetics"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -32.0
+offset_right = 66.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="rightleg" type="VBoxContainer" parent="prosthetics/VBoxContainer"]
+layout_mode = 2
+
+[node name="right leg" type="Button" parent="prosthetics/VBoxContainer/rightleg"]
+layout_mode = 2
+theme = ExtResource("5_2o31a")
+icon = ExtResource("6_bqiox")
+icon_alignment = 1
+
+[node name="cost" type="Label" parent="prosthetics/VBoxContainer/rightleg"]
+layout_mode = 2
+text = "$60"
+horizontal_alignment = 1
+
+[node name="leftleg" type="VBoxContainer" parent="prosthetics/VBoxContainer"]
+layout_mode = 2
+
+[node name="left leg" type="Button" parent="prosthetics/VBoxContainer/leftleg"]
+layout_mode = 2
+theme = ExtResource("5_2o31a")
+icon = ExtResource("7_giipr")
+icon_alignment = 1
+
+[node name="cost" type="Label" parent="prosthetics/VBoxContainer/leftleg"]
+layout_mode = 2
+text = "$60"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="prosthetics"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -115.0
+offset_right = 192.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_y1n71")
+
+[node name="Camera2D" type="Camera2D" parent="."]

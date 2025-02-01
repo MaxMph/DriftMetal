@@ -33,6 +33,10 @@ layout_mode = 2
 icon = ExtResource("4_bw4xm")
 flat = true
 
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "->"
+
 [node name="exit_button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 icon = ExtResource("3_7t2j8")

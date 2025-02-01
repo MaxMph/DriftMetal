@@ -1,18 +1,36 @@
-[gd_scene load_steps=19 format=3 uid="uid://icneu4u2nv6f"]
+[gd_scene load_steps=38 format=3 uid="uid://icneu4u2nv6f"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_2n4kb"]
 [ext_resource type="Script" path="res://Player/control.gd" id="2_6n7t3"]
 [ext_resource type="PackedScene" uid="uid://cl02pdg67hftu" path="res://Player/rope.tscn" id="2_jmeai"]
+[ext_resource type="Script" path="res://ui_and_menus.gd" id="3_akfx6"]
 [ext_resource type="Script" path="res://Player/buy_menu.gd" id="3_ji1sy"]
-[ext_resource type="Texture2D" uid="uid://c4yeidxxtsc4" path="res://UI and Sprites/prosthetic stuff/leg_icon_1.png" id="4_dua1o"]
 [ext_resource type="Theme" uid="uid://ce3e385ktv028" path="res://level_scenes/button_theme_1.tres" id="4_gcyx6"]
-[ext_resource type="Texture2D" uid="uid://45gmjlionu3a" path="res://UI and Sprites/prosthetic stuff/leg_icon_2.png" id="5_hbd0n"]
 [ext_resource type="Texture2D" uid="uid://b7k3orrmdnd4o" path="res://UI and Sprites/prosthetic stuff/base_limb_UI1.png" id="5_rtj26"]
 [ext_resource type="Texture2D" uid="uid://d3gdweqcubmj" path="res://UI and Sprites/prosthetic stuff/arm_1.png" id="6_lj1a0"]
 [ext_resource type="Texture2D" uid="uid://tcawp6ve6cew" path="res://UI and Sprites/prosthetic stuff/arm_2.png" id="7_tp11p"]
-[ext_resource type="Texture2D" uid="uid://eovnyg0lus2g" path="res://UI and Sprites/prosthetic stuff/leg_1.png" id="8_lb6s1"]
-[ext_resource type="Texture2D" uid="uid://ohd0govgwnpu" path="res://UI and Sprites/prosthetic stuff/leg_2.png" id="9_kcapb"]
+[ext_resource type="Texture2D" uid="uid://c571cn7ag621c" path="res://UI and Sprites/prosthetic stuff/leg 1 (prerendered) 64.png" id="8_5p8g4"]
+[ext_resource type="Texture2D" uid="uid://c36r7a6msspm5" path="res://UI and Sprites/prosthetic stuff/leg 2 (prerendered) 64.png" id="9_6acmr"]
 [ext_resource type="Script" path="res://Player/rod_hud.gd" id="12_khr0s"]
+[ext_resource type="Script" path="res://UI and Sprites/fish_caught.gd" id="15_f6ids"]
+[ext_resource type="PackedScene" uid="uid://dycmag1axqntm" path="res://UI and Sprites/fish_display.tscn" id="15_mo7f2"]
+[ext_resource type="Script" path="res://scripts/fish_randomizer.gd" id="16_vq67n"]
+[ext_resource type="Script" path="res://Player/pause_menu.gd" id="17_88v6p"]
+[ext_resource type="Resource" uid="uid://c2l8pigq7mt83" path="res://scripts/fish_resources/fish_1.tres" id="17_j1utf"]
+[ext_resource type="Texture2D" uid="uid://d0qpbr6dfbpcd" path="res://UI and Sprites/Signs-5679-256x180-120x84.jpg" id="18_2hud2"]
+[ext_resource type="Resource" uid="uid://c2skua7md25gx" path="res://scripts/fish_resources/fish_2.tres" id="18_2wpe6"]
+[ext_resource type="Texture2D" uid="uid://bd32c4wgt3ona" path="res://UI and Sprites/prosthetic stuff/leg 1 (prerendered).png" id="18_8m7vi"]
+[ext_resource type="Texture2D" uid="uid://ckidsojsmvaey" path="res://UI and Sprites/exit_sign.png" id="19_ddd1c"]
+[ext_resource type="Resource" uid="uid://ch4pnwkjjnq8e" path="res://scripts/fish_resources/fish_3.tres" id="19_dpe4e"]
+[ext_resource type="Texture2D" uid="uid://wo7f8sx8y20l" path="res://UI and Sprites/prosthetic stuff/leg 2 (prerendered).png" id="19_rs0wi"]
+[ext_resource type="Texture2D" uid="uid://pim73c0rle0e" path="res://UI and Sprites/bait/worm.png" id="20_fwsra"]
+[ext_resource type="Texture2D" uid="uid://b5h67bug4vs1q" path="res://UI and Sprites/bait/bread.png" id="21_578fh"]
+[ext_resource type="Texture2D" uid="uid://bvp1iouxfhwbw" path="res://UI and Sprites/bait/sardine can.png" id="22_ygt81"]
+[ext_resource type="Texture2D" uid="uid://hhjhflycqbnd" path="res://textures/metal_7765.jpg" id="23_3tsb2"]
+[ext_resource type="Script" path="res://Player/lure_ui.gd" id="24_ha1o1"]
+[ext_resource type="Texture2D" uid="uid://clbchqonxclyy" path="res://UI and Sprites/bait/hooks.png" id="25_gkq3v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2lo8"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_02hfc"]
 
@@ -24,6 +42,12 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pxgs"]
 bg_color = Color(0.920995, 0.920995, 0.920995, 1)
+
+[sub_resource type="Environment" id="Environment_8xxk5"]
+adjustment_enabled = true
+
+[sub_resource type="World3D" id="World3D_luiti"]
+environment = SubResource("Environment_8xxk5")
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_2n4kb")
@@ -46,6 +70,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, -0.23, -0.759)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="head_holder/head/Camera3D/fishing rod"]
 transform = Transform3D(0.1, 0, 0, 0, 0.507, 0, 0, 0, 0.1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_f2lo8")
 mesh = SubResource("CylinderMesh_02hfc")
 skeleton = NodePath("../../interact_cast")
 
@@ -71,8 +96,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="UI and Menus" type="Node" parent="."]
+script = ExtResource("3_akfx6")
 
 [node name="Control" type="Control" parent="UI and Menus"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -84,72 +111,11 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="buy_menu" type="Control" parent="UI and Menus"]
-process_mode = 3
-visible = false
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("3_ji1sy")
-
-[node name="left leg" type="Button" parent="UI and Menus/buy_menu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -84.0
-offset_top = -36.0
-offset_right = -12.0
-offset_bottom = 36.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("4_gcyx6")
-icon = ExtResource("4_dua1o")
-icon_alignment = 1
-
-[node name="right leg" type="Button" parent="UI and Menus/buy_menu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -36.0
-offset_right = 68.0
-offset_bottom = 36.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("4_gcyx6")
-icon = ExtResource("5_hbd0n")
-icon_alignment = 1
-
-[node name="Panel" type="Panel" parent="UI and Menus/buy_menu"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -220.0
-offset_top = -100.0
-offset_right = 220.0
-offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="Money" type="Label" parent="UI and Menus/Control"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 63.0
 
 [node name="limb_UI" type="Control" parent="UI and Menus"]
 layout_mode = 3
@@ -173,11 +139,15 @@ texture = ExtResource("7_tp11p")
 
 [node name="Leg1" type="Sprite2D" parent="UI and Menus/limb_UI/BaseLimbUi1"]
 visible = false
-texture = ExtResource("8_lb6s1")
+position = Vector2(-7, 32)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("8_5p8g4")
 
 [node name="Leg2" type="Sprite2D" parent="UI and Menus/limb_UI/BaseLimbUi1"]
 visible = false
-texture = ExtResource("9_kcapb")
+position = Vector2(8, 32)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("9_6acmr")
 
 [node name="rod_hud" type="Control" parent="UI and Menus"]
 layout_mode = 3
@@ -213,5 +183,408 @@ max_value = 8.0
 fill_mode = 3
 show_percentage = false
 
-[connection signal="pressed" from="UI and Menus/buy_menu/left leg" to="UI and Menus/buy_menu" method="_on_left_leg_pressed"]
-[connection signal="pressed" from="UI and Menus/buy_menu/right leg" to="UI and Menus/buy_menu" method="_on_right_leg_pressed"]
+[node name="ProgressBar" type="ProgressBar" parent="UI and Menus/rod_hud"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -27.0
+offset_right = 120.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1, 0.8)
+max_value = 1000.0
+show_percentage = false
+
+[node name="fishpull" type="ProgressBar" parent="UI and Menus/rod_hud"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -81.0
+offset_top = -160.0
+offset_right = -65.0
+offset_bottom = -22.0
+grow_horizontal = 0
+grow_vertical = 0
+min_value = -10.0
+max_value = 10.0
+fill_mode = 3
+show_percentage = false
+
+[node name="line_strength" type="ProgressBar" parent="UI and Menus/rod_hud"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -160.0
+offset_right = -42.0
+offset_bottom = -22.0
+grow_horizontal = 0
+grow_vertical = 0
+fill_mode = 3
+show_percentage = false
+
+[node name="fish_caught" type="Control" parent="UI and Menus"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 480.0
+script = ExtResource("15_f6ids")
+
+[node name="PanelContainer" type="PanelContainer" parent="UI and Menus/fish_caught"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI and Menus/fish_caught"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -77.5
+offset_right = 150.0
+offset_bottom = 77.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="UI and Menus/fish_caught/VBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="UI and Menus/fish_caught/VBoxContainer/SubViewportContainer"]
+own_world_3d = true
+world_3d = SubResource("World3D_luiti")
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(300, 120)
+render_target_update_mode = 0
+
+[node name="fish_display" parent="UI and Menus/fish_caught/VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("15_mo7f2")]
+
+[node name="value" type="Label" parent="UI and Menus/fish_caught/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="continue" type="Button" parent="UI and Menus/fish_caught/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "      ->      "
+
+[node name="pause_menu" type="Control" parent="UI and Menus"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 480.0
+script = ExtResource("17_88v6p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI and Menus/pause_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="resume" type="Button" parent="UI and Menus/pause_menu/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("18_2hud2")
+flat = true
+icon_alignment = 1
+
+[node name="exit" type="Button" parent="UI and Menus/pause_menu/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("19_ddd1c")
+flat = true
+icon_alignment = 1
+
+[node name="buy_menu" type="Control" parent="UI and Menus"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_ji1sy")
+
+[node name="prosthetics" type="Control" parent="UI and Menus/buy_menu"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="HBoxContainer" parent="UI and Menus/buy_menu/prosthetics"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -32.0
+offset_right = 66.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="leftleg" type="VBoxContainer" parent="UI and Menus/buy_menu/prosthetics/VBoxContainer"]
+layout_mode = 2
+
+[node name="left leg" type="Button" parent="UI and Menus/buy_menu/prosthetics/VBoxContainer/leftleg"]
+layout_mode = 2
+theme = ExtResource("4_gcyx6")
+icon = ExtResource("18_8m7vi")
+flat = true
+icon_alignment = 1
+
+[node name="cost" type="Label" parent="UI and Menus/buy_menu/prosthetics/VBoxContainer/leftleg"]
+layout_mode = 2
+text = "$60"
+horizontal_alignment = 1
+
+[node name="rightleg" type="VBoxContainer" parent="UI and Menus/buy_menu/prosthetics/VBoxContainer"]
+layout_mode = 2
+
+[node name="right leg" type="Button" parent="UI and Menus/buy_menu/prosthetics/VBoxContainer/rightleg"]
+layout_mode = 2
+theme = ExtResource("4_gcyx6")
+icon = ExtResource("19_rs0wi")
+flat = true
+icon_alignment = 1
+
+[node name="cost" type="Label" parent="UI and Menus/buy_menu/prosthetics/VBoxContainer/rightleg"]
+layout_mode = 2
+text = "$60"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI and Menus/buy_menu/prosthetics"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -115.0
+offset_right = 192.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("23_3tsb2")
+
+[node name="bait" type="Control" parent="UI and Menus/buy_menu"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI and Menus/buy_menu/bait"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -36.0
+offset_right = 208.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="worm" type="VBoxContainer" parent="UI and Menus/buy_menu/bait/HBoxContainer"]
+layout_mode = 2
+
+[node name="worm" type="Button" parent="UI and Menus/buy_menu/bait/HBoxContainer/worm"]
+z_index = 4
+layout_mode = 2
+theme = ExtResource("4_gcyx6")
+icon = ExtResource("20_fwsra")
+flat = true
+
+[node name="cost" type="Label" parent="UI and Menus/buy_menu/bait/HBoxContainer/worm"]
+layout_mode = 2
+text = "$2"
+horizontal_alignment = 1
+
+[node name="bread" type="VBoxContainer" parent="UI and Menus/buy_menu/bait/HBoxContainer"]
+layout_mode = 2
+
+[node name="bread" type="Button" parent="UI and Menus/buy_menu/bait/HBoxContainer/bread"]
+layout_mode = 2
+theme = ExtResource("4_gcyx6")
+icon = ExtResource("21_578fh")
+flat = true
+
+[node name="cost" type="Label" parent="UI and Menus/buy_menu/bait/HBoxContainer/bread"]
+layout_mode = 2
+text = "$6
+"
+horizontal_alignment = 1
+
+[node name="sardines" type="VBoxContainer" parent="UI and Menus/buy_menu/bait/HBoxContainer"]
+layout_mode = 2
+
+[node name="sardines" type="Button" parent="UI and Menus/buy_menu/bait/HBoxContainer/sardines"]
+layout_mode = 2
+theme = ExtResource("4_gcyx6")
+icon = ExtResource("22_ygt81")
+flat = true
+
+[node name="cost" type="Label" parent="UI and Menus/buy_menu/bait/HBoxContainer/sardines"]
+layout_mode = 2
+text = "$10"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI and Menus/buy_menu/bait"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -115.0
+offset_right = 192.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("23_3tsb2")
+
+[node name="lure_ui" type="Control" parent="UI and Menus"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+script = ExtResource("24_ha1o1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI and Menus/lure_ui"]
+layout_mode = 0
+offset_top = -46.0
+offset_right = 200.0
+offset_bottom = 45.0
+
+[node name="hook" type="VBoxContainer" parent="UI and Menus/lure_ui/HBoxContainer"]
+layout_mode = 2
+
+[node name="stock" type="Label" parent="UI and Menus/lure_ui/HBoxContainer/hook"]
+layout_mode = 2
+text = " Infinite"
+horizontal_alignment = 1
+
+[node name="hook" type="TextureRect" parent="UI and Menus/lure_ui/HBoxContainer/hook"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("25_gkq3v")
+
+[node name="worm" type="VBoxContainer" parent="UI and Menus/lure_ui/HBoxContainer"]
+layout_mode = 2
+
+[node name="stock" type="Label" parent="UI and Menus/lure_ui/HBoxContainer/worm"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="worm" type="TextureRect" parent="UI and Menus/lure_ui/HBoxContainer/worm"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("20_fwsra")
+
+[node name="bread" type="VBoxContainer" parent="UI and Menus/lure_ui/HBoxContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 2
+
+[node name="stock" type="Label" parent="UI and Menus/lure_ui/HBoxContainer/bread"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="bread" type="TextureRect" parent="UI and Menus/lure_ui/HBoxContainer/bread"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("21_578fh")
+
+[node name="sardines" type="VBoxContainer" parent="UI and Menus/lure_ui/HBoxContainer"]
+layout_mode = 2
+
+[node name="stock" type="Label" parent="UI and Menus/lure_ui/HBoxContainer/sardines"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="sardines" type="TextureRect" parent="UI and Menus/lure_ui/HBoxContainer/sardines"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("22_ygt81")
+
+[node name="RandFish" type="Node" parent="."]
+script = ExtResource("16_vq67n")
+fish_list = Array[Resource]([ExtResource("17_j1utf"), ExtResource("18_2wpe6"), ExtResource("19_dpe4e")])
+
+[connection signal="button_up" from="UI and Menus/fish_caught/VBoxContainer/continue" to="UI and Menus/fish_caught" method="_on_continue_button_up"]
+[connection signal="pressed" from="UI and Menus/pause_menu/VBoxContainer/resume" to="UI and Menus/pause_menu" method="_on_resume_pressed"]
+[connection signal="pressed" from="UI and Menus/pause_menu/VBoxContainer/exit" to="UI and Menus/pause_menu" method="_on_exit_pressed"]
+[connection signal="pressed" from="UI and Menus/buy_menu/prosthetics/VBoxContainer/leftleg/left leg" to="UI and Menus/buy_menu" method="_on_left_leg_pressed"]
+[connection signal="pressed" from="UI and Menus/buy_menu/prosthetics/VBoxContainer/rightleg/right leg" to="UI and Menus/buy_menu" method="_on_right_leg_pressed"]
+[connection signal="pressed" from="UI and Menus/buy_menu/bait/HBoxContainer/worm/worm" to="UI and Menus/buy_menu" method="_on_worm_pressed"]
+[connection signal="pressed" from="UI and Menus/buy_menu/bait/HBoxContainer/bread/bread" to="UI and Menus/buy_menu" method="_on_bread_pressed"]
+[connection signal="pressed" from="UI and Menus/buy_menu/bait/HBoxContainer/sardines/sardines" to="UI and Menus/buy_menu" method="_on_sardines_pressed"]

@@ -12,7 +12,6 @@ func _process(delta: float) -> void:
 
 
 func _on_start_button_pressed() -> void:
-	print("works")
 	get_tree().change_scene_to_file("res://level_scenes/world.tscn")
 
 

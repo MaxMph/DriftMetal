@@ -6,6 +6,10 @@ var float_strength = 4
 var lin_drag = 0.02
 var ang_drag = 0.02
 var underwater = false
+var gotten_wet = false
+
+var player
+@onready var wait_timer = $wait_timer
 
 @onready var ocean = $MeshInstance3D
 
@@ -18,6 +22,9 @@ func _process(delta: float) -> void:
 	if depth > water_level:
 		underwater = true
 		apply_central_force(Vector3.UP * float_strength * depth)
+		if gotten_wet == false:
+			fish_wait(player.find_waittime())
+			gotten_wet = true
 	else:
 		underwater = false
 
@@ -25,3 +32,9 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if underwater == true:
 		state.linear_velocity *= 1 - lin_drag
 		state.angular_velocity *= 1 - ang_drag
+
+func fish_wait(waittime: float):
+#	wait_timer.wait_time = randf_range(0, waittime)
+	wait_timer.start(randf_range(0, waittime))
+	await wait_timer.timeout
+	player.fish_on_hook()

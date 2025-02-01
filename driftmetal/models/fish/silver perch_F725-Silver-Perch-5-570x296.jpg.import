@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cxenfr5ooym0r"
+path.s3tc="res://.godot/imported/silver perch_F725-Silver-Perch-5-570x296.jpg-aaf0f89ba89895384a2212f727d0a367.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://models/fish/silver perch_F725-Silver-Perch-5-570x296.jpg"
+dest_files=["res://.godot/imported/silver perch_F725-Silver-Perch-5-570x296.jpg-aaf0f89ba89895384a2212f727d0a367.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -20,24 +20,49 @@ var fric = 20
 var cast_strength = 0
 var cur_lure
 var casted = false
+var fish_on = false
+var can_cast = true
+var time = 0
+var pull_force = 0
+
+
+#fish_stuff
+var fish = 1
+var fish_strength = 0.6
+var fish_value = 10
+@onready var fish_display = $"UI and Menus/fish_caught/VBoxContainer/SubViewportContainer/SubViewport/fish_display"
+
+
+
+# rod ui stuff
+@onready var catch_prog = $"UI and Menus/rod_hud/ProgressBar"
+@onready var fish_pull = $"UI and Menus/rod_hud/fishpull"
+@onready var line_strength = $"UI and Menus/rod_hud/line_strength"
+
+var bait_str
 
 var legspeed
 var leftarm
 var rightarm
 
+
 func _ready() -> void:
+	Global.Player = self
 	legchange()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
-
 
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		if Global.left_leg == true or Global.right_leg == true:
+			if Global.left_leg == true and Global.right_leg == true:
+				velocity.y = JUMP_VELOCITY + 2
+			else:
+				velocity.y = JUMP_VELOCITY
 
 
 	var input_dir := Input.get_vector("left", "right", "up", "down")
@@ -52,8 +77,22 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("cast"):
 		cast_strength = move_toward(cast_strength, 8, 6 * delta)
 	
-	if Input.is_action_just_released("cast"):
-		cast()
+	if Input.is_action_just_released("cast") and can_cast:
+		match Global.selected_bait:
+			0:
+				cast()
+			1:
+				if Global.worms != 0:
+					Global.worms -= 1
+					cast()
+			2:
+				if Global.bread != 0:
+					Global.bread -= 1
+					cast()
+			3:
+				if Global.sardines != 0:
+					Global.sardines -= 1
+					cast()
 	
 	#if Input.is_action_just_pressed("cast"):
 	#	cast()
@@ -62,7 +101,33 @@ func _physics_process(delta: float) -> void:
 		line(cur_lure.global_position)
 		rope.visible = true
 	
+	if Input.is_action_pressed("reel") and fish_on:
+		pull_force += 3 * delta
+	elif fish_on:
+		pull_force = -4 * delta
+
+	
+	if fish_on:
+		if line_strength.value >= line_strength.max_value:
+			fish_off()
+		
+		fish_pull.value =  sin(time) * 10 #((sin(time) + 1) * 0.5) * 100
+		
+		line_strength.value += (pull_force + fish_pull.value * 0.03)
+		catch_prog.value += (line_strength.value - (line_strength.max_value * fish_strength)) * 0.1
+		
+		if catch_prog.value >= catch_prog.max_value -  0.5:
+			fish_caught()
+			catch_prog.value = 0
+	
+	
 	move_and_slide()
+
+func _process(delta: float) -> void:
+	if fish_on:
+		time += delta
+	else:
+		time = 0
 
 func	_unhandled_input(event: InputEvent) -> void:
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -72,15 +137,14 @@ func	_unhandled_input(event: InputEvent) -> void:
 			cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
 func legchange():
-	print("legsshdfjasrg")
 	legspeed = 0
 	if Global.left_leg == true:
 		$"UI and Menus/limb_UI/BaseLimbUi1/Leg1".visible = true
-		$"UI and Menus/buy_menu/left leg".disabled = true
+		$"UI and Menus/buy_menu/prosthetics/VBoxContainer/leftleg/left leg".disabled = true
 		legspeed += 3
 	if Global.right_leg == true:
 		$"UI and Menus/limb_UI/BaseLimbUi1/Leg2".visible = true
-		$"UI and Menus/buy_menu/right leg".disabled = true
+		$"UI and Menus/buy_menu/prosthetics/VBoxContainer/rightleg/right leg".disabled = true
 		legspeed += 3
 	# the 6 is temp, replace with 1
 	SPEED = 1 + legspeed
@@ -92,22 +156,21 @@ func legchange():
 func cast():
 	var inst = lure.instantiate()
 	if cur_lure != null:
-		casted = false
-		print("deleating")
-		cur_lure.queue_free()
+		fish_off()
 	get_parent().add_child(inst)
 	inst.global_position = lure_spawn.global_position
 	inst.global_rotation.y = cam.global_rotation.y
 	inst.apply_central_impulse(-cam.global_transform.basis.z * cast_strength)
+	inst.player = self
 	cur_lure = inst
-	print(cur_lure)
 	cast_strength = 0
 	casted = true
+	
 	#line(cur_lure.position)
 
 func line(lure_point: Vector3):
 	var dist = lure_spawn.global_position.distance_to(lure_point)
-	
+	rope.visible = true
 	rope.look_at(lure_point)
 	rope.scale = Vector3(1, 1, dist)
 	#var mesh_inst = MeshInstance3D.new()
@@ -124,3 +187,52 @@ func line(lure_point: Vector3):
 	#
 	#material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	#material.albedo_color = Color.WHITE
+
+func find_waittime():
+	return 4.0
+
+func fish_on_hook():
+	fish_on = true
+	catch_prog.visible = true
+	find_fish()
+
+func fish_off():
+	fish_on = false
+	casted = false
+
+	cur_lure.queue_free()
+	rope.visible = false
+	
+	#ui rod stuff
+	line_strength.value = line_strength.min_value
+	fish_pull.value = 0
+	pull_force = 0
+	catch_prog.value = 0
+	catch_prog.visible = false
+
+func fish_caught():
+	fish_off()
+	can_cast = false
+	$"UI and Menus/fish_caught".open()
+
+func find_fish():
+	fish = Callable(self, $RandFish.pick_random_fish())
+	fish.call()
+
+func fish_1():
+	fish_strength = 0.4
+	fish_value = randi_range(4, 8)
+	fish_display.fish_vis("fish_1")
+	print("fish_1")
+
+func fish_2():
+	fish_strength = 0.6
+	fish_value = randi_range(10, 16)
+	fish_display.fish_vis("fish_2")
+	print("fish_2")
+
+func fish_3():
+	fish_strength = 0.8
+	fish_value = randi_range(20, 30)
+	fish_display.fish_vis("fish_3")
+	print("fish_3")

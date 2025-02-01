@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=2 format=3 uid="uid://c2l8pigq7mt83"]
+
+[ext_resource type="Script" path="res://scripts/fish_resource.gd" id="1_p1kjq"]
+
+[resource]
+script = ExtResource("1_p1kjq")
+VALUE = "fish_1"
+pick_chance = 10
+pickable = true

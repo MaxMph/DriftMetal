@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://kodoglhwq3tu"]
+[gd_scene load_steps=15 format=3 uid="uid://kodoglhwq3tu"]
 
+[ext_resource type="Script" path="res://level_scenes/world.gd" id="1_cl0rx"]
 [ext_resource type="Texture2D" uid="uid://btcfjavfk2fim" path="res://textures/Concrete034_1K-PNG_Color-384x192.png" id="1_syjwg"]
 [ext_resource type="PackedScene" uid="uid://icneu4u2nv6f" path="res://Player/player.tscn" id="2_kdm1h"]
 [ext_resource type="Material" uid="uid://oml2c4ix6vou" path="res://textures/rust_metal.tres" id="2_mxtjq"]
 [ext_resource type="Texture2D" uid="uid://c27eovkc6qvw3" path="res://textures/Metal-0628-512x256.jpg" id="3_028ks"]
 [ext_resource type="Material" uid="uid://dhbgw7qp3npus" path="res://textures/shaders/water stuff/water_sinesum.tres" id="5_8d68y"]
 [ext_resource type="Script" path="res://textures/shaders/water stuff/sine_boyancy_base.gd" id="6_e4p2o"]
+[ext_resource type="PackedScene" uid="uid://tkw4k3lj8t3r" path="res://models/leg.tscn" id="8_ygegl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kxlyf"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -21,6 +23,13 @@ tonemap_mode = 2
 glow_enabled = true
 volumetric_fog_enabled = true
 
+[sub_resource type="QuadMesh" id="QuadMesh_12qjd"]
+material = ExtResource("5_8d68y")
+size = Vector2(200, 200)
+subdivide_width = 250
+subdivide_depth = 250
+orientation = 1
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qja68"]
 albedo_color = Color(0.779291, 0.779291, 0.779291, 1)
 albedo_texture = ExtResource("1_syjwg")
@@ -30,14 +39,8 @@ uv1_triplanar = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pv2v6"]
 albedo_texture = ExtResource("3_028ks")
 
-[sub_resource type="QuadMesh" id="QuadMesh_12qjd"]
-material = ExtResource("5_8d68y")
-size = Vector2(200, 200)
-subdivide_width = 250
-subdivide_depth = 250
-orientation = 1
-
 [node name="World" type="Node3D"]
+script = ExtResource("1_cl0rx")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lpbhm")
@@ -49,63 +52,83 @@ shadow_enabled = true
 shadow_opacity = 0.8
 shadow_blur = 3.0
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -5, 0)
-material_override = SubResource("StandardMaterial3D_qja68")
-use_collision = true
-size = Vector3(15, 11, 25)
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.5, -3, -22)
-material_override = SubResource("StandardMaterial3D_qja68")
-use_collision = true
-size = Vector3(15, 11, 25)
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.8681, 0.561808, -17.2336)
-material_override = SubResource("StandardMaterial3D_qja68")
-use_collision = true
-size = Vector3(24.5327, 25.4174, 16.2638)
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26.2362, -12.4382, -22.9673)
-material_override = SubResource("StandardMaterial3D_qja68")
-use_collision = true
-size = Vector3(16, 25.4174, 23)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0.59739, -9.32161)
-material_override = ExtResource("2_mxtjq")
-use_collision = true
-size = Vector3(10, 1, 11)
-
 [node name="Player" parent="." instance=ExtResource("2_kdm1h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.965926, 0.258819, 8.74228e-08, 0.258819, 0.965926, 0, -8.44439e-08, 2.26267e-08, -1, -3.51494, -0.41748, 0.00685406)
-material_override = ExtResource("2_mxtjq")
-use_collision = true
-size = Vector3(10, 1.835, 4.9)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="." groups=["shop"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 1.5, 0)
-material_override = SubResource("StandardMaterial3D_pv2v6")
-use_collision = true
-size = Vector3(2, 6, 5)
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="." groups=["shop"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0095, 0.5, -22)
-material_override = SubResource("StandardMaterial3D_pv2v6")
-use_collision = true
-size = Vector3(2, 6, 5)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="." groups=["shop"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2531, -4.39891, 0)
-material_override = SubResource("StandardMaterial3D_pv2v6")
-size = Vector3(2, 6, 5)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.504498, 0, -0.863413, 0, 1, 0, 0.863413, 0, -0.504498, 0, 0, 0)
 mesh = SubResource("QuadMesh_12qjd")
 script = ExtResource("6_e4p2o")
+
+[node name="environment" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -5, 0)
+material_override = SubResource("StandardMaterial3D_qja68")
+use_collision = true
+size = Vector3(15, 11, 25)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="environment"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.5, -3, -22)
+material_override = SubResource("StandardMaterial3D_qja68")
+use_collision = true
+size = Vector3(15, 11, 25)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="environment"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.8681, 0.561808, -17.2336)
+material_override = SubResource("StandardMaterial3D_qja68")
+use_collision = true
+size = Vector3(24.5327, 25.4174, 16.2638)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="environment"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26.2362, -12.4382, -22.9673)
+material_override = SubResource("StandardMaterial3D_qja68")
+use_collision = true
+size = Vector3(16, 25.4174, 23)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="environment"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0.59739, -9.32161)
+material_override = ExtResource("2_mxtjq")
+use_collision = true
+size = Vector3(10, 1, 11)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="environment"]
+transform = Transform3D(-0.965926, 0.258819, 8.74228e-08, 0.258819, 0.965926, 0, -8.44439e-08, 2.26267e-08, -1, -3.51494, -0.41748, 0.00685406)
+material_override = ExtResource("2_mxtjq")
+use_collision = true
+size = Vector3(10, 1.835, 4.9)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="environment" groups=["prosthetics_shop"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 1.5, 0)
+material_override = SubResource("StandardMaterial3D_pv2v6")
+use_collision = true
+size = Vector3(2, 6, 5)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="environment"]
+transform = Transform3D(-0.965926, 0.258819, 8.74228e-08, 0.258819, 0.965926, 0, -8.44439e-08, 2.26267e-08, -1, -3.51494, -0.41748, 7.00685)
+material_override = ExtResource("2_mxtjq")
+use_collision = true
+size = Vector3(10, 1.835, 4.9)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="environment" groups=["bait_shop"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 1.5, 7)
+material_override = SubResource("StandardMaterial3D_pv2v6")
+use_collision = true
+size = Vector3(2, 6, 5)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0095, 0.5, -22)
+material_override = SubResource("StandardMaterial3D_pv2v6")
+use_collision = true
+size = Vector3(2, 6, 5)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2531, -4.39891, 0)
+material_override = SubResource("StandardMaterial3D_pv2v6")
+size = Vector3(2, 6, 5)
+
+[node name="leg" parent="environment" instance=ExtResource("8_ygegl")]
+transform = Transform3D(0.2, 0, 0, 0, 0.197112, 0.033863, 0, -0.033863, 0.197112, -8.50579, 0.530454, 2.99787)
+
+[node name="leg2" parent="environment" instance=ExtResource("8_ygegl")]
+transform = Transform3D(-0.0724832, 0.18564, 0.0168475, -0.0127499, 0.0130966, -0.199163, -0.185967, -0.0732539, 0.00708804, -8.49781, 0.579166, 3.42696)
