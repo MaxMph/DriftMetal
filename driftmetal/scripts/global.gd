@@ -9,7 +9,7 @@ var bread = 0
 var sardines = 0
 
 var selected_bait = 0
-var bait_call
+var cur_bait
 var max_select = 3
 
 @export var Player: CharacterBody3D

@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_y5ftb")
 VALUE = "fish_2"
-pick_chance = 5
+pick_chance = 6
 pickable = true

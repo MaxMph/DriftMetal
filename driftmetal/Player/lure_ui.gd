@@ -12,22 +12,18 @@ func _process(delta: float) -> void:
 	
 	if Global.selected_bait == 0:
 		$HBoxContainer/hook.modulate = Color(1, 1, 1, 1)
-		Global.bait_call = "Global.hook"
 	else:
 		$HBoxContainer/hook.modulate = Color(1, 1, 1, transparent_amount)
 	if Global.selected_bait == 1:
 		$HBoxContainer/worm.modulate = Color(1, 1, 1, 1)
-		Global.bait_call = "Global.worms"
 	else:
 		$HBoxContainer/worm.modulate = Color(1, 1, 1, transparent_amount)
 	if Global.selected_bait == 2:
 		$HBoxContainer/bread.modulate = Color(1, 1, 1, 1)
-		Global.bait_call = "Global.bread"
 	else:
 		$HBoxContainer/bread.modulate = Color(1, 1, 1, transparent_amount)
 	if Global.selected_bait == 3:
 		$HBoxContainer/sardines.modulate = Color(1, 1, 1, 1)
-		Global.bait_call = "Global.sardines"
 	else:
 		$HBoxContainer/sardines.modulate = Color(1, 1, 1, transparent_amount)
 	

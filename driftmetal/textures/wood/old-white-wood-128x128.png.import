@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hhjhflycqbnd"
-path.s3tc="res://.godot/imported/metal_7765.jpg-2dc8c2b29b36448a1dbbfef48db9bafc.s3tc.ctex"
+uid="uid://cismtyu5n8beb"
+path.s3tc="res://.godot/imported/old-white-wood-128x128.png-a7ba8bb6505c1f60aabb0efbfc503ced.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/metal_7765.jpg"
-dest_files=["res://.godot/imported/metal_7765.jpg-2dc8c2b29b36448a1dbbfef48db9bafc.s3tc.ctex"]
+source_file="res://textures/wood/old-white-wood-128x128.png"
+dest_files=["res://.godot/imported/old-white-wood-128x128.png-a7ba8bb6505c1f60aabb0efbfc503ced.s3tc.ctex"]
 
 [params]
 

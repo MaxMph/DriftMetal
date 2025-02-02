@@ -1,6 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bw5hqaeu4u8e5"]
+[gd_scene load_steps=7 format=3 uid="uid://bw5hqaeu4u8e5"]
 
 [ext_resource type="Script" path="res://textures/shaders/water stuff/rigid_body_3d.gd" id="1_waxhx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ar6he"]
+friction = 0.2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_x827r"]
 
@@ -14,6 +17,7 @@ albedo_color = Color(1, 0, 0, 1)
 [node name="lure" type="RigidBody3D"]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_ar6he")
 script = ExtResource("1_waxhx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

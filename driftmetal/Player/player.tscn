@@ -64,6 +64,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 [node name="interact_cast" type="RayCast3D" parent="head_holder/head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.510793)
 target_position = Vector3(0, 0, -2)
+collide_with_areas = true
+collide_with_bodies = false
 
 [node name="fishing rod" type="Node3D" parent="head_holder/head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, -0.23, -0.759)

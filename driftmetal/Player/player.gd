@@ -85,14 +85,20 @@ func _physics_process(delta: float) -> void:
 				if Global.worms != 0:
 					Global.worms -= 1
 					cast()
+				else:
+					cast_strength = 0
 			2:
 				if Global.bread != 0:
 					Global.bread -= 1
 					cast()
+				else:
+					cast_strength = 0
 			3:
 				if Global.sardines != 0:
 					Global.sardines -= 1
 					cast()
+				else:
+					cast_strength = 0
 	
 	#if Input.is_action_just_pressed("cast"):
 	#	cast()
@@ -154,6 +160,7 @@ func legchange():
 		head_holder.position = $cam_pos/Marker_1.position
 
 func cast():
+	Global.cur_bait = Global.selected_bait
 	var inst = lure.instantiate()
 	if cur_lure != null:
 		fish_off()
