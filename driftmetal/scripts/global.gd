@@ -12,10 +12,11 @@ var selected_bait = 0
 var cur_bait
 var max_select = 3
 
-@export var Player: CharacterBody3D
 var in_menu = false
 
-var money = 60
+@export var Player: CharacterBody3D
+
+var money = 0
 
 func save_quit():
 	var config = ConfigFile.new()
@@ -34,9 +35,12 @@ func save_quit():
 	config.save("user://save.cfg")
 	get_tree().quit()
 
+	
+
 func _load():
 	var config = ConfigFile.new()
 	var result = config.load("user://save.cfg")
+	
 	
 	if result == OK:
 		Player.global_position = config.get_value("save", "player_pos")
@@ -47,5 +51,8 @@ func _load():
 		right_leg = config.get_value("save", "right_leg")
 		
 		money = config.get_value("save", "money")
+		
+	else:
+		Player.play_comic()
 	
 	Player.legchange()

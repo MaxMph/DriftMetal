@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://bl2grg0smicvr"]
 
-[ext_resource type="Script" path="res://textures/shaders/water stuff/rigid_body_3d.gd" id="1_5r6hh"]
 [ext_resource type="Material" uid="uid://dhbgw7qp3npus" path="res://textures/shaders/water stuff/water_sinesum.tres" id="1_8l7d4"]
 [ext_resource type="Script" path="res://textures/shaders/water stuff/sine_boyancy_base.gd" id="2_xrt4b"]
+[ext_resource type="Script" path="res://textures/shaders/water stuff/boyanyytesertfg.gd" id="3_bebdh"]
 [ext_resource type="PackedScene" uid="uid://bw5hqaeu4u8e5" path="res://Player/lure.tscn" id="4_ms6dt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ha70a"]
@@ -47,8 +47,7 @@ script = ExtResource("2_xrt4b")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47432, 0)
-visible = false
-script = ExtResource("1_5r6hh")
+script = ExtResource("3_bebdh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, 0)
@@ -59,3 +58,4 @@ mesh = SubResource("SphereMesh_fw7rp")
 
 [node name="lure" parent="." instance=ExtResource("4_ms6dt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+visible = false

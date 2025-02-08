@@ -2,7 +2,10 @@ extends Control
 
 var transparent_amount = 0.35
 
-
+@onready var hook = $HBoxContainer/hook/hook
+@onready var worm = $HBoxContainer/worm/worm
+@onready var bread = $HBoxContainer/bread/bread
+@onready var sardines = $HBoxContainer/sardines/sardines
 
 func _process(delta: float) -> void:
 	$HBoxContainer/worm/stock.text = str(Global.worms)
@@ -11,21 +14,21 @@ func _process(delta: float) -> void:
 	
 	
 	if Global.selected_bait == 0:
-		$HBoxContainer/hook.modulate = Color(1, 1, 1, 1)
+		hook.modulate = Color(1, 1, 1, 1)
 	else:
-		$HBoxContainer/hook.modulate = Color(1, 1, 1, transparent_amount)
+		hook.modulate = Color(1, 1, 1, transparent_amount)
 	if Global.selected_bait == 1:
-		$HBoxContainer/worm.modulate = Color(1, 1, 1, 1)
+		worm.modulate = Color(1, 1, 1, 1)
 	else:
-		$HBoxContainer/worm.modulate = Color(1, 1, 1, transparent_amount)
+		worm.modulate = Color(1, 1, 1, transparent_amount)
 	if Global.selected_bait == 2:
-		$HBoxContainer/bread.modulate = Color(1, 1, 1, 1)
+		bread.modulate = Color(1, 1, 1, 1)
 	else:
-		$HBoxContainer/bread.modulate = Color(1, 1, 1, transparent_amount)
+		bread.modulate = Color(1, 1, 1, transparent_amount)
 	if Global.selected_bait == 3:
-		$HBoxContainer/sardines.modulate = Color(1, 1, 1, 1)
+		sardines.modulate = Color(1, 1, 1, 1)
 	else:
-		$HBoxContainer/sardines.modulate = Color(1, 1, 1, transparent_amount)
+		sardines.modulate = Color(1, 1, 1, transparent_amount)
 	
 	if Input.is_action_just_pressed("bait_left"):
 		if Global.selected_bait != 0:

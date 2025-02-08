@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://kodoglhwq3tu"]
+[gd_scene load_steps=18 format=3 uid="uid://kodoglhwq3tu"]
 
 [ext_resource type="Script" path="res://level_scenes/world.gd" id="1_cl0rx"]
 [ext_resource type="Texture2D" uid="uid://btcfjavfk2fim" path="res://textures/Concrete034_1K-PNG_Color-384x192.png" id="1_syjwg"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://textures/shaders/water stuff/sine_boyancy_base.gd" id="6_e4p2o"]
 [ext_resource type="PackedScene" uid="uid://tkw4k3lj8t3r" path="res://models/leg.tscn" id="8_ygegl"]
 [ext_resource type="PackedScene" uid="uid://btyaugs87ejks" path="res://bait_shop.tscn" id="9_ltv07"]
+[ext_resource type="PackedScene" uid="uid://d4aclebnml1ad" path="res://models/boat.tscn" id="10_yoke6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kxlyf"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -57,7 +58,7 @@ shadow_opacity = 0.8
 shadow_blur = 3.0
 
 [node name="Player" parent="." instance=ExtResource("2_kdm1h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48549, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.504498, 0, -0.863413, 0, 1, 0, 0.863413, 0, -0.504498, 0, 0, 0)
@@ -95,33 +96,6 @@ transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 
 material_override = ExtResource("2_mxtjq")
 use_collision = true
 size = Vector3(10, 1, 11)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="environment"]
-transform = Transform3D(-0.965926, 0.258819, 8.74228e-08, 0.258819, 0.965926, 0, -8.44439e-08, 2.26267e-08, -1, -10.5149, -0.41748, 0.00685406)
-material_override = ExtResource("2_mxtjq")
-use_collision = true
-size = Vector3(10, 1.835, 4.9)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="environment" groups=["prosthetics_shop"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, 1.5, 0)
-visible = false
-material_override = SubResource("StandardMaterial3D_pv2v6")
-use_collision = true
-size = Vector3(2, 6, 5)
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="environment"]
-transform = Transform3D(-0.965926, 0.258819, 8.74228e-08, 0.258819, 0.965926, 0, -8.44439e-08, 2.26267e-08, -1, -19.5149, -0.41748, 7.00685)
-visible = false
-material_override = ExtResource("2_mxtjq")
-use_collision = true
-size = Vector3(10, 1.835, 4.9)
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="environment" groups=["bait_shop"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5, 1.5, 7)
-visible = false
-material_override = SubResource("StandardMaterial3D_pv2v6")
-use_collision = true
-size = Vector3(2, 6, 5)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0095, 0.5, -22)
@@ -163,3 +137,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.12689, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="environment/bait_shop/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55618, 1.53864, 0.00366211)
 shape = SubResource("BoxShape3D_g827n")
+
+[node name="boat" parent="." instance=ExtResource("10_yoke6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.90317, -0.63791, 16.5936)

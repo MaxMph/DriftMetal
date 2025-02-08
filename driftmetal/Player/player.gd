@@ -53,6 +53,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -70,9 +71,14 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = move_toward(velocity.x, direction.x * SPEED, acc * delta)
 		velocity.z = move_toward(velocity.z, direction.z * SPEED, acc * delta)
+		
+		$"UI and Menus/hand/AnimationPlayer".speed_scale = 0.8
+		$"UI and Menus/hand/AnimationPlayer".play("crawl")
 	else:
 		velocity.x = move_toward(velocity.x, 0, fric * delta)
 		velocity.z = move_toward(velocity.z, 0, fric * delta)
+		
+		$"UI and Menus/hand/AnimationPlayer".speed_scale = 2
 
 	if Input.is_action_pressed("cast"):
 		cast_strength = move_toward(cast_strength, 8, 6 * delta)
@@ -126,7 +132,6 @@ func _physics_process(delta: float) -> void:
 			fish_caught()
 			catch_prog.value = 0
 	
-	
 	move_and_slide()
 
 func _process(delta: float) -> void:
@@ -153,7 +158,7 @@ func legchange():
 		$"UI and Menus/buy_menu/prosthetics/VBoxContainer/rightleg/right leg".disabled = true
 		legspeed += 3
 	# the 6 is temp, replace with 1
-	SPEED = 1 + legspeed
+	SPEED = 1.5 + legspeed
 	if Global.right_leg == false and Global.left_leg == false:
 		head_holder.position = $cam_pos/Marker_2.position
 	else:
@@ -172,7 +177,7 @@ func cast():
 	cur_lure = inst
 	cast_strength = 0
 	casted = true
-	
+	#cur_lure.fish_wait(6)
 	#line(cur_lure.position)
 
 func line(lure_point: Vector3):
@@ -195,7 +200,7 @@ func line(lure_point: Vector3):
 	#material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	#material.albedo_color = Color.WHITE
 
-func find_waittime():
+#func find_waittime():
 	return 4.0
 
 func fish_on_hook():
@@ -243,3 +248,7 @@ func fish_3():
 	fish_value = randi_range(20, 30)
 	fish_display.fish_vis("fish_3")
 	print("fish_3")
+
+func play_comic():
+	$"UI and Menus/comic".visible = true
+	get_tree().paused = true
