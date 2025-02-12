@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	depth = water_level - global_position.y
 	if depth > water_level:
 		if gotten_wet == false:
-			fish_wait(4)
+			fish_wait(5)
 			gotten_wet = true
 		underwater = true
 		apply_central_force(Vector3.UP * float_strength * depth)
@@ -36,6 +36,6 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 
 func fish_wait(waittime: float):
 #	wait_timer.wait_time = randf_range(0, waittime)
-	wait_timer.start(randf_range(0, waittime))
+	wait_timer.start(randf_range(1, waittime))
 	await wait_timer.timeout
 	player.fish_on_hook()

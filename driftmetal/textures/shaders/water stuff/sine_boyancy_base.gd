@@ -9,7 +9,7 @@ var wave_strength = 0.2
 #var time_scale = 2
 #var height
 
-
+var player
 
 
 func _process(delta: float) -> void:
@@ -25,3 +25,12 @@ func get_wave(x: float, z: float):
 	
 	return sin(x * squish + time) * wave_strength
 	sin(global_position.x * squish + global_position.y * squish + time) * wave_strength;
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		player = body
+		$Area3D/AnimationPlayer.play("die")
+
+func respawn():
+	player.global_position = $Marker3D.global_position

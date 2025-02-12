@@ -4,7 +4,6 @@ extends CharacterBody3D
 var SPEED = 5.0
 var JUMP_VELOCITY = 4.5
 
-var sense = 0.001
 
 var acc = 20
 var fric = 20
@@ -52,7 +51,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
-
+	$"../fishrad".find_spot(global_position)
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -73,12 +72,12 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, direction.z * SPEED, acc * delta)
 		
 		$"UI and Menus/hand/AnimationPlayer".speed_scale = 0.8
-		$"UI and Menus/hand/AnimationPlayer".play("crawl")
+		$"UI and Menus/hand/AnimationPlayer".play("crawl_2")
 	else:
 		velocity.x = move_toward(velocity.x, 0, fric * delta)
 		velocity.z = move_toward(velocity.z, 0, fric * delta)
 		
-		$"UI and Menus/hand/AnimationPlayer".speed_scale = 2
+		#$"UI and Menus/hand/AnimationPlayer".speed_scale = 2
 
 	if Input.is_action_pressed("cast"):
 		cast_strength = move_toward(cast_strength, 8, 6 * delta)
@@ -118,6 +117,18 @@ func _physics_process(delta: float) -> void:
 	elif fish_on:
 		pull_force = -4 * delta
 
+	if Input.is_action_just_pressed("reel") and fish_on == false:
+		if casted:
+			match Global.selected_bait:
+				0:
+					pass
+				1:
+					Global.worms += 1
+				2:
+					Global.bread += 1
+				3:
+					Global.sardines += 1
+			fish_off()
 	
 	if fish_on:
 		if line_strength.value >= line_strength.max_value:
@@ -143,8 +154,8 @@ func _process(delta: float) -> void:
 func	_unhandled_input(event: InputEvent) -> void:
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
-			head.rotate_y(-event.relative.x * sense)
-			cam.rotate_x(-event.relative.y * sense)
+			head.rotate_y(-event.relative.x * Global.sense)
+			cam.rotate_x(-event.relative.y * Global.sense)
 			cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
 func legchange():
@@ -153,10 +164,12 @@ func legchange():
 		$"UI and Menus/limb_UI/BaseLimbUi1/Leg1".visible = true
 		$"UI and Menus/buy_menu/prosthetics/VBoxContainer/leftleg/left leg".disabled = true
 		legspeed += 3
+		$"UI and Menus/hand".visible = false
 	if Global.right_leg == true:
 		$"UI and Menus/limb_UI/BaseLimbUi1/Leg2".visible = true
 		$"UI and Menus/buy_menu/prosthetics/VBoxContainer/rightleg/right leg".disabled = true
 		legspeed += 3
+		$"UI and Menus/hand".visible = false
 	# the 6 is temp, replace with 1
 	SPEED = 1.5 + legspeed
 	if Global.right_leg == false and Global.left_leg == false:
@@ -201,7 +214,7 @@ func line(lure_point: Vector3):
 	#material.albedo_color = Color.WHITE
 
 #func find_waittime():
-	return 4.0
+#	return 4.0
 
 func fish_on_hook():
 	fish_on = true
@@ -228,6 +241,7 @@ func fish_caught():
 	$"UI and Menus/fish_caught".open()
 
 func find_fish():
+	rad_fish_chance()
 	fish = Callable(self, $RandFish.pick_random_fish())
 	fish.call()
 
@@ -239,16 +253,19 @@ func fish_1():
 
 func fish_2():
 	fish_strength = 0.6
-	fish_value = randi_range(10, 16)
+	fish_value = randi_range(12, 18)
 	fish_display.fish_vis("fish_2")
 	print("fish_2")
 
 func fish_3():
-	fish_strength = 0.8
-	fish_value = randi_range(20, 30)
+	fish_strength = 0.72
+	fish_value = randi_range(24, 38)
 	fish_display.fish_vis("fish_3")
 	print("fish_3")
 
 func play_comic():
 	$"UI and Menus/comic".visible = true
 	get_tree().paused = true
+
+func rad_fish_chance():
+	$"../fishrad"

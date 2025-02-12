@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://btyaugs87ejks"]
+[gd_scene load_steps=20 format=4 uid="uid://btyaugs87ejks"]
 
 [ext_resource type="Texture2D" uid="uid://4povuk4um5r0" path="res://textures/Metal025_1K-PNG_Color.png" id="1_fl8p0"]
 [ext_resource type="Texture2D" uid="uid://cdybyfwuiir1x" path="res://textures/wood/old-wood-planks-128x128.png" id="2_guyp6"]
@@ -182,9 +182,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gf6oa")
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8jcpa"]
+data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
+
 [node name="bait_shop" type="Node3D"]
 
 [node name="shop2" type="MeshInstance3D" parent="."]
+layers = 3
 mesh = SubResource("ArrayMesh_cream")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("4_bvl37")
@@ -206,3 +210,8 @@ transform = Transform3D(1.6876, 0, 0, 0, 0.16, 0, 0, 0, 2.5, -1.48871, 2.88, 0)
 mesh = SubResource("ArrayMesh_mb255")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("4_bvl37")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_006"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_006/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8jcpa")

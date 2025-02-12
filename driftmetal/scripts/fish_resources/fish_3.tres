@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_nsnfc")
 VALUE = "fish_3"
-pick_chance = 1
+pick_chance = 3
 pickable = true

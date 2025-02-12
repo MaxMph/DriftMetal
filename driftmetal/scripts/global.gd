@@ -18,6 +18,8 @@ var in_menu = false
 
 var money = 0
 
+var sense = 0.001
+
 func save_quit():
 	var config = ConfigFile.new()
 	#player pos and rot

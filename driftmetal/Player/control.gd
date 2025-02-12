@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 	
 	
 	cam_rot_affect = deg_to_rad($"../../head_holder/head/Camera3D".rotation.x) * 10000 + 140 #+ (abs($"../hand/TextureRect3".scale.y) * 40)
-	$"../hand".position.y = cam_rot_affect
+	$"../hand".position.y = cam_rot_affect + 20
 	if scale.y > 0.2:
 		$"../hand/TextureRect3".scale.y = 0.9 - cam_rot_affect * 0.0005
 	else:
@@ -21,4 +21,3 @@ func _process(delta: float) -> void:
 		
 	#if $"../hand".position.y < 100:
 	#	$"../hand".position.y = 100
-	print(deg_to_rad($"../../head_holder/head/Camera3D".rotation.x) * 10000 +140)

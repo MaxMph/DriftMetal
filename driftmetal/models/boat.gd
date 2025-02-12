@@ -4,7 +4,7 @@ var water_level = 0
 var depth
 
 
-var float_strength = 0.2
+var float_strength = 1
 var lin_drag = 0.02
 var ang_drag = 0.02
 var underwater = false
@@ -12,8 +12,11 @@ var time = 0
 
 @onready var markers = $CollisionShape3D.get_children()
 
+
 func _process(delta: float) -> void:
 	time += 1.0 * delta
+
+func _physics_process(delta: float) -> void:
 	#water_level = get_sin()
 	#depth = (water_level + 0.5) - global_position.y
 	

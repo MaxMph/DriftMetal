@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=4 uid="uid://ur3jj7hiwi3c"]
+
+[ext_resource type="Script" path="res://models/boxes/basic_float.gd" id="1_ppb6c"]
+[ext_resource type="Texture2D" uid="uid://xuj1vd76o6l7" path="res://models/boxes/kelsey-todd-wI84AlFq3bE-unsplash.jpg" id="1_xb7b8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_raixq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0vwnk"]
+resource_name = "box.002"
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_raixq")
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_l48ab"]
+resource_name = "boxes_Cube_003"
+_surfaces = [{
+"aabb": AABB(-0.759089, -0.501193, -0.501193, 1.51818, 1.00239, 1.00239),
+"attribute_data": PackedByteArray("ZfkUCJkG6vcm0BQIZfnq9+wa//0m0Or3ZfkUCJkGFAjYLxQIZfnq9+waAyTYL+r3mQYUCGX56vcm0BQImQbq95n3//0m0Or3mQYUCGX5FAjYLxQImQbq95n3AyTYL+r3"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AgALAAUAAgAIAAsABgAVAAkABgASABUAFAARABcAFAAOABEADAADAA8ADAAAAAMABwANABMABwABAA0AFgAEAAoAFgAQAAQA"),
+"material": SubResource("StandardMaterial3D_0vwnk"),
+"name": "box.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP////8AAAAA////PwAAAAD///8/AAD///////8AAP//////vwAA//////8/AAAAAAAAAAAAAAAAAAD/PwAAAAAAAP8/AAD//wAAAAAAAP//AAD/vwAA//8AAP8///8AAP///////wAA////P///AAD/////////////////////////v/////////////8AAAAAAAD//wAAAAD/P///AAAAAP///////wAAAAD/////AAD/v/////8AAP///3//fwAA/3//f/7//3//f////3//f/7//3/+/wAA/3//f/7//3/+/////3//f/7//3//fwAA/3//v/9//3//f////3//v/9//3/+/wAA/3//v/9//3/+/////3//v/9/")
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apaa2"]
+albedo_texture = ExtResource("1_xb7b8")
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pxenr"]
+size = Vector3(1.52942, 0.990723, 1)
+
+[node name="small box" type="RigidBody3D"]
+mass = 0.2
+script = ExtResource("1_ppb6c")
+
+[node name="Cube_002" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_l48ab")
+surface_material_override/0 = SubResource("StandardMaterial3D_apaa2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00482178, -0.00463867, 0)
+shape = SubResource("BoxShape3D_pxenr")

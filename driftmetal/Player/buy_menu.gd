@@ -4,10 +4,10 @@ extends Control
 var Player
 
 var wormcost = 2
-var breadcost = 6
-var sardinecost = 10
+var breadcost = 4
+var sardinecost = 8
 
-var legcost = 60
+var legcost = 35
 
 
 func _ready() -> void:

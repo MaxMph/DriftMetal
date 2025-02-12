@@ -32,3 +32,8 @@ func _on_resume_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	Global.save_quit()
+
+
+func _on_button_pressed() -> void:
+	visible = false
+	$"../settings".open()

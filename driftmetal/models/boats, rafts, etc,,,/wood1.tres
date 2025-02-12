@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://fsoopqyifgk3"]
+
+[ext_resource type="Texture2D" uid="uid://dn21gcjgc78c8" path="res://textures/wood/hardwood-plywood-4803-in-architextures.jpg" id="1_8vi0f"]
+
+[resource]
+albedo_texture = ExtResource("1_8vi0f")
+uv1_scale = Vector3(3, 3, 3)
+texture_filter = 0
