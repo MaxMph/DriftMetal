@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://elih7mes0y4e"
 path.s3tc="res://.godot/imported/pngimg.com - worms_PNG44.png-fdd5bf40813e9bff45948a4a8a70f719.s3tc.ctex"
+path.etc2="res://.godot/imported/pngimg.com - worms_PNG44.png-fdd5bf40813e9bff45948a4a8a70f719.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://UI and Sprites/bait/pngimg.com - worms_PNG44.png"
-dest_files=["res://.godot/imported/pngimg.com - worms_PNG44.png-fdd5bf40813e9bff45948a4a8a70f719.s3tc.ctex"]
+dest_files=["res://.godot/imported/pngimg.com - worms_PNG44.png-fdd5bf40813e9bff45948a4a8a70f719.s3tc.ctex", "res://.godot/imported/pngimg.com - worms_PNG44.png-fdd5bf40813e9bff45948a4a8a70f719.etc2.ctex"]
 
 [params]
 

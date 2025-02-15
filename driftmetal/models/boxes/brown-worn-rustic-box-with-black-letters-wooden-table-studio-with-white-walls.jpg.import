@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7fih4a6ebdpw"
 path.s3tc="res://.godot/imported/brown-worn-rustic-box-with-black-letters-wooden-table-studio-with-white-walls.jpg-f23c787a62a394973269bd8c81cd0858.s3tc.ctex"
+path.etc2="res://.godot/imported/brown-worn-rustic-box-with-black-letters-wooden-table-studio-with-white-walls.jpg-f23c787a62a394973269bd8c81cd0858.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://models/boxes/brown-worn-rustic-box-with-black-letters-wooden-table-studio-with-white-walls.jpg"
-dest_files=["res://.godot/imported/brown-worn-rustic-box-with-black-letters-wooden-table-studio-with-white-walls.jpg-f23c787a62a394973269bd8c81cd0858.s3tc.ctex"]
+dest_files=["res://.godot/imported/brown-worn-rustic-box-with-black-letters-wooden-table-studio-with-white-walls.jpg-f23c787a62a394973269bd8c81cd0858.s3tc.ctex", "res://.godot/imported/brown-worn-rustic-box-with-black-letters-wooden-table-studio-with-white-walls.jpg-f23c787a62a394973269bd8c81cd0858.etc2.ctex"]
 
 [params]
 

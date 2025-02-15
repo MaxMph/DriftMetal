@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvla8ut30f4hf"
 path.s3tc="res://.godot/imported/andrej-lisakov-9DRYbaWevgk-unsplash.jpg-3e7f15c0943bf5dd4d3d0057558d9384.s3tc.ctex"
+path.etc2="res://.godot/imported/andrej-lisakov-9DRYbaWevgk-unsplash.jpg-3e7f15c0943bf5dd4d3d0057558d9384.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://models/boxes/andrej-lisakov-9DRYbaWevgk-unsplash.jpg"
-dest_files=["res://.godot/imported/andrej-lisakov-9DRYbaWevgk-unsplash.jpg-3e7f15c0943bf5dd4d3d0057558d9384.s3tc.ctex"]
+dest_files=["res://.godot/imported/andrej-lisakov-9DRYbaWevgk-unsplash.jpg-3e7f15c0943bf5dd4d3d0057558d9384.s3tc.ctex", "res://.godot/imported/andrej-lisakov-9DRYbaWevgk-unsplash.jpg-3e7f15c0943bf5dd4d3d0057558d9384.etc2.ctex"]
 
 [params]
 

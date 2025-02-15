@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cl6vfutrh7e4h"
 path.s3tc="res://.godot/imported/fish_1_640px-Balantiocheilos_melanopterus_-_Karlsruhe_Zoo_02_(cropped).jpg-17d5ac9a2850f1ab88dc854de0ff730f.s3tc.ctex"
+path.etc2="res://.godot/imported/fish_1_640px-Balantiocheilos_melanopterus_-_Karlsruhe_Zoo_02_(cropped).jpg-17d5ac9a2850f1ab88dc854de0ff730f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://models/fish/fish_1_640px-Balantiocheilos_melanopterus_-_Karlsruhe_Zoo_02_(cropped).jpg"
-dest_files=["res://.godot/imported/fish_1_640px-Balantiocheilos_melanopterus_-_Karlsruhe_Zoo_02_(cropped).jpg-17d5ac9a2850f1ab88dc854de0ff730f.s3tc.ctex"]
+dest_files=["res://.godot/imported/fish_1_640px-Balantiocheilos_melanopterus_-_Karlsruhe_Zoo_02_(cropped).jpg-17d5ac9a2850f1ab88dc854de0ff730f.s3tc.ctex", "res://.godot/imported/fish_1_640px-Balantiocheilos_melanopterus_-_Karlsruhe_Zoo_02_(cropped).jpg-17d5ac9a2850f1ab88dc854de0ff730f.etc2.ctex"]
 
 [params]
 

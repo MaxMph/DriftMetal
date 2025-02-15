@@ -31,6 +31,9 @@ var fish_strength = 0.6
 var fish_value = 10
 @onready var fish_display = $"UI and Menus/fish_caught/VBoxContainer/SubViewportContainer/SubViewport/fish_display"
 
+var has_rad
+var randrad = 0
+var radmult = 1
 
 
 # rod ui stuff
@@ -247,19 +250,19 @@ func find_fish():
 
 func fish_1():
 	fish_strength = 0.4
-	fish_value = randi_range(4, 8)
+	fish_value = roundi(randi_range(4, 8) * radmult)
 	fish_display.fish_vis("fish_1")
 	print("fish_1")
 
 func fish_2():
 	fish_strength = 0.6
-	fish_value = randi_range(12, 18)
+	fish_value = roundi(randi_range(12, 18) * radmult)
 	fish_display.fish_vis("fish_2")
 	print("fish_2")
 
 func fish_3():
 	fish_strength = 0.72
-	fish_value = randi_range(24, 38)
+	fish_value = roundi(randi_range(24, 38) * radmult)
 	fish_display.fish_vis("fish_3")
 	print("fish_3")
 
@@ -268,4 +271,19 @@ func play_comic():
 	get_tree().paused = true
 
 func rad_fish_chance():
-	$"../fishrad"
+	has_rad = false
+	var subview = $"UI and Menus/fish_caught/VBoxContainer/SubViewportContainer/SubViewport".world_3d.environment
+	radmult = 1
+	subview.adjustment_brightness = 1
+	subview.adjustment_contrast = 1
+	subview.adjustment_saturation = 1
+	var color_effect = ($"../fishrad".rad_level / 200)
+	randrad = randi_range(0, 100)
+	print(color_effect)
+	if randrad < $"../fishrad".rad_level:
+		print("rad fish")
+		has_rad = true
+		radmult =  1 + ($"../fishrad".rad_level / 80)
+		subview.adjustment_brightness = 1 + color_effect
+		subview.adjustment_contrast = 1 + color_effect
+		subview.adjustment_saturation = 1 + color_effect * (7)

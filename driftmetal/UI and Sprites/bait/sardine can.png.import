@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvp1iouxfhwbw"
 path.s3tc="res://.godot/imported/sardine can.png-eea6c320f1ec914230d6378890a3c924.s3tc.ctex"
+path.etc2="res://.godot/imported/sardine can.png-eea6c320f1ec914230d6378890a3c924.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://UI and Sprites/bait/sardine can.png"
-dest_files=["res://.godot/imported/sardine can.png-eea6c320f1ec914230d6378890a3c924.s3tc.ctex"]
+dest_files=["res://.godot/imported/sardine can.png-eea6c320f1ec914230d6378890a3c924.s3tc.ctex", "res://.godot/imported/sardine can.png-eea6c320f1ec914230d6378890a3c924.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bedlkc85231gt"
 path.s3tc="res://.godot/imported/pngimg.com - bread_PNG2273.png-734b56e5c09b8d6cde474c47430c9b5b.s3tc.ctex"
+path.etc2="res://.godot/imported/pngimg.com - bread_PNG2273.png-734b56e5c09b8d6cde474c47430c9b5b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://UI and Sprites/bait/pngimg.com - bread_PNG2273.png"
-dest_files=["res://.godot/imported/pngimg.com - bread_PNG2273.png-734b56e5c09b8d6cde474c47430c9b5b.s3tc.ctex"]
+dest_files=["res://.godot/imported/pngimg.com - bread_PNG2273.png-734b56e5c09b8d6cde474c47430c9b5b.s3tc.ctex", "res://.godot/imported/pngimg.com - bread_PNG2273.png-734b56e5c09b8d6cde474c47430c9b5b.etc2.ctex"]
 
 [params]
 

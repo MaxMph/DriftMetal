@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxenfr5ooym0r"
 path.s3tc="res://.godot/imported/silver perch_F725-Silver-Perch-5-570x296.jpg-aaf0f89ba89895384a2212f727d0a367.s3tc.ctex"
+path.etc2="res://.godot/imported/silver perch_F725-Silver-Perch-5-570x296.jpg-aaf0f89ba89895384a2212f727d0a367.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://models/fish/silver perch_F725-Silver-Perch-5-570x296.jpg"
-dest_files=["res://.godot/imported/silver perch_F725-Silver-Perch-5-570x296.jpg-aaf0f89ba89895384a2212f727d0a367.s3tc.ctex"]
+dest_files=["res://.godot/imported/silver perch_F725-Silver-Perch-5-570x296.jpg-aaf0f89ba89895384a2212f727d0a367.s3tc.ctex", "res://.godot/imported/silver perch_F725-Silver-Perch-5-570x296.jpg-aaf0f89ba89895384a2212f727d0a367.etc2.ctex"]
 
 [params]
 

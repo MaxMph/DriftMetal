@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://x188m6oo268q"
 path.s3tc="res://.godot/imported/Yellowfin_tuna_64e6d4e55444ae4a3fa3954b_Yellowfin Tuna.png-e38eba6e9bee1b3ca0156b63cd15c06a.s3tc.ctex"
+path.etc2="res://.godot/imported/Yellowfin_tuna_64e6d4e55444ae4a3fa3954b_Yellowfin Tuna.png-e38eba6e9bee1b3ca0156b63cd15c06a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://models/fish/Yellowfin_tuna_64e6d4e55444ae4a3fa3954b_Yellowfin Tuna.png"
-dest_files=["res://.godot/imported/Yellowfin_tuna_64e6d4e55444ae4a3fa3954b_Yellowfin Tuna.png-e38eba6e9bee1b3ca0156b63cd15c06a.s3tc.ctex"]
+dest_files=["res://.godot/imported/Yellowfin_tuna_64e6d4e55444ae4a3fa3954b_Yellowfin Tuna.png-e38eba6e9bee1b3ca0156b63cd15c06a.s3tc.ctex", "res://.godot/imported/Yellowfin_tuna_64e6d4e55444ae4a3fa3954b_Yellowfin Tuna.png-e38eba6e9bee1b3ca0156b63cd15c06a.etc2.ctex"]
 
 [params]
 

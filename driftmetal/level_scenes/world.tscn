@@ -243,10 +243,10 @@ use_collision = true
 size = Vector3(0.489258, 2, 21)
 
 [node name="CSGBox3D32" type="CSGBox3D" parent="environment"]
-transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 30.539, 0.700779, 8.30237)
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 43.539, 0.700779, 8.30237)
 material_override = SubResource("StandardMaterial3D_x5fsk")
 use_collision = true
-size = Vector3(0.489258, 2, 53)
+size = Vector3(0.489258, 2, 79)
 
 [node name="CSGBox3D25" type="CSGBox3D" parent="environment"]
 transform = Transform3D(0.0181853, 4.29093e-08, 0.999835, 0.999835, -4.44991e-08, -0.0181853, 4.37114e-08, 1, -4.37114e-08, 36.539, 0.94681, -25.3964)
@@ -439,16 +439,19 @@ shape = SubResource("BoxShape3D_g827n")
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, -5, 2)
 
 [node name="barge_1" parent="environment" instance=ExtResource("15_vn7mb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 2.89157, 14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 2.89157, 14)
 
 [node name="barge 3" parent="environment" instance=ExtResource("16_p358h")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 55, 0.824159, 14)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 61, 0.824159, 14)
 
 [node name="barge 2" parent="environment" instance=ExtResource("17_7nqxv")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 39, 2, 14)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 45, 2, 14)
 
 [node name="boat" parent="." instance=ExtResource("10_yoke6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.90317, -0.63791, 16.5936)
+
+[node name="boat3" parent="." instance=ExtResource("10_yoke6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 30.0968, -0.63791, 20.5936)
 
 [node name="boat2" parent="." instance=ExtResource("10_yoke6")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 55.0968, -0.63791, -49.966)

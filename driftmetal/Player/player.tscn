@@ -57,6 +57,7 @@ font_size = 8
 bg_color = Color(0.920995, 0.920995, 0.920995, 1)
 
 [sub_resource type="Environment" id="Environment_8xxk5"]
+glow_intensity = 6.64
 adjustment_enabled = true
 
 [sub_resource type="World3D" id="World3D_luiti"]
@@ -563,7 +564,8 @@ icon_alignment = 1
 
 [node name="cost" type="Label" parent="UI and Menus/buy_menu/prosthetics/VBoxContainer/leftleg"]
 layout_mode = 2
-text = "$35"
+text = "$30
+"
 horizontal_alignment = 1
 
 [node name="rightleg" type="VBoxContainer" parent="UI and Menus/buy_menu/prosthetics/VBoxContainer"]
@@ -578,7 +580,7 @@ icon_alignment = 1
 
 [node name="cost" type="Label" parent="UI and Menus/buy_menu/prosthetics/VBoxContainer/rightleg"]
 layout_mode = 2
-text = "$35
+text = "$30
 "
 horizontal_alignment = 1
 

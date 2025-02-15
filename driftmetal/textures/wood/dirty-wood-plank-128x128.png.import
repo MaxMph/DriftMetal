@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://wt0qtwe2q2b1"
 path.s3tc="res://.godot/imported/dirty-wood-plank-128x128.png-217471dc1d286482e430d85247250388.s3tc.ctex"
+path.etc2="res://.godot/imported/dirty-wood-plank-128x128.png-217471dc1d286482e430d85247250388.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/wood/dirty-wood-plank-128x128.png"
-dest_files=["res://.godot/imported/dirty-wood-plank-128x128.png-217471dc1d286482e430d85247250388.s3tc.ctex"]
+dest_files=["res://.godot/imported/dirty-wood-plank-128x128.png-217471dc1d286482e430d85247250388.s3tc.ctex", "res://.godot/imported/dirty-wood-plank-128x128.png-217471dc1d286482e430d85247250388.etc2.ctex"]
 
 [params]
 

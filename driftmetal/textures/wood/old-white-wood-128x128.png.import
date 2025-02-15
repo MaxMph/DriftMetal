@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cismtyu5n8beb"
 path.s3tc="res://.godot/imported/old-white-wood-128x128.png-a7ba8bb6505c1f60aabb0efbfc503ced.s3tc.ctex"
+path.etc2="res://.godot/imported/old-white-wood-128x128.png-a7ba8bb6505c1f60aabb0efbfc503ced.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/wood/old-white-wood-128x128.png"
-dest_files=["res://.godot/imported/old-white-wood-128x128.png-a7ba8bb6505c1f60aabb0efbfc503ced.s3tc.ctex"]
+dest_files=["res://.godot/imported/old-white-wood-128x128.png-a7ba8bb6505c1f60aabb0efbfc503ced.s3tc.ctex", "res://.godot/imported/old-white-wood-128x128.png-a7ba8bb6505c1f60aabb0efbfc503ced.etc2.ctex"]
 
 [params]
 

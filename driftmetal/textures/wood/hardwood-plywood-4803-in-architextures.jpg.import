@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dn21gcjgc78c8"
 path.s3tc="res://.godot/imported/hardwood-plywood-4803-in-architextures.jpg-f732566bc22dc3077fe3c77106798c2b.s3tc.ctex"
+path.etc2="res://.godot/imported/hardwood-plywood-4803-in-architextures.jpg-f732566bc22dc3077fe3c77106798c2b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/wood/hardwood-plywood-4803-in-architextures.jpg"
-dest_files=["res://.godot/imported/hardwood-plywood-4803-in-architextures.jpg-f732566bc22dc3077fe3c77106798c2b.s3tc.ctex"]
+dest_files=["res://.godot/imported/hardwood-plywood-4803-in-architextures.jpg-f732566bc22dc3077fe3c77106798c2b.s3tc.ctex", "res://.godot/imported/hardwood-plywood-4803-in-architextures.jpg-f732566bc22dc3077fe3c77106798c2b.etc2.ctex"]
 
 [params]
 

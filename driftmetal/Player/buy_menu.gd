@@ -7,7 +7,7 @@ var wormcost = 2
 var breadcost = 4
 var sardinecost = 8
 
-var legcost = 35
+var legcost = 30
 
 
 func _ready() -> void:

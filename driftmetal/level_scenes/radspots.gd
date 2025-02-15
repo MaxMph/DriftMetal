@@ -2,6 +2,7 @@ extends Node
 var spots: Array = []
 var dist = 1000
 var strength
+var rad_level = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	spots = $spots.get_children()
@@ -24,5 +25,7 @@ func find_spot(pos):
 			$Control/VBoxContainer/rad_level.text = str(roundf(dist))
 			if  28 - roundf(dist) > 0:
 				$Control/VBoxContainer/rad_strength.text = str((28 - roundf(dist)) * strength) 
+				rad_level = (28 - roundf(dist)) * strength
 			else:
 				$Control/VBoxContainer/rad_strength.text = "0"
+				rad_level = 1
