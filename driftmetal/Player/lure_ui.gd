@@ -1,6 +1,6 @@
 extends Control
 
-var transparent_amount = 0.35
+var transparent_amount = 0.25
 
 @onready var hook = $HBoxContainer/hook/hook
 @onready var worm = $HBoxContainer/worm/worm

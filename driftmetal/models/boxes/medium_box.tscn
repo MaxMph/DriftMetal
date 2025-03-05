@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://b03l7vixet10g"]
 
-[ext_resource type="Script" path="res://models/boxes/basic_float.gd" id="1_kaf4w"]
+[ext_resource type="Script" uid="uid://dxk4eut4j5phi" path="res://models/boxes/basic_float.gd" id="1_kaf4w"]
 [ext_resource type="Texture2D" uid="uid://b7fih4a6ebdpw" path="res://models/boxes/brown-worn-rustic-box-with-black-letters-wooden-table-studio-with-white-walls.jpg" id="1_rvqxs"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q511x"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://bg7jye1gvf7y3"]
 
 [ext_resource type="Texture2D" uid="uid://dvla8ut30f4hf" path="res://models/boxes/andrej-lisakov-9DRYbaWevgk-unsplash.jpg" id="1_8qk8x"]
-[ext_resource type="Script" path="res://models/boxes/basic_float.gd" id="1_4222n"]
+[ext_resource type="Script" uid="uid://dxk4eut4j5phi" path="res://models/boxes/basic_float.gd" id="1_4222n"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gsikv"]
 

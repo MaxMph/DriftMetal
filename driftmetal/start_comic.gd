@@ -1,24 +1,26 @@
 extends Node2D
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("jump") and $AnimatedSprite2D.is_playing() and !$AnimationPlayer.is_playing() :
-		$AnimationPlayer.play("fade")
+	if Input.is_action_just_pressed("jump") and $comic_ani.is_playing() and !$fade_ani_player.is_playing():
+		$fade_ani_player.play("fade")
 
 func _ready() -> void:
 	visible = true
-	$AnimatedSprite2D.play("default")
+	$comic_ani.play("default")
 	
 	#$AnimationPlayer.play("comic 1")
-	$AnimationPlayer.play("fadein")
+	$fade_ani_player.play("fadein")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade":
+		Global.in_menu = false
 		visible = false
 		get_tree().paused = false
+		$comic_ani.stop()
 
 
 
 
 func _on_animated_sprite_2d_frame_changed() -> void:
-	if $AnimatedSprite2D.frame == 7:
-		$AnimationPlayer.play("fade")
+	if $comic_ani.frame == 7:
+		$fade_ani_player.play("fade")

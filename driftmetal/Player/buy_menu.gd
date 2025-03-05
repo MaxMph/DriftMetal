@@ -1,6 +1,10 @@
 extends Control
 
-@onready var int_cast = $"../../head_holder/head/Camera3D/interact_cast"
+@onready var int_cast = $"../../head_holder/sub_holder_1/sub_holder_2/head/Camera3D/interact_cast"
+
+#@onready var bait = $bait
+#@onready var prosthetics = $prosthetics
+
 var Player
 
 var wormcost = 2

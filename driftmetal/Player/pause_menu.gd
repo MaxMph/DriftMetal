@@ -6,10 +6,11 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	#print(Input.mouse_mode)
 	if Input.is_action_just_pressed("exit"):
-		if Global.in_menu == false:
+		if visible == false and Global.in_menu == false:
 			open()
-		else:
+		elif visible:
 			close()
 
 
@@ -27,6 +28,7 @@ func close():
 
 
 func _on_resume_pressed() -> void:
+	await get_tree().create_timer(0.01).timeout
 	close()
 
 

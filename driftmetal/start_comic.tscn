@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://cme4bhpof4is3"]
 
 [ext_resource type="Texture2D" uid="uid://blv34a0ggsjq4" path="res://panel 1.png" id="1_7q2e2"]
-[ext_resource type="Script" path="res://start_comic.gd" id="1_anpkp"]
+[ext_resource type="Script" uid="uid://eqxi8lclncjf" path="res://start_comic.gd" id="1_anpkp"]
 [ext_resource type="Texture2D" uid="uid://husqw0ud03w1" path="res://panel 2.png" id="2_6dlsh"]
 [ext_resource type="Texture2D" uid="uid://br8ktey5ku3hu" path="res://panel 4.png" id="3_ar2rr"]
 [ext_resource type="Texture2D" uid="uid://cjr2angd5sooq" path="res://panel 3.png" id="4_8qlrc"]
@@ -279,10 +279,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xl2en"]
 _data = {
-"RESET": SubResource("Animation_cq0dy"),
-"comic 1": SubResource("Animation_krb6a"),
-"fade": SubResource("Animation_v65gh"),
-"fadein": SubResource("Animation_7r0fy")
+&"RESET": SubResource("Animation_cq0dy"),
+&"comic 1": SubResource("Animation_krb6a"),
+&"fade": SubResource("Animation_v65gh"),
+&"fadein": SubResource("Animation_7r0fy")
 }
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w0261"]
@@ -327,7 +327,7 @@ script = ExtResource("1_anpkp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="fade_ani_player" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_xl2en")
 }
@@ -376,7 +376,7 @@ visible = false
 z_index = 8
 texture = ExtResource("10_xve1d")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="comic_ani" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w0261")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -387,5 +387,5 @@ offset_right = 240.0
 offset_bottom = 160.0
 color = Color(0, 0, 0, 1)
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="animation_finished" from="fade_ani_player" to="." method="_on_animation_player_animation_finished"]
+[connection signal="frame_changed" from="comic_ani" to="." method="_on_animated_sprite_2d_frame_changed"]

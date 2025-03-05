@@ -22,7 +22,7 @@ func find_spot(pos):
 		if (abs(s.global_position.x - pos.x) + abs(s.global_position.z - pos.z)) < dist:
 			dist = (abs(s.global_position.x - pos.x) + abs(s.global_position.z - pos.z))
 			strength = s.rad_strength
-			$Control/VBoxContainer/rad_level.text = str(roundf(dist))
+			$Control/VBoxContainer/rad_level.text = str(roundf(dist)) + "m"
 			if  28 - roundf(dist) > 0:
 				$Control/VBoxContainer/rad_strength.text = str((28 - roundf(dist)) * strength) 
 				rad_level = (28 - roundf(dist)) * strength

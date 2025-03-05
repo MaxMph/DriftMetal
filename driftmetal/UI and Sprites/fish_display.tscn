@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=4 uid="uid://dycmag1axqntm"]
 
-[ext_resource type="Script" path="res://scripts/fish_display.gd" id="1_b5ytr"]
+[ext_resource type="Script" uid="uid://rgu1hjyt4u0q" path="res://scripts/fish_display.gd" id="1_b5ytr"]
 [ext_resource type="Texture2D" uid="uid://cl6vfutrh7e4h" path="res://models/fish/fish_1_640px-Balantiocheilos_melanopterus_-_Karlsruhe_Zoo_02_(cropped).jpg" id="2_nk6ey"]
 [ext_resource type="Texture2D" uid="uid://x188m6oo268q" path="res://models/fish/Yellowfin_tuna_64e6d4e55444ae4a3fa3954b_Yellowfin Tuna.png" id="3_w5faa"]
 [ext_resource type="Texture2D" uid="uid://cxenfr5ooym0r" path="res://models/fish/silver perch_F725-Silver-Perch-5-570x296.jpg" id="4_xoh0g"]

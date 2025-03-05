@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=4 uid="uid://c0rwbl35ohvxp"]
 
-[ext_resource type="Script" path="res://models/floating_tent_1.gd" id="1_iwjuv"]
+[ext_resource type="Script" uid="uid://dkcf8dgew5te6" path="res://models/floating_tent_1.gd" id="1_iwjuv"]
 [ext_resource type="Texture2D" uid="uid://dwqye8kk57th6" path="res://textures/MetalDiamond-2470.jpg" id="2_8305l"]
 [ext_resource type="Material" uid="uid://bvxuvwc0ago5b" path="res://models/boats, rafts, etc,,,/corrigated.tres" id="2_ui7fn"]
 [ext_resource type="Material" uid="uid://oml2c4ix6vou" path="res://textures/rust_metal.tres" id="3_lwmnn"]

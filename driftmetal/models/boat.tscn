@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=4 uid="uid://d4aclebnml1ad"]
 
 [ext_resource type="Texture2D" uid="uid://0ndgo70trqp2" path="res://Metal-4126-179x120.jpg" id="1_6etuf"]
-[ext_resource type="Script" path="res://models/boat.gd" id="1_xx0jt"]
+[ext_resource type="Script" uid="uid://qk4i55n4smgf" path="res://models/boat.gd" id="1_xx0jt"]
 [ext_resource type="Texture2D" uid="uid://k2o3wc5huu5c" path="res://textures/Metal-0628-240x120.jpg" id="2_ojcq5"]
 [ext_resource type="Texture2D" uid="uid://b7xqvlwvafe68" path="res://textures/glass_4341.jpg" id="3_1qsfh"]
 [ext_resource type="Material" uid="uid://oml2c4ix6vou" path="res://textures/rust_metal.tres" id="4_p1ueq"]
@@ -299,8 +299,9 @@ size = Vector3(4, 1, 9)
 gravity_scale = 0.3
 script = ExtResource("1_xx0jt")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["moving"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.517324, 18.8776)
+collision_layer = 9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_wkrqj")

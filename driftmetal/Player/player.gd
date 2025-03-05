@@ -9,13 +9,13 @@ var acc = 20
 var fric = 20
 
 @onready var head_holder = $head_holder
-@onready var head: Node3D = $head_holder/head
-@onready var cam = $head_holder/head/Camera3D
-@onready var int_cast: RayCast3D = $head_holder/head/Camera3D/interact_cast
+@onready var head: Node3D = $head_holder/sub_holder_1/sub_holder_2/head
+@onready var cam = $head_holder/sub_holder_1/sub_holder_2/head/Camera3D
+@onready var int_cast: RayCast3D = $head_holder/sub_holder_1/sub_holder_2/head/Camera3D/interact_cast
 
-@onready var lure_spawn = $"head_holder/head/Camera3D/fishing rod/lure_marker"
+@onready var lure_spawn = $"head_holder/sub_holder_1/sub_holder_2/head/Camera3D/fishing rod/fishing rod subholder/lure_marker"
 @onready var lure = preload("res://Player/lure.tscn")
-@onready var rope = $"head_holder/head/Camera3D/fishing rod/lure_marker/rope"
+@onready var rope = $"head_holder/sub_holder_1/sub_holder_2/head/Camera3D/fishing rod/fishing rod subholder/lure_marker/rope"
 var cast_strength = 0
 var cur_lure
 var casted = false
@@ -47,6 +47,10 @@ var legspeed
 var leftarm
 var rightarm
 
+var walkspeed = 1.0
+var landed = true
+@onready var cam_player = $head_holder/sub_holder_1/sub_holder_2/head/Camera3D/cam_player
+@onready var cam_player_2 = $"head_holder/sub_holder_1/sub_holder_2/head/Camera3D/cam_player 2"
 
 func _ready() -> void:
 	Global.Player = self
@@ -57,7 +61,13 @@ func _physics_process(delta: float) -> void:
 	$"../fishrad".find_spot(global_position)
 	
 	if not is_on_floor():
+		landed = false
 		velocity += get_gravity() * delta
+
+	if is_on_floor():
+		if landed == false:
+			cam_player_2.play("land")
+			landed = true
 
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -76,11 +86,29 @@ func _physics_process(delta: float) -> void:
 		
 		$"UI and Menus/hand/AnimationPlayer".speed_scale = 0.8
 		$"UI and Menus/hand/AnimationPlayer".play("crawl_2")
+		
+		if is_on_floor() and cam_player.current_animation != "land" :
+			cam_player.speed_scale = velocity.length() / SPEED
+			if legspeed != 0:
+				cam_player.play("walk")
+			else:
+				cam_player.play("crawl")
+		else:
+			cam_player.speed_scale = 1
+			cam_player.pause()
 	else:
+		cam_player.speed_scale = 1
+		cam_player.pause()
 		velocity.x = move_toward(velocity.x, 0, fric * delta)
 		velocity.z = move_toward(velocity.z, 0, fric * delta)
 		
 		#$"UI and Menus/hand/AnimationPlayer".speed_scale = 2
+
+	if $ground_cast.is_colliding() and $ground_cast.get_collider().is_in_group("moving"):
+		global_position = global_position + $"../Path3D".pos_dif
+		print($"../Path3D".pos_dif)
+
+
 
 	if Input.is_action_pressed("cast"):
 		cast_strength = move_toward(cast_strength, 8, 6 * delta)
@@ -196,6 +224,7 @@ func cast():
 	#cur_lure.fish_wait(6)
 	#line(cur_lure.position)
 
+
 func line(lure_point: Vector3):
 	var dist = lure_spawn.global_position.distance_to(lure_point)
 	rope.visible = true
@@ -220,6 +249,7 @@ func line(lure_point: Vector3):
 #	return 4.0
 
 func fish_on_hook():
+	$camera_shake.shake()
 	fish_on = true
 	catch_prog.visible = true
 	find_fish()
@@ -241,6 +271,9 @@ func fish_off():
 func fish_caught():
 	fish_off()
 	can_cast = false
+	$audio/fish_caught.play()
+	$camera_shake_2._shake()
+	$audio/coin.coin_sounds(fish_value)
 	$"UI and Menus/fish_caught".open()
 
 func find_fish():
@@ -268,6 +301,7 @@ func fish_3():
 
 func play_comic():
 	$"UI and Menus/comic".visible = true
+	Global.in_menu = true
 	get_tree().paused = true
 
 func rad_fish_chance():

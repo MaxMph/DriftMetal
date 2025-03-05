@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnjn0a3m2gvu4"]
 
-[ext_resource type="Shader" path="res://textures/shaders/water stuff/wave.gdshader" id="1_sx2n5"]
+[ext_resource type="Shader" uid="uid://cebp065s0uxv0" path="res://textures/shaders/water stuff/wave.gdshader" id="1_sx2n5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7n5i8"]
 render_priority = 0

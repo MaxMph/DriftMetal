@@ -1,0 +1,156 @@
+[gd_scene load_steps=18 format=4 uid="uid://ca620tq2hj5wd"]
+
+[ext_resource type="Texture2D" uid="uid://l44nqxafywek" path="res://models/radio_radio-1682531_640.jpg" id="1_k15bf"]
+[ext_resource type="Texture2D" uid="uid://clai5q0dfoatt" path="res://models/radio-1682531_640-120x80.jpg" id="2_i8nu6"]
+[ext_resource type="Texture2D" uid="uid://cdybyfwuiir1x" path="res://textures/wood/old-wood-planks-128x128.png" id="3_byjcc"]
+[ext_resource type="Material" uid="uid://oml2c4ix6vou" path="res://textures/rust_metal.tres" id="4_omg5c"]
+[ext_resource type="Script" uid="uid://bby8fk7i3d5mr" path="res://models/radio.gd" id="5_52j54"]
+[ext_resource type="AudioStream" uid="uid://kddknhmrk6rs" path="res://audio/radio/baby-wont-you-please-come-home-1923.mp3" id="6_6csgp"]
+[ext_resource type="AudioStream" uid="uid://xrdx17wrxnio" path="res://audio/radio/click-button-166324.mp3" id="6_qjkg6"]
+[ext_resource type="AudioStream" uid="uid://c36njhtk1iq6x" path="res://audio/radio/bud-freeman---china-boy----1940.mp3" id="7_wedu8"]
+[ext_resource type="AudioStream" uid="uid://cokuwmb0hvlou" path="res://audio/radio/old-yazoo-1932.mp3" id="8_h1c6y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xk3vb"]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("1_k15bf")
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mhlve"]
+resource_name = "Material.001"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jefy"]
+resource_name = "antena"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3r7v2"]
+_surfaces = [{
+"aabb": AABB(-1.78294, -1.10413, -0.8, 3.56589, 2.27092, 1e-05),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("BAAAAAYABAABAAAAAwAMAAIAAwAFAAwABwAGAA0ABwAEAAYABQANAAwABQAHAA0AAgAIAAMAAgALAAgAAQAJAAAAAQAKAAkA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 14,
+"vertex_data": PackedByteArray("CvrK8wAAAAAK+ggFAAAAAPQFyvMAAAAA9AUIBQAAAABq6QAAAAAAAJQWAAAAAAAAaukF/AAAAAD/fwAAAAAAAAAAoyAAAAAA//8u2AAAAAD//6MgAAAAAAAALtgAAAAAlBYF/AAAAAD/f///AAAAAA==")
+}, {
+"aabb": AABB(-1.78294, -1.10413, -0.8, 3.56589, 2.27092, 1.6),
+"format": 34896613377,
+"index_count": 138,
+"index_data": PackedByteArray("HgAGAAQAHgAdAAYADAAGAB0ADAAHAAYAAAAZAAIAAAAWABkACAADAAEACAANAAMABgAbAAQABgAYABsABQAMAAkABQAHAAwAEAANAAgAEAASAA0AAwAKAAIAAwANAAoAEgAdABwAEgAMAB0AAAAKAA8AAAACAAoADwAcAB8ADwAKABwADQAcAAoADQASABwACQASABAACQAMABIAFQAbABgAFQAUABsAFwAZABYAFwAaABkABwAYAAYABwAVABgAAgAaAAMAAgAZABoAAwAXAAEAAwAaABcABQAVAAcABQAUABUAEQAdAAsAEQAcAB0ACwAeAA4ACwAdAB4ADgAfABMADgAeAB8AEwAcABEAEwAfABwA"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("CvrK8wAAAAAK+ggFAAAAAAr6yvP//wAACvoIBf//AAD0BcrzAAAAAPQFCAUAAAAA9AXK8///AAD0BQgF//8AAGrpAAAAAAAAlBYAAAAAAABq6QX8//8AAEE3QP0MnwAAlBYAAP//AABq6QAA//8AAEE3QP3yYAAAaukF/AAAAAD/fwAAAAAAAFJfw/4MnwAA/38AAP//AABSX8P+8mAAAAAAoyAAAAAAAACjIP//AAD//y7YAAAAAP//oyAAAAAAAAAu2P//AAD//y7Y//8AAP//oyD//wAAAAAu2AAAAAD/f/////8AAJQWBfz//wAAlBYF/AAAAAD/f///AAAAAA==")
+}, {
+"aabb": AABB(-1.01535, 1.14246, -0.194068, 0.560217, 1.19218, 0.388135),
+"format": 34896613377,
+"index_count": 186,
+"index_data": PackedByteArray("AwAKAAEAAwALAAoADwAGAAcABgARAA4ABgAPABEAAAAIAAIAAAAJAAgAAgALAAMAAgAIAAsAAQAJAAAAAQAKAAkABAAJAAUABAAIAAkABQAKAAYABQAJAAoABgALAAcABgAKAAsABwAIAAQABwALAAgAFAAgABUAFAAhACAADQAEAAUABAAQAAwABAANABAABAAPAAcABAAMAA8ABgANAAUABgAOAA0AFwAdABgAFwAbAB0ADwATABEADwASABMAEQAUABAAEQATABQAEAAVAAwAEAAUABUADAASAA8ADAAVABIAEAAXABEAEAAWABcAEQAYAA4AEQAXABgADgAZAA0ADgAYABkADQAWABAADQAZABYAGgAdABsAGgAcAB0AFgAbABcAFgAaABsAGAAcABkAGAAdABwAGQAaABYAGQAcABoAHwAhAB4AHwAgACEAFQAfABIAFQAgAB8AEwAhABQAEwAeACEAEgAeABMAEgAfAB4A"),
+"name": "antena",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 34,
+"vertex_data": PackedByteArray("8wAAAP//AADzAAAAAAAAAP//4AL//wAA///gAgAAAAAlrAEVUr8AAOZSIxNSvwAA5lIjE6xAAAAlrAEVrEAAAAv/gxX//wAAAACiEv//AAAAAKISAAAAAAv/gxUAAAAALarKKVK/AADuUOwnUr8AAO5Q7CesQAAALarKKaxAAADDeswoUr8AANt70iisQAAAZ6GbKe9fAACFhAAp718AAKaD/CgPoAAAZ6GbKQ+gAAAZcp4oD6AAAPlyoijvXwAAtFkbKO9fAAC0WRsoD6AAAB46RpAdlgAAsTpckOFpAAAYKtSNHZYAABgq1I3haQAAHnak/0ZtAAD8hv//Rm0AAPyG//+4kgAAnHWh/7iSAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ero7f"]
+resource_name = "radio_Cube"
+_surfaces = [{
+"aabb": AABB(-1.78294, -1.10413, -0.8, 3.56589, 2.27092, 1e-05),
+"attribute_data": PackedByteArray("S+GcIEvh+eBFE5wgRRP54ELTBuVOIQblQtP7GUh6BuU/DrrKUubaNlLmuso/Dto2TiH7GUh6xxY="),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("BAAAAAYABAABAAAAAwAMAAIAAwAFAAwABwAGAA0ABwAEAAYABQANAAwABQAHAA0AAgAIAAMAAgALAAgAAQAJAAAAAQAKAAkA"),
+"material": SubResource("StandardMaterial3D_xk3vb"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 14,
+"vertex_data": PackedByteArray("CvrK8wAAAAAK+ggFAAAAAPQFyvMAAAAA9AUIBQAAAABq6QAAAAAAAJQWAAAAAAAAaukF/AAAAAD/fwAAAAAAAAAAoyAAAAAA//8u2AAAAAD//6MgAAAAAAAALtgAAAAAlBYF/AAAAAD/f///AAAAAP7//3/+//9//v//f/7//3////9/////f/7//3////9//v//f////3/+//9//v//f/7//3////9/")
+}, {
+"aabb": AABB(-1.78294, -1.10413, -0.8, 3.56589, 2.27092, 1.6),
+"attribute_data": PackedByteArray("GPXoLGacoV4Y9egsZpx+8Rj1oV4Y9dmbdS2hXhj1fvEY9dmbdS1+8VcJ6CxmnKFeVwnoLGacfvFXCaFeVwnZm3UtoV5XCX7xVwnZm3UtfvEJ5egsCeXoLGYZ6CxmGegsCeWRWQnl2ZsJ5dmb9TjWcWYZlvRmGdmbZhnZmwnllvQJ5dmbCeXZm/U47FYJ5egsCeXoLDd/6CyoX9ZxN3+W9Dd/2ZuoX+xWZpyC4GacguCXA4LgdS2C4HUtguBmnJ1vZpydb2acguBmnILglwOdb3UtnW91LZ1v2Pqdb3UtnW91LZ1v2PqC4HUtguB1LYLgZpydb2acnW83fyBXN3/Zmzd/2ZtmGZFZZhnZm2YZ2ZtmGegsZhnoLDd/6Cw3f+gs"),
+"format": 34896613399,
+"index_count": 138,
+"index_data": PackedByteArray("RQAPAAoARQBDAA8AHAAOAEEAHAARAA4AAQA3AAYAAQAvADcAFQAIAAIAFQAhAAgAEAA8AAsAEAA0ADwADAAeABcADAASAB4AJQAgABQAJQAoACAABwAYAAQABwAfABgAJwBBAD4AJwAcAEEAAAAaACQAAAAFABoAIwA/AEYAIwAZAD8AHwA+ABgAHwAnAD4AFgAoACUAFgAdACgALgA9ADUALgArAD0AMgA4ADAAMgA7ADgAEQAzAA4AEQAsADMABAA5AAcABAA2ADkACQAxAAMACQA6ADEADQAtABMADQAqAC0AJgBCABsAJgBAAEIAGwBEACIAGwBCAEQAIgBHACkAIgBEAEcAKQBAACYAKQBHAEAA"),
+"material": SubResource("StandardMaterial3D_mhlve"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("CvrK8wAA8MAK+srzAAASwQr6CAUAAKE/CvoIBQAAEsEK+srz//8AgAr6yvP///DACvrK8///EsEK+ggF//8AgAr6CAX//6E/CvoIBf//EsH0BcrzAADwwPQFyvMAAGMJ9AUIBQAAoT/0BQgFAABjCfQFyvP//wCA9AXK8///8MD0Bcrz//9jCfQFCAX//wCA9AUIBf//oT/0BQgF//9jCWrpAAAAAP8/aukAAAAAoT+UFgAAAAD/P5QWAAAAAKE/aukF/P//AIBq6QX8//8AwGrpBfz///DAQTdA/QyfAMCUFgAA//8AgJQWAAD///8/lBYAAP//oT9q6QAA//8AgGrpAAD///8/aukAAP//oT9BN0D98mAAwGrpBfwAAADAaukF/AAA8MD/fwAAAAD/P1Jfw/4MnwDA/38AAP//AID/fwAA////P1Jfw/7yYADAAACjIAAAYwkAAKMgAAAAAAAAoyD//wCAAACjIP//YwkAAKMg//8AAP//LtgAABLB//8u2AAA/7///6MgAAASwf//oyAAAP+/AAAu2P//AIAAAC7Y//9jCQAALtj//wAA//8u2P//AID//y7Y//8Swf//Ltj///+///+jIP//AID//6Mg//8Swf//oyD///+/AAAu2AAAYwkAAC7YAAAAAP9//////wCA/3//////AMD/f/////8AwJQWBfz//wCAlBYF/P//AMCUFgX8///wwJQWBfwAAADAlBYF/AAA8MD/f///AAAAwP9///8AAADA4OHwcLif3A9CCnprI3C4H/9////g4fBwuJ/cD/9///9CCnprI3C4H+/wHp5B9iA7hRRCit5EQXb/f///7/AenkH2IDv/f///hRRCit5EQXYAAP9/Qgp6awAA/3+FFEKK/3////78f37g4fBwfv7/gv9///8AAP9/hRRCiv9///8AAP9/Qgp6a37+/4L+/H9+4OHwcAAA/39+/v+C/3///wAA/39+/v+C3kRBdv8//3//f///3kRBdv8//3+4n9wP/38AACNwuB//fwAA/3///0H2IDv/P/9//3///7if3A//fwAA/3///yNwuB//fwAAQfYgO/8//3//f////vx/fn7+/4L/f///fv7/gu/wHp5+/v+C7/Aenv78f35+/v+C")
+}, {
+"aabb": AABB(-1.01535, 1.14246, -0.194068, 0.560217, 1.19218, 0.388135),
+"attribute_data": PackedByteArray("9TjPWHlXz1j1OM9YYnLPWKhf4Vd5V+FXqF/hV2Jy4VfvUgdSRV4HUu9SCWvvUglrZEWhUmRFCWtkRQlrRV6hUmRFoVJkRbhdZEW4XZZroVLvUgdSlmsHUu9SuF3vUrhdg1/dUXlX3VGDX9Zxg1/WcdA4y1LQONZx0DjWcXlXy1LQOMtS0DjsVtA47FZicstSg1/dUWJy3VGDX+xWg1/sVqNSUUtFXlFLo1IJaxhF60sYRQlrRV7rSxhF60sYRbhdlmvrS6NSUUuWa1FLo1K4XXFLo0txSwlrm0uhS5tLuF1MaGBLTlFgS05RAmHsTJJL7EwCYUxokkvKTJNLykzAZ49hk0uPYWBLTlFgS05RwGePYbJLIEqySyBKwGdMaLBLQkqwS0JKAmFtRtxLbUYCYUxo3EttRtxLbUbAZ49h3EuaYjkqokE5KqJBtGZBZzEquEExKrhBDWIzPwMrMz+0ZppiAyszPwMrMz8NYkFnAyu9SkIGvUppYuVmQgblZiUGTE0lBkxNaWL2YiUGTE0lBkxNWWapSkMGqUpZZvZiQwY="),
+"format": 34896613399,
+"index_count": 186,
+"index_data": PackedByteArray("BgAgAAIABgAkACAAMQAQABQAEAA2AC4AEAAxADYAAAAYAAQAAAAcABgABQAlAAcABQAZACUAAwAfAAEAAwAjAB8ACwAeAA4ACwAbAB4ADQAhABEADQAdACEAEgAnABcAEgAiACcAFgAaAAoAFgAmABoAPgBjAEIAPgBlAGMAKwAIAAwACAA0ACgACAArADQACQAyABUACQApADIAEwAtAA8AEwAwAC0ASABZAEoASABUAFkAMwA8ADcAMwA6ADwANwA/ADUANwA8AD8ANQBDACoANQA/AEMAKgA6ADMAKgBDADoANQBJADcANQBGAEkANwBLAC8ANwBJAEsALwBOACwALwBLAE4ALABGADUALABOAEYAUgBaAFUAUgBXAFoARABTAEcARABQAFMATABYAE8ATABbAFgATQBRAEUATQBWAFEAYQBmAF0AYQBkAGYAQQBfADgAQQBiAF8APQBnAEAAPQBeAGcAOQBcADsAOQBgAFwA"),
+"material": SubResource("StandardMaterial3D_0jefy"),
+"name": "antena",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 104,
+"vertex_data": PackedByteArray("8wAAAP//AIDzAAAA//+xAPMAAAAAAAAA8wAAAAAAsQD//+AC//8AgP//4AL//wDA///gAgAAAAD//+ACAAAAwCWsARVSvwCAJawBFVK/BMAlrAEVUr//vyWsARVSvwHA5lIjE1K/AIDmUiMTUr//v+ZSIxNSvwHA5lIjE1K/SAHmUiMTrEAAAOZSIxOsQP+/5lIjE6xAAcDmUiMTrEBIASWsARWsQAAAJawBFaxABMAlrAEVrED/vyWsARWsQAHAC/+DFf//AIAL/4MV//8AwAv/gxX///+/C/+DFf//AcAAAKIS//8AgAAAohL///+/AACiEv//AcAAAKIS//+xAAAAohIAAAAAAACiEgAA/78AAKISAAABwAAAohIAALEAC/+DFQAAAAAL/4MVAAAAwAv/gxUAAP+/C/+DFQAAAcAtqsopUr8AgC2qyilSvwTALarKKVK/BMDuUOwnUr8AgO5Q7CdSvwTA7lDsJ1K/SAHuUOwnrEAAAO5Q7CesQATA7lDsJ6xASAEtqsoprEAAAC2qyimsQATALarKKaxABMDDeswoUr8AgMN6zChSvwTA23vSKKxAAADbe9IorEAEwGehmynvXwfAZ6GbKe9f0gBnoZsp718EwIWEACnvX9IAhYQAKe9fBMCFhAAp71/nAKaD/CgPoNKApoP8KA+gBMCmg/woD6DnAGehmykPoAfAZ6GbKQ+g0oBnoZspD6AEwBlynigPoNK/GXKeKA+gQIEZcp4oD6AEwPlyoijvX9K/+XKiKO9fPQH5cqIo718EwLRZGyjvXz0BtFkbKO9fBMC0WRso7187BrRZGygPoECBtFkbKA+gBMC0WRsoD6A7Bh46RpAdltK/HjpGkB2WQIEeOkaQHZb9wLE6XJDhadK/sTpckOFpPQGxOlyQ4Wn9wBgq1I0dlkCBGCrUjR2W/cAYKtSNHZY7Bhgq1I3haT0BGCrUjeFp/cAYKtSN4Wk7Bh52pP9GbdIAHnak/0ZtBMAedqT/Rm3nAPyG//9GbQfA/Ib//0Zt0gD8hv//Rm0EwPyG//+4kgfA/Ib//7iS0oD8hv//uJIEwJx1of+4ktKAnHWh/7iSBMCcdaH/uJLnAP9///9hQDx/////f2FAPH//f////4KAAf7//3//goAB/3///3SFugIs/6SBLP6kg/9///8s/6SBLP6kg7RAln7+//9/LP+kgSz+pIO0QJZ+////f3SFugIs/6SBLP6kg/9/////goABLP+kgSz+pIP/f///LP+kgSz+pINhQDx/////fyz/pIEs/qSDYUA8f/7//3//goABLP+kgSz+pIP/f///dIW6AkT9dIX/f///RP10hbRAln7+//9/RP10hbRAln7+//9/dIW6AkT9dIX/f///RP10hf7//39E/XSF/4Z/A/7/8H9E/XSF/v/wf0T9dIXcPwV/evp0hUT9dIXcPwV//4Z/A3r6dIVE/XSF1ZkLDd/uO5FE/XSF1ZkLDf7/TIBE/XSF/v9MgET9dIVMQ2Z53u4ykUT9dIVMQ2Z51ZkMDTLuDJGc8MOe1ZkMDfv/r3+c8MOeJO4KkZzww55MQ2Z5+/+vf5zww55MQ2Z5/v/wf0T9dIXcPwV//4Z/A/7/8H9E/XSF/4Z/A3/6dIVE/XSFgPp0hUT9dIXcPwV/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_3r7v2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4mli1"]
+albedo_texture = ExtResource("2_i8nu6")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aal4q"]
+albedo_color = Color(0.622196, 0.5844, 0.470627, 1)
+albedo_texture = ExtResource("3_byjcc")
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bjhw5"]
+size = Vector3(0.706543, 0.455322, 0.318359)
+
+[node name="radio" type="Node3D"]
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = SubResource("ArrayMesh_ero7f")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4mli1")
+surface_material_override/1 = SubResource("StandardMaterial3D_aal4q")
+surface_material_override/2 = ExtResource("4_omg5c")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" groups=["has_func", "interactable"]]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+collision_layer = 3
+script = ExtResource("5_52j54")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000732422, 0.00524902, 0)
+shape = SubResource("BoxShape3D_bjhw5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_qjkg6")
+volume_db = -15.0
+pitch_scale = 1.33
+
+[node name="songs" type="Node3D" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="songs"]
+stream = ExtResource("6_6csgp")
+unit_size = 0.2
+autoplay = true
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="songs"]
+stream = ExtResource("7_wedu8")
+unit_size = 0.2
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="songs"]
+stream = ExtResource("8_h1c6y")
+unit_size = 0.2

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://csgpy5h1q4eo7"
+path="res://.godot/imported/try 2.mp3-8fca4c6beaa7737ae7d1a11792ded7a0.mp3str"
+
+[deps]
+
+source_file="res://audio/sound effects/try 2.mp3"
+dest_files=["res://.godot/imported/try 2.mp3-8fca4c6beaa7737ae7d1a11792ded7a0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

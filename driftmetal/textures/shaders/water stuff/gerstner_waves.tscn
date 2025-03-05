@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://cfbs7vvakrld6"]
 
-[ext_resource type="Shader" path="res://textures/shaders/water stuff/gerstner.gdshader" id="1_5j26d"]
-[ext_resource type="Script" path="res://textures/shaders/water stuff/gerstner_waves.gd" id="1_qnie3"]
-[ext_resource type="Script" path="res://textures/shaders/water stuff/rigid_body_3d.gd" id="3_gwgni"]
+[ext_resource type="Shader" uid="uid://c1myl5yyja238" path="res://textures/shaders/water stuff/gerstner.gdshader" id="1_5j26d"]
+[ext_resource type="Script" uid="uid://cy8n7ddk36ptf" path="res://textures/shaders/water stuff/gerstner_waves.gd" id="1_qnie3"]
+[ext_resource type="Script" uid="uid://6sh15qsjm3yg" path="res://textures/shaders/water stuff/rigid_body_3d.gd" id="3_gwgni"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u7vyw"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

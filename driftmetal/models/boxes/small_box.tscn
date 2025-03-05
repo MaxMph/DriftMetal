@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://ur3jj7hiwi3c"]
 
-[ext_resource type="Script" path="res://models/boxes/basic_float.gd" id="1_ppb6c"]
+[ext_resource type="Script" uid="uid://dxk4eut4j5phi" path="res://models/boxes/basic_float.gd" id="1_ppb6c"]
 [ext_resource type="Texture2D" uid="uid://xuj1vd76o6l7" path="res://models/boxes/kelsey-todd-wI84AlFq3bE-unsplash.jpg" id="1_xb7b8"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_raixq"]

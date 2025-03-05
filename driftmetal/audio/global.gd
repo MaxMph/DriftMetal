@@ -16,9 +16,9 @@ var in_menu = false
 
 @export var Player: CharacterBody3D
 
-var money = 65
+var money = 266
 
-var sense = 0.001
+var sense = 0.008
 
 func save_quit():
 	var config = ConfigFile.new()
@@ -33,6 +33,13 @@ func save_quit():
 	
 	#other
 	config.set_value("save", "money", money)
+	config.set_value("save", "sense", sense)
+	
+	#bait
+	config.set_value("save", "worms", worms)
+	config.set_value("save", "bread", bread)
+	config.set_value("save", "sardines", sardines)
+	config.set_value("save", "sel_bait", selected_bait)
 	
 	config.save("user://save.cfg")
 	get_tree().quit()
@@ -53,7 +60,12 @@ func _load():
 		right_leg = config.get_value("save", "right_leg")
 		
 		money = config.get_value("save", "money")
+		sense = config.get_value("save", "sense")
 		
+		worms = config.get_value("save", "worms")
+		bread = config.get_value("save", "bread")
+		sardines = config.get_value("save", "sardines")
+		selected_bait = config.get_value("save", "sel_bait")
 	else:
 		Player.play_comic()
 	

@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=4 uid="uid://kr3a3bb70elj"]
 
-[ext_resource type="Script" path="res://models/boat.gd" id="1_66abu"]
+[ext_resource type="Script" uid="uid://qk4i55n4smgf" path="res://models/boat.gd" id="1_66abu"]
 [ext_resource type="Material" uid="uid://bvxuvwc0ago5b" path="res://models/boats, rafts, etc,,,/corrigated.tres" id="2_b75gu"]
 [ext_resource type="Material" uid="uid://oml2c4ix6vou" path="res://textures/rust_metal.tres" id="3_obmmn"]
 [ext_resource type="Texture2D" uid="uid://cdybyfwuiir1x" path="res://textures/wood/old-wood-planks-128x128.png" id="4_qao7a"]

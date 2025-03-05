@@ -1,17 +1,12 @@
 extends Control
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	Global.sense = $VBoxContainer/HSlider.value * 0.001
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("exit") and visible:
 		close()
 
 func open():
+	$VBoxContainer/HSlider.value = Global.sense * 1000
 	visible = true
 	get_tree().paused = true
 	Global.in_menu = true

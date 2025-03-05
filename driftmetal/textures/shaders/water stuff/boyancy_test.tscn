@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://bl2grg0smicvr"]
 
 [ext_resource type="Material" uid="uid://dhbgw7qp3npus" path="res://textures/shaders/water stuff/water_sinesum.tres" id="1_8l7d4"]
-[ext_resource type="Script" path="res://textures/shaders/water stuff/sine_boyancy_base.gd" id="2_xrt4b"]
-[ext_resource type="Script" path="res://textures/shaders/water stuff/boyanyytesertfg.gd" id="3_bebdh"]
+[ext_resource type="Script" uid="uid://cye65jn74w6yg" path="res://textures/shaders/water stuff/sine_boyancy_base.gd" id="2_xrt4b"]
+[ext_resource type="Script" uid="uid://dw57dd0ks5b3k" path="res://textures/shaders/water stuff/boyanyytesertfg.gd" id="3_bebdh"]
 [ext_resource type="PackedScene" uid="uid://b03l7vixet10g" path="res://models/boxes/medium_box.tscn" id="4_61g7c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ha70a"]

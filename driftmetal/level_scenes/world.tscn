@@ -1,12 +1,12 @@
-[gd_scene load_steps=38 format=3 uid="uid://kodoglhwq3tu"]
+[gd_scene load_steps=71 format=3 uid="uid://kodoglhwq3tu"]
 
-[ext_resource type="Script" path="res://level_scenes/world.gd" id="1_cl0rx"]
+[ext_resource type="Script" uid="uid://chhbjixmpk3wt" path="res://level_scenes/world.gd" id="1_cl0rx"]
 [ext_resource type="PackedScene" uid="uid://icneu4u2nv6f" path="res://Player/player.tscn" id="2_kdm1h"]
 [ext_resource type="Material" uid="uid://oml2c4ix6vou" path="res://textures/rust_metal.tres" id="2_mxtjq"]
 [ext_resource type="Texture2D" uid="uid://c27eovkc6qvw3" path="res://textures/Metal-0628-512x256.jpg" id="3_028ks"]
 [ext_resource type="Material" uid="uid://dhbgw7qp3npus" path="res://textures/shaders/water stuff/water_sinesum.tres" id="5_8d68y"]
 [ext_resource type="Material" uid="uid://bmmd77be5maob" path="res://textures/concrete.tres" id="5_g0wva"]
-[ext_resource type="Script" path="res://textures/shaders/water stuff/sine_boyancy_base.gd" id="6_e4p2o"]
+[ext_resource type="Script" uid="uid://cye65jn74w6yg" path="res://textures/shaders/water stuff/sine_boyancy_base.gd" id="6_e4p2o"]
 [ext_resource type="Texture2D" uid="uid://cdybyfwuiir1x" path="res://textures/wood/old-wood-planks-128x128.png" id="8_tawwd"]
 [ext_resource type="PackedScene" uid="uid://tkw4k3lj8t3r" path="res://models/leg.tscn" id="8_ygegl"]
 [ext_resource type="PackedScene" uid="uid://btyaugs87ejks" path="res://bait_shop.tscn" id="9_ltv07"]
@@ -22,9 +22,26 @@
 [ext_resource type="PackedScene" uid="uid://b03l7vixet10g" path="res://models/boxes/medium_box.tscn" id="17_38q6u"]
 [ext_resource type="PackedScene" uid="uid://ur3jj7hiwi3c" path="res://models/boxes/small_box.tscn" id="18_4v1lm"]
 [ext_resource type="PackedScene" uid="uid://4n5n6vvm5nd2" path="res://models/raft_1.tscn" id="19_dkjrj"]
-[ext_resource type="Script" path="res://level_scenes/radspots.gd" id="23_2pd21"]
-[ext_resource type="Script" path="res://level_scenes/radspot.gd" id="23_nau6h"]
-[ext_resource type="Texture2D" uid="uid://hhjhflycqbnd" path="res://textures/metal_7765.jpg" id="25_ecukv"]
+[ext_resource type="Script" uid="uid://be5jralufbc20" path="res://level_scenes/robot_2.gd" id="20_y2cyc"]
+[ext_resource type="Texture2D" uid="uid://b20wxdo33miew" path="res://UI and Sprites/dialouge/1(1).png" id="22_pojdh"]
+[ext_resource type="Script" uid="uid://c4xujjmlwxkry" path="res://level_scenes/radspots.gd" id="23_2pd21"]
+[ext_resource type="Script" uid="uid://c0kwc4s0ka5g6" path="res://level_scenes/radspot.gd" id="23_nau6h"]
+[ext_resource type="Texture2D" uid="uid://d01xteum0wugf" path="res://UI and Sprites/dialouge/Screenshot 2025-02-21 205015.png" id="25_58wqu"]
+[ext_resource type="Texture2D" uid="uid://5bxijvijtous" path="res://UI and Sprites/rad symbol2.png" id="25_m8riv"]
+[ext_resource type="Texture2D" uid="uid://bdluq2a0rxltv" path="res://UI and Sprites/rad_tracker.png" id="25_u5pgf"]
+[ext_resource type="PackedScene" uid="uid://1su8q4af6vim" path="res://models/lader_1.tscn" id="26_b5cvy"]
+[ext_resource type="PackedScene" uid="uid://c6whhhbxlej5g" path="res://models/robots/robot.tscn" id="28_nqou7"]
+[ext_resource type="Script" uid="uid://dcrtc45p3mxwc" path="res://level_scenes/robot1.gd" id="29_fu0ep"]
+[ext_resource type="PackedScene" uid="uid://ca620tq2hj5wd" path="res://models/radio.tscn" id="29_hujr2"]
+[ext_resource type="Texture2D" uid="uid://bhilajs0mxsbu" path="res://UI and Sprites/dialouge/1(1)-yellow.png" id="31_3lpni"]
+[ext_resource type="Texture2D" uid="uid://c14bek525g57d" path="res://UI and Sprites/dialouge/1(2).png" id="32_dfy7i"]
+[ext_resource type="Texture2D" uid="uid://d0me5ufappbwo" path="res://UI and Sprites/dialouge/blank.png" id="33_cqryy"]
+[ext_resource type="Texture2D" uid="uid://cm8jo0oh0dee8" path="res://UI and Sprites/dialouge/silent.png" id="33_lrtss"]
+[ext_resource type="PackedScene" uid="uid://c3vtu0evxejdm" path="res://models/building_2.tscn" id="35_nb6uh"]
+[ext_resource type="PackedScene" uid="uid://dqretk0l37ioj" path="res://models/building_3.tscn" id="36_886vy"]
+[ext_resource type="PackedScene" uid="uid://qmlf4l4knq05" path="res://models/fire_escape.tscn" id="40_8oiwh"]
+[ext_resource type="PackedScene" uid="uid://bia4axsoft6ch" path="res://models/covered_bridge.tscn" id="41_vmjwl"]
+[ext_resource type="Script" uid="uid://4r1xoexviie6" path="res://level_scenes/temppathscript.gd" id="42_i1ryn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kxlyf"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -42,9 +59,9 @@ volumetric_fog_enabled = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_12qjd"]
 material = ExtResource("5_8d68y")
-size = Vector2(200, 200)
-subdivide_width = 250
-subdivide_depth = 250
+size = Vector2(400, 400)
+subdivide_width = 500
+subdivide_depth = 500
 orientation = 1
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_21em7"]
@@ -96,8 +113,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wwmpr"]
 _data = {
-"RESET": SubResource("Animation_hnmu3"),
-"die": SubResource("Animation_rgtj2")
+&"RESET": SubResource("Animation_hnmu3"),
+&"die": SubResource("Animation_rgtj2")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x5fsk"]
@@ -110,10 +127,174 @@ albedo_texture = ExtResource("8_tawwd")
 albedo_texture = ExtResource("3_028ks")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g827n"]
-size = Vector3(3.00928, 2.92102, 4.35547)
+size = Vector3(2.83386, 2.92102, 4.35547)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_olo65"]
+size = Vector3(0.942871, 1.53369, 0.888184)
+
+[sub_resource type="Animation" id="Animation_wioye"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jmpg7"]
+resource_name = "fade_in"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mb7kk"]
+resource_name = "fade_out"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wjebi"]
+_data = {
+&"RESET": SubResource("Animation_wioye"),
+&"fade_in": SubResource("Animation_jmpg7"),
+&"fade_out": SubResource("Animation_mb7kk")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xnqdo"]
+size = Vector3(0.722778, 14.422, 1.4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hly4"]
+atlas = ExtResource("33_lrtss")
+region = Rect2(0, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2to3v"]
+atlas = ExtResource("33_lrtss")
+region = Rect2(64, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cubtm"]
+atlas = ExtResource("33_lrtss")
+region = Rect2(128, 0, 64, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_joq4e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_3lpni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_dfy7i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_cqryy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hly4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2to3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cubtm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fs0sw"]
+size = Vector3(0.608887, 12.2809, 1.26733)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iekyf"]
+size = Vector3(7.91977, 4.72565, 13.4364)
+
+[sub_resource type="Curve3D" id="Curve3D_qn4ag"]
+_data = {
+"points": PackedVector3Array(-47.4565, 0, 4.43026, 47.4565, 0, -4.43026, 55.2366, 0, -50.0758, 33.511, 0, 4.92809, -33.511, 0, -4.92809, 74.1216, 0, -101.694, 3.92531, 0, -19.7292, -3.92531, 0, 19.7292, -108.869, 0, -70.9791, -7.01146, 0, -3.01471, 7.01146, 0, 3.01471, -98.3374, 0, -45.4984, -10.5764, 0, -0.228432, 10.5764, 0, 0.228432, -82.1096, 0, -42.9529, -36.6833, 0, 1.78608, 36.6833, 0, -1.78608, -18.0829, 0, -54.4474, 0, 0, 0, 0, 0, 0, 55.2366, 0, -50.0758),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Animation" id="Animation_ywfv1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow3D:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [463.776]
+}
+
+[sub_resource type="Animation" id="Animation_s8ikr"]
+resource_name = "route_p1"
+length = 40.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow3D:progress")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 14, 16, 32),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [463.776, 325.57, 325.57, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hhrgm"]
+_data = {
+&"RESET": SubResource("Animation_ywfv1"),
+&"route_p1": SubResource("Animation_s8ikr")
+}
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_cl0rx")
+metadata/_edit_vertical_guides_ = [797.0]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lpbhm")
@@ -129,7 +310,7 @@ shadow_blur = 3.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48549, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.504498, 0, -0.863413, 0, 1, 0, 0.863413, 0, -0.504498, 0, 0, 0)
+transform = Transform3D(-0.504498, 0, -0.863413, 0, 1, 0, 0.863413, 0, -0.504498, 0.0241776, 0, 0.186546)
 mesh = SubResource("QuadMesh_12qjd")
 script = ExtResource("6_e4p2o")
 
@@ -141,7 +322,7 @@ shape = SubResource("WorldBoundaryShape3D_21em7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MeshInstance3D/Area3D"]
 libraries = {
-"": SubResource("AnimationLibrary_wwmpr")
+&"": SubResource("AnimationLibrary_wwmpr")
 }
 
 [node name="Marker3D" type="Marker3D" parent="MeshInstance3D"]
@@ -176,12 +357,6 @@ material_override = ExtResource("5_g0wva")
 use_collision = true
 size = Vector3(15, 11, 25)
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="environment"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -81.7362, 8.35311, 9.00005)
-material_override = ExtResource("5_g0wva")
-use_collision = true
-size = Vector3(49, 41, 46)
-
 [node name="CSGBox3D8" type="CSGBox3D" parent="environment"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26.2362, -12.4382, -68.9673)
 material_override = ExtResource("5_g0wva")
@@ -200,6 +375,18 @@ material_override = SubResource("StandardMaterial3D_x5fsk")
 use_collision = true
 size = Vector3(0.489258, 2, 14)
 
+[node name="CSGBox3D14" type="CSGBox3D" parent="environment"]
+transform = Transform3D(-4.37114e-08, -0.820012, 0.572346, 1, -3.58439e-08, 2.50181e-08, 0, 0.572346, 0.820012, -55.7955, 0.535668, -29.9552)
+material_override = SubResource("StandardMaterial3D_x5fsk")
+use_collision = true
+size = Vector3(0.489258, 2, 62.8235)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="environment"]
+transform = Transform3D(-4.37114e-08, -0.345413, 0.938451, 1, -1.50985e-08, 4.1021e-08, 0, 0.938451, 0.345413, -77.9756, 0.535667, -55.1411)
+material_override = SubResource("StandardMaterial3D_x5fsk")
+use_collision = true
+size = Vector3(0.489258, 2, 20.277)
+
 [node name="CSGBox3D17" type="CSGBox3D" parent="environment"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -17.4967, 14.0643, 9.90538)
 material_override = SubResource("StandardMaterial3D_x5fsk")
@@ -213,10 +400,10 @@ use_collision = true
 size = Vector3(0.489258, 2, 21)
 
 [node name="CSGBox3D20" type="CSGBox3D" parent="environment"]
-transform = Transform3D(-0.0181853, 4.44991e-08, 0.999835, 0.999835, -4.29093e-08, 0.0181853, 4.37114e-08, 1, -4.37114e-08, -48.5912, 14.1537, 16.9054)
+transform = Transform3D(-0.0525102, 4.44991e-08, 0.998621, 0.998621, -4.29093e-08, 0.0525102, 4.51867e-08, 1, -4.21845e-08, -49.3571, 13.9721, 16.9054)
 material_override = SubResource("StandardMaterial3D_x5fsk")
 use_collision = true
-size = Vector3(0.489258, 2, 21)
+size = Vector3(0.489258, 2, 20.4287)
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="environment"]
 transform = Transform3D(-1.13133e-08, -0.258819, 0.965926, 1, -4.37114e-08, 0, 4.2222e-08, 0.965926, 0.258819, -26.6203, 0.453149, 7.21101)
@@ -320,20 +507,13 @@ material_override = ExtResource("5_g0wva")
 use_collision = true
 size = Vector3(7.44043, 2.67297, 3.00317)
 
-[node name="CSGBox3D15" type="CSGBox3D" parent="environment" groups=["climbable", "interactable"]]
-transform = Transform3D(2.66454e-15, 0, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, 0, -24.6625, 4.20162, 2.95493)
-material_override = ExtResource("2_mxtjq")
-use_collision = true
-collision_layer = 3
-size = Vector3(18.702, 1, 2)
-
 [node name="CSGBox3D5" type="CSGBox3D" parent="environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2531, -4.39891, 0)
 material_override = SubResource("StandardMaterial3D_pv2v6")
 size = Vector3(2, 6, 5)
 
 [node name="leg" parent="environment" instance=ExtResource("8_ygegl")]
-transform = Transform3D(0.2, 0, 0, 0, 0.197112, 0.033863, 0, -0.033863, 0.197112, -8.50579, 0.530454, 2.99787)
+transform = Transform3D(0.2, 0, 0, 0, 0.197112, 0.033863, 0, -0.033863, 0.197112, -8.50579, 0.530454, 2.70675)
 
 [node name="leg3" parent="environment" instance=ExtResource("8_ygegl")]
 transform = Transform3D(0.198553, -0.0236668, -0.00406585, 0.0240135, 0.195686, 0.033618, 0, -0.033863, 0.197112, -8.50579, 1.18323, -1.47947)
@@ -342,7 +522,7 @@ transform = Transform3D(0.198553, -0.0236668, -0.00406585, 0.0240135, 0.195686, 
 transform = Transform3D(0.156851, 0.124021, 0.00407943, -0.00461499, 0.0124008, -0.199561, -0.124002, 0.156413, 0.0125871, -7.45928, 2.32239, 0.267416)
 
 [node name="leg2" parent="environment" instance=ExtResource("8_ygegl")]
-transform = Transform3D(-0.0724832, 0.18564, 0.0168475, -0.0127499, 0.0130966, -0.199163, -0.185967, -0.0732539, 0.00708804, -8.49781, 0.579166, 3.42696)
+transform = Transform3D(-0.0724832, 0.18564, 0.0168475, -0.0127499, 0.0130966, -0.199163, -0.185967, -0.0732539, 0.00708804, -8.49781, 0.579166, 3.13584)
 
 [node name="bait_shop2" parent="environment" groups=["bait_shop"] instance=ExtResource("9_ltv07")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.12689, 7)
@@ -432,7 +612,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.12689, 0)
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="environment/bait_shop/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55618, 1.53864, 0.00366211)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64389, 1.53864, 0.00366211)
 shape = SubResource("BoxShape3D_g827n")
 
 [node name="building 1" parent="environment" instance=ExtResource("13_strck")]
@@ -454,7 +634,109 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.903
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 30.0968, -0.63791, 20.5936)
 
 [node name="boat2" parent="." instance=ExtResource("10_yoke6")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 55.0968, -0.63791, -49.966)
+transform = Transform3D(-0.0598893, 0, -0.998037, 0, 1, 0, 0.998037, 0, -0.0598893, 55.2364, -1.07504, -50.0758)
+
+[node name="robot2" parent="boat2" instance=ExtResource("28_nqou7")]
+process_mode = 3
+transform = Transform3D(0.999303, 0, -0.0373414, 0, 1, 0, 0.0373414, 0, 0.999303, 1.72812, 2.01141, -4.29754)
+
+[node name="Area3D" type="Area3D" parent="boat2/robot2" groups=["has_func", "interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0254087, 0, 0)
+collision_layer = 2
+script = ExtResource("20_y2cyc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="boat2/robot2/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.180615, 0.733154, 0.0248166)
+shape = SubResource("BoxShape3D_olo65")
+
+[node name="Camera3D" type="Camera3D" parent="boat2/robot2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.879607, 1.19299, 0)
+
+[node name="dialouge" type="Control" parent="boat2/robot2"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 240.0
+offset_top = 255.0
+offset_right = -240.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="boat2/robot2/dialouge"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -93.0
+offset_right = 1117.0
+offset_bottom = 711.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("25_58wqu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="boat2/robot2/dialouge"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -11.0
+offset_right = 64.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="decline" type="Button" parent="boat2/robot2/dialouge/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "x"
+
+[node name="pay" type="Button" parent="boat2/robot2/dialouge/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "$100"
+
+[node name="Sprite2D" type="Sprite2D" parent="boat2/robot2/dialouge"]
+texture = ExtResource("22_pojdh")
+
+[node name="boat_point" type="Marker3D" parent="boat2/robot2"]
+transform = Transform3D(-0.999302, 0, -0.0373413, 0, 1, 0, 0.0373413, 0, -0.999302, -1.28709, 1.12174, 9.58957)
+
+[node name="ColorRect" type="ColorRect" parent="boat2/robot2"]
+custom_minimum_size = Vector2(1000, 1000)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="boat2/robot2/ColorRect"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_wjebi")
+}
+
+[node name="radio" parent="boat2" instance=ExtResource("29_hujr2")]
+transform = Transform3D(0.456974, 0, -0.88948, 0, 1, 0, 0.88948, 0, 0.456974, 1.30426, 2.73388, -5.16735)
 
 [node name="floating tent 1" parent="." instance=ExtResource("16_wip1e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, -32)
@@ -513,7 +795,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 7)
 script = ExtResource("23_nau6h")
 rad_strength = 1.0
 
+[node name="radspot3" type="Marker3D" parent="fishrad/spots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -40)
+script = ExtResource("23_nau6h")
+rad_strength = 6.0
+
 [node name="Control" type="Control" parent="fishrad"]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -546,12 +834,15 @@ mouse_filter = 2
 
 [node name="rad_level" type="Label" parent="fishrad/Control/VBoxContainer"]
 layout_mode = 2
-text = "0"
+text = "0m"
 horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="fishrad/Control/VBoxContainer"]
+layout_mode = 2
 
 [node name="rad_strength" type="Label" parent="fishrad/Control/VBoxContainer"]
 layout_mode = 2
-horizontal_alignment = 1
+text = "000"
 
 [node name="TextureRect" type="TextureRect" parent="fishrad/Control"]
 layout_mode = 1
@@ -560,15 +851,165 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -30.0
-offset_right = 25.0
-offset_bottom = 30.0
+offset_left = -32.0
+offset_top = -40.0
+offset_right = 32.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("25_ecukv")
-expand_mode = 1
-stretch_mode = 1
+texture = ExtResource("25_u5pgf")
+
+[node name="TextureRect2" type="TextureRect" parent="fishrad/Control"]
+layout_mode = 2
+offset_left = 24.0
+offset_top = 27.0
+offset_right = 88.0
+offset_bottom = 91.0
+scale = Vector2(0.25, 0.25)
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("25_m8riv")
+
+[node name="laders" type="Node3D" parent="."]
+
+[node name="lader 1" parent="laders" instance=ExtResource("26_b5cvy")]
+transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, -24, -4, 2.7269)
+
+[node name="Area3D" type="Area3D" parent="laders/lader 1" groups=["climbable", "interactable"]]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="laders/lader 1/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.138611, 10.7112, 0)
+shape = SubResource("BoxShape3D_xnqdo")
+
+[node name="lader 2" parent="laders" instance=ExtResource("26_b5cvy")]
+transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, -24, 2, 2.7269)
+
+[node name="lader 3" parent="laders" instance=ExtResource("26_b5cvy")]
+transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, -24, 8, 2.7269)
+
+[node name="radio" parent="." instance=ExtResource("29_hujr2")]
+transform = Transform3D(-0.607667, 0, -0.794192, 0, 1, 0, 0.794192, 0, -0.607667, -5.38889, 1.34439, -1.82838)
+
+[node name="robot" type="Node" parent="."]
+
+[node name="robot" parent="robot" instance=ExtResource("28_nqou7")]
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.48192, 1.67212, -1.09994)
+
+[node name="Area3D" type="Area3D" parent="robot/robot" groups=["has_func", "interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0254087, 0, 0)
+collision_layer = 2
+script = ExtResource("29_fu0ep")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="robot/robot/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.180615, 0.733154, 0.0248166)
+shape = SubResource("BoxShape3D_olo65")
+
+[node name="Camera3D" type="Camera3D" parent="robot/robot"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.879607, 1.19299, 0)
+
+[node name="dialouge" type="Control" parent="robot/robot"]
+visible = false
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -57.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="robot/robot/dialouge"]
+sprite_frames = SubResource("SpriteFrames_joq4e")
+
+[node name="building 2" parent="." instance=ExtResource("35_nb6uh")]
+transform = Transform3D(-2.299, 0, 2.00985e-07, 0, 2.299, 0, -2.00985e-07, 0, -2.299, -82.4946, -3.97257, -6.11656e-07)
+
+[node name="building 3" parent="." instance=ExtResource("36_886vy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -81.1006, -2.47296, -36.2135)
+
+[node name="lader 1" parent="building 3" instance=ExtResource("26_b5cvy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47006, -3.80948, -2.83512)
+
+[node name="lader 2" parent="building 3" instance=ExtResource("26_b5cvy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47006, 2.33635, -2.83512)
+
+[node name="lader 3" parent="building 3" instance=ExtResource("26_b5cvy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47006, 8.49197, -2.83512)
+
+[node name="Area3D" type="Area3D" parent="building 3" groups=["climbable", "interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building 3/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.408836, 8.64044, 0.160255)
+shape = SubResource("BoxShape3D_fs0sw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building 3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building 3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999997, -0.00263544, 0, 0.00263544, 0.999997, 0.0407867, 1.32767, -0.00582784)
+shape = SubResource("BoxShape3D_iekyf")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.3335, 0, -71.1041)
+
+[node name="raft_4" parent="." instance=ExtResource("19_dkjrj")]
+transform = Transform3D(0.99686, 0, 0.0791899, 0, 1, 0, -0.0791899, 0, 0.99686, -92.1148, -9.53674e-07, -31.1566)
+
+[node name="fire_escape" parent="." instance=ExtResource("40_8oiwh")]
+transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, -83.0563, -22.4407, -26.4535)
+
+[node name="fire_escape2" parent="." instance=ExtResource("40_8oiwh")]
+transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, -80.8087, -10.4331, -27.252)
+
+[node name="fire_escape3" parent="." instance=ExtResource("40_8oiwh")]
+transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, -83.0563, 1.55927, -26.4535)
+
+[node name="fire_escape4" parent="." instance=ExtResource("40_8oiwh")]
+transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, -80.8087, 13.5669, -27.252)
+
+[node name="covered bridge2" parent="." instance=ExtResource("41_vmjwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.6927, 13.3664, -20.4546)
+
+[node name="covered bridge3" parent="." instance=ExtResource("41_vmjwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.6927, 13.3664, -31.4936)
+
+[node name="covered bridge4" parent="." instance=ExtResource("41_vmjwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.6927, 13.3664, -42.4936)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="covered bridge4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -10.5, -4)
+size = Vector3(0.8, 22, 0.8)
+material = ExtResource("2_mxtjq")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="covered bridge4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -10.5, -4)
+size = Vector3(0.8, 22, 0.8)
+material = ExtResource("2_mxtjq")
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.07504, 0)
+curve = SubResource("Curve3D_qn4ag")
+script = ExtResource("42_i1ryn")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.0598893, 0, -0.998037, 0, 1, 0, 0.998037, 0, -0.0598893, 55.2364, 0, -50.0758)
+progress = 463.776
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Path3D/PathFollow3D"]
+remote_path = NodePath("../../../boat2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_hhrgm")
+}
+speed_scale = 0.6
 
 [connection signal="body_entered" from="MeshInstance3D/Area3D" to="MeshInstance3D" method="_on_area_3d_body_entered"]
+[connection signal="pressed" from="boat2/robot2/dialouge/HBoxContainer/decline" to="boat2/robot2/Area3D" method="_on_decline_pressed"]
+[connection signal="pressed" from="boat2/robot2/dialouge/HBoxContainer/pay" to="boat2/robot2/Area3D" method="_on_pay_pressed"]

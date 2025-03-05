@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bo1k6nwfkpvv5"]
 
-[ext_resource type="Shader" path="res://textures/shaders/water stuff/noise_water.gdshader" id="1_jofyr"]
+[ext_resource type="Shader" uid="uid://0elg3aacns2c" path="res://textures/shaders/water stuff/noise_water.gdshader" id="1_jofyr"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_rbjse"]
 
@@ -12,6 +12,7 @@ noise = SubResource("FastNoiseLite_rbjse")
 render_priority = 0
 shader = ExtResource("1_jofyr")
 shader_parameter/albedo = Color(0.423651, 0.423651, 0.423651, 1)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_jv18v")
 shader_parameter/scroll_speed1 = Vector2(0.05, 0)
 shader_parameter/scroll_speed2 = Vector2(-0.03, 0)
 shader_parameter/blend_factor = 0.5
@@ -23,7 +24,6 @@ shader_parameter/pixelation_level = 64
 shader_parameter/FoamSize = 0.5
 shader_parameter/WaterOpacity = 0.8
 shader_parameter/FoamGlowIntensity = 0.5
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_jv18v")
 
 [sub_resource type="QuadMesh" id="QuadMesh_he4q2"]
 material = SubResource("ShaderMaterial_e50xc")
