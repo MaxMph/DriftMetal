@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://kodoglhwq3tu"]
+[gd_scene load_steps=73 format=3 uid="uid://kodoglhwq3tu"]
 
 [ext_resource type="Script" uid="uid://chhbjixmpk3wt" path="res://level_scenes/world.gd" id="1_cl0rx"]
 [ext_resource type="PackedScene" uid="uid://icneu4u2nv6f" path="res://Player/player.tscn" id="2_kdm1h"]
@@ -42,6 +42,8 @@
 [ext_resource type="PackedScene" uid="uid://qmlf4l4knq05" path="res://models/fire_escape.tscn" id="40_8oiwh"]
 [ext_resource type="PackedScene" uid="uid://bia4axsoft6ch" path="res://models/covered_bridge.tscn" id="41_vmjwl"]
 [ext_resource type="Script" uid="uid://4r1xoexviie6" path="res://level_scenes/temppathscript.gd" id="42_i1ryn"]
+[ext_resource type="PackedScene" uid="uid://drc3hnbdn7828" path="res://models/cargo_ship.tscn" id="43_xjdvr"]
+[ext_resource type="PackedScene" uid="uid://byqhtg5r22b66" path="res://models/crashed_cargo.tscn" id="44_1q07m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kxlyf"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -54,8 +56,8 @@ sky_material = SubResource("ProceduralSkyMaterial_kxlyf")
 background_mode = 2
 sky = SubResource("Sky_n0w6h")
 tonemap_mode = 2
-glow_enabled = true
 volumetric_fog_enabled = true
+volumetric_fog_density = 0.06
 
 [sub_resource type="QuadMesh" id="QuadMesh_12qjd"]
 material = ExtResource("5_8d68y")
@@ -453,6 +455,24 @@ material_override = SubResource("StandardMaterial3D_x5fsk")
 use_collision = true
 size = Vector3(0.489258, 2, 21)
 
+[node name="CSGBox3D33" type="CSGBox3D" parent="environment"]
+transform = Transform3D(0.149367, 0.925698, -0.347525, 0.976809, -0.0836163, 0.197108, 0.153404, -0.368907, -0.91672, 2.30498, 4.86252, -82.8067)
+material_override = SubResource("StandardMaterial3D_x5fsk")
+use_collision = true
+size = Vector3(0.489258, 2, 21)
+
+[node name="CSGBox3D34" type="CSGBox3D" parent="environment"]
+transform = Transform3D(-0.11872, 0.696971, 0.707203, 0.986665, 0.00294125, 0.162736, 0.111342, 0.717093, -0.688027, 1.09007, 3.2306, -72.5199)
+material_override = SubResource("StandardMaterial3D_x5fsk")
+use_collision = true
+size = Vector3(0.489258, 2, 6)
+
+[node name="CSGBox3D35" type="CSGBox3D" parent="environment"]
+transform = Transform3D(-3.13706e-08, 0.869762, -0.493471, -1, -4.2306e-08, -1.09947e-08, -3.04396e-08, 0.493471, 0.869762, 3.26298, 2.97892, -74.3742)
+material_override = SubResource("StandardMaterial3D_x5fsk")
+use_collision = true
+size = Vector3(0.805176, 1.36719, 1.14355)
+
 [node name="CSGBox3D22" type="CSGBox3D" parent="environment"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 26.0224, -10.3851, -5.52802)
 material_override = ExtResource("5_g0wva")
@@ -476,6 +496,12 @@ transform = Transform3D(0.0524653, 0.254609, 0.96562, 0.998609, -0.0183826, -0.0
 material_override = ExtResource("2_mxtjq")
 use_collision = true
 size = Vector3(0.240845, 2, 8)
+
+[node name="CSGBox3D36" type="CSGBox3D" parent="environment"]
+transform = Transform3D(0.0137949, -0.999894, 0.00464454, 0.987191, 0.0128809, -0.159017, 0.15894, 0.00677911, 0.987265, 4.87878, 3.3177, -72.5253)
+material_override = ExtResource("2_mxtjq")
+use_collision = true
+size = Vector3(0.240845, 2, 8.61896)
 
 [node name="CSGBox3D29" type="CSGBox3D" parent="environment"]
 transform = Transform3D(-4.37092e-08, 0.99995, -0.00994823, -1, -4.37114e-08, 6.44758e-16, -4.34852e-10, 0.00994826, 0.99995, 55.3766, -10.3851, -45.2298)
@@ -1009,6 +1035,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_hhrgm")
 }
 speed_scale = 0.6
+
+[node name="cargo ship" parent="." instance=ExtResource("43_xjdvr")]
+transform = Transform3D(-5.24537e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24537e-08, 24.4404, 1.97806, 34.9154)
+
+[node name="crashed cargo" parent="." instance=ExtResource("44_1q07m")]
+transform = Transform3D(-0.0408298, 0.14941, -0.987932, -0.662193, 0.736379, 0.138734, 0.74822, 0.659866, 0.0688725, 2.63131, -4.43596, -90.2066)
 
 [connection signal="body_entered" from="MeshInstance3D/Area3D" to="MeshInstance3D" method="_on_area_3d_body_entered"]
 [connection signal="pressed" from="boat2/robot2/dialouge/HBoxContainer/decline" to="boat2/robot2/Area3D" method="_on_decline_pressed"]
