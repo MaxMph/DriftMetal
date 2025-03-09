@@ -1,10 +1,11 @@
-[gd_scene load_steps=72 format=4 uid="uid://icneu4u2nv6f"]
+[gd_scene load_steps=75 format=4 uid="uid://icneu4u2nv6f"]
 
 [ext_resource type="Script" uid="uid://b4f01ka5fwhbm" path="res://Player/player.gd" id="1_2n4kb"]
 [ext_resource type="Script" uid="uid://cxuok8x1jkbs2" path="res://Player/control.gd" id="2_6n7t3"]
 [ext_resource type="PackedScene" uid="uid://cl02pdg67hftu" path="res://Player/rope.tscn" id="2_jmeai"]
 [ext_resource type="Script" uid="uid://cpbecl5u1tth6" path="res://Player/interact_cast.gd" id="2_mxo0d"]
 [ext_resource type="Script" uid="uid://b1lqfl0xw12ta" path="res://ui_and_menus.gd" id="3_akfx6"]
+[ext_resource type="Script" uid="uid://bdvvfblhe024x" path="res://Player/fishing_rod_subholder.gd" id="3_dy65m"]
 [ext_resource type="Script" uid="uid://exx2r3igvgd3" path="res://Player/buy_menu.gd" id="3_ji1sy"]
 [ext_resource type="Texture2D" uid="uid://4povuk4um5r0" path="res://textures/Metal025_1K-PNG_Color.png" id="3_te282"]
 [ext_resource type="Theme" uid="uid://ce3e385ktv028" path="res://level_scenes/button_theme_1.tres" id="4_gcyx6"]
@@ -43,6 +44,8 @@
 [ext_resource type="AudioStream" uid="uid://csgpy5h1q4eo7" path="res://audio/sound effects/try 2.mp3" id="41_d30e8"]
 [ext_resource type="AudioStream" uid="uid://6sghyqemkl7j" path="res://audio/sound effects/coin.mp3" id="42_ie76m"]
 [ext_resource type="Script" uid="uid://b5kvt5vqm0c0h" path="res://Player/coin.gd" id="43_dy65m"]
+[ext_resource type="AudioStream" uid="uid://c7b2nq65iqhjo" path="res://audio/sound effects/whoosh.mp3" id="45_maysp"]
+[ext_resource type="AudioStream" uid="uid://dfts3n1ae4lyu" path="res://audio/sound effects/beeeeeeeeeeeeeeeeep.wav" id="46_1l10g"]
 
 [sub_resource type="Animation" id="Animation_0iva5"]
 length = 0.001
@@ -466,6 +469,7 @@ script = ExtResource("2_mxo0d")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, -0.23, -0.759)
 
 [node name="fishing rod subholder" type="Node3D" parent="head_holder/sub_holder_1/sub_holder_2/head/Camera3D/fishing rod"]
+script = ExtResource("3_dy65m")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="head_holder/sub_holder_1/sub_holder_2/head/Camera3D/fishing rod/fishing rod subholder"]
 transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 0, 0)
@@ -609,7 +613,6 @@ offset_bottom = 318.0
 mouse_filter = 2
 
 [node name="limb_UI" type="Control" parent="UI and Menus"]
-visible = false
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -1003,8 +1006,7 @@ flat = true
 
 [node name="cost" type="Label" parent="UI and Menus/buy_menu/bait/HBoxContainer/bread"]
 layout_mode = 2
-text = "$4
-"
+text = "$4"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI and Menus/buy_menu/bait/HBoxContainer/bread"]
@@ -1340,6 +1342,13 @@ script = ExtResource("43_dy65m")
 [node name="Timer" type="Timer" parent="audio/coin"]
 wait_time = 0.2
 one_shot = true
+
+[node name="whoosh" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("45_maysp")
+volume_db = -10.0
+
+[node name="beeeep" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("46_1l10g")
 
 [connection signal="button_up" from="UI and Menus/fish_caught/VBoxContainer/continue" to="UI and Menus/fish_caught" method="_on_continue_button_up"]
 [connection signal="pressed" from="UI and Menus/pause_menu/VBoxContainer/resume" to="UI and Menus/pause_menu" method="_on_resume_pressed"]

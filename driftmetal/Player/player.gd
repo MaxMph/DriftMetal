@@ -52,6 +52,11 @@ var landed = true
 @onready var cam_player = $head_holder/sub_holder_1/sub_holder_2/head/Camera3D/cam_player
 @onready var cam_player_2 = $"head_holder/sub_holder_1/sub_holder_2/head/Camera3D/cam_player 2"
 
+
+#sound stuff
+#var whoosh_volume = -10
+
+
 func _ready() -> void:
 	Global.Player = self
 	legchange()
@@ -112,6 +117,10 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_pressed("cast"):
 		cast_strength = move_toward(cast_strength, 8, 6 * delta)
+		$audio/beeeep.pitch_scale = 0.6 + cast_strength * 0.04
+		$audio/beeeep.volume_db = -20 + cast_strength
+		if $audio/beeeep.playing == false:
+			$audio/beeeep.play()
 	
 	if Input.is_action_just_released("cast") and can_cast:
 		match Global.selected_bait:
@@ -219,6 +228,10 @@ func cast():
 	inst.apply_central_impulse(-cam.global_transform.basis.z * cast_strength)
 	inst.player = self
 	cur_lure = inst
+	$audio/beeeep.stop()
+	$audio/whoosh.volume_db = -20 + cast_strength * 2
+	$audio/whoosh.pitch_scale = 1 + cast_strength * 0.01
+	$audio/whoosh.play()
 	cast_strength = 0
 	casted = true
 	#cur_lure.fish_wait(6)

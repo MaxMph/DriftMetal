@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dfts3n1ae4lyu"
+path="res://.godot/imported/beeeeeeeeeeeeeeeeep.wav-8187c88ee33164c5b3fee34d421a43df.sample"
+
+[deps]
+
+source_file="res://audio/sound effects/beeeeeeeeeeeeeeeeep.wav"
+dest_files=["res://.godot/imported/beeeeeeeeeeeeeeeeep.wav-8187c88ee33164c5b3fee34d421a43df.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

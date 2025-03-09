@@ -299,7 +299,7 @@ size = Vector3(4, 1, 9)
 gravity_scale = 0.3
 script = ExtResource("1_xx0jt")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["moving"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.517324, 18.8776)
 collision_layer = 9
 
