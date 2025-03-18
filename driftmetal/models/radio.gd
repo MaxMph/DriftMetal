@@ -4,22 +4,11 @@ var cur_song = 0
 @onready var cur_player = $"../../songs/AudioStreamPlayer3D"
 var off = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func interacted():
-	
 	$"../../AudioStreamPlayer".play(0.1)
-	
-	print("wefaerghtjy")
-	#$"../../songs/AudioStreamPlayer3D". stream_count
-	#$"../../AudioStreamPlayer3D".get_stream_playback().switch_to_clip(2)
+	switch()
+
+func switch():
 	
 	cur_player.stop()
 	
@@ -41,3 +30,15 @@ func interacted():
 		cur_player.play()
 	else:
 		off = false
+
+
+func _on_audio_stream_player_3d_finished() -> void:
+	switch()
+
+
+func _on_audio_stream_player_3d_2_finished() -> void:
+	switch()
+
+
+func _on_audio_stream_player_3d_3_finished() -> void:
+	switch()

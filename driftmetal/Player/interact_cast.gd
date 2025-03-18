@@ -2,7 +2,7 @@ extends RayCast3D
 
 
 func _physics_process(delta: float) -> void:
-	if is_colliding() and get_collider().is_in_group("interactable"):
+	if is_colliding() and get_collider().is_in_group("interactable") and Global.in_menu == false:
 		
 		#reset vis to default
 		$"../../../../../../UI and Menus/Control/crosshair".visible = true

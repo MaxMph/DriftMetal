@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://icneu4u2nv6f"]
+[gd_scene load_steps=77 format=4 uid="uid://icneu4u2nv6f"]
 
 [ext_resource type="Script" uid="uid://b4f01ka5fwhbm" path="res://Player/player.gd" id="1_2n4kb"]
 [ext_resource type="Script" uid="uid://cxuok8x1jkbs2" path="res://Player/control.gd" id="2_6n7t3"]
@@ -434,6 +434,11 @@ _data = {
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_jfbh7"]
 frequency = 0.0837
 
+[sub_resource type="SphereMesh" id="SphereMesh_6rl0i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6rl0i"]
+albedo_color = Color(0.748143, 0.0778726, 0, 1)
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_2n4kb")
 
@@ -446,6 +451,7 @@ script = ExtResource("1_2n4kb")
 [node name="head" type="Node3D" parent="head_holder/sub_holder_1/sub_holder_2"]
 
 [node name="Camera3D" type="Camera3D" parent="head_holder/sub_holder_1/sub_holder_2/head"]
+cull_mask = 1048567
 
 [node name="cam_player" type="AnimationPlayer" parent="head_holder/sub_holder_1/sub_holder_2/head/Camera3D"]
 libraries = {
@@ -458,6 +464,7 @@ libraries = {
 }
 
 [node name="interact_cast" type="RayCast3D" parent="head_holder/sub_holder_1/sub_holder_2/head/Camera3D"]
+process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.441848)
 target_position = Vector3(0, 0, -1.5)
 collision_mask = 2
@@ -509,7 +516,7 @@ script = ExtResource("3_akfx6")
 
 [node name="Control" type="Control" parent="UI and Menus"]
 process_mode = 3
-z_index = -10
+z_index = 2
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
@@ -1349,6 +1356,13 @@ volume_db = -10.0
 
 [node name="beeeep" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("46_1l10g")
+
+[node name="map_marker" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.79917, 0, 0, 0, 2.79917, 0, 0, 0, 2.79917, 0, 8, 0)
+layers = 8
+cast_shadow = 0
+mesh = SubResource("SphereMesh_6rl0i")
+surface_material_override/0 = SubResource("StandardMaterial3D_6rl0i")
 
 [connection signal="button_up" from="UI and Menus/fish_caught/VBoxContainer/continue" to="UI and Menus/fish_caught" method="_on_continue_button_up"]
 [connection signal="pressed" from="UI and Menus/pause_menu/VBoxContainer/resume" to="UI and Menus/pause_menu" method="_on_resume_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://kodoglhwq3tu"]
+[gd_scene load_steps=76 format=3 uid="uid://kodoglhwq3tu"]
 
 [ext_resource type="Script" uid="uid://chhbjixmpk3wt" path="res://level_scenes/world.gd" id="1_cl0rx"]
 [ext_resource type="PackedScene" uid="uid://icneu4u2nv6f" path="res://Player/player.tscn" id="2_kdm1h"]
@@ -44,6 +44,8 @@
 [ext_resource type="Script" uid="uid://4r1xoexviie6" path="res://level_scenes/temppathscript.gd" id="42_i1ryn"]
 [ext_resource type="PackedScene" uid="uid://drc3hnbdn7828" path="res://models/cargo_ship.tscn" id="43_xjdvr"]
 [ext_resource type="PackedScene" uid="uid://byqhtg5r22b66" path="res://models/crashed_cargo.tscn" id="44_1q07m"]
+[ext_resource type="Script" uid="uid://cob5how07yop" path="res://Player/map.gd" id="45_bsar0"]
+[ext_resource type="Texture2D" uid="uid://d2dbv75kfhx2m" path="res://UI and Sprites/map.png" id="46_5moxj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kxlyf"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -201,6 +203,8 @@ _data = {
 &"fade_in": SubResource("Animation_jmpg7"),
 &"fade_out": SubResource("Animation_mb7kk")
 }
+
+[sub_resource type="SphereMesh" id="SphereMesh_bsar0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xnqdo"]
 size = Vector3(0.722778, 14.422, 1.4)
@@ -377,18 +381,6 @@ material_override = SubResource("StandardMaterial3D_x5fsk")
 use_collision = true
 size = Vector3(0.489258, 2, 14)
 
-[node name="CSGBox3D14" type="CSGBox3D" parent="environment"]
-transform = Transform3D(-4.37114e-08, -0.820012, 0.572346, 1, -3.58439e-08, 2.50181e-08, 0, 0.572346, 0.820012, -55.7955, 0.535668, -29.9552)
-material_override = SubResource("StandardMaterial3D_x5fsk")
-use_collision = true
-size = Vector3(0.489258, 2, 62.8235)
-
-[node name="CSGBox3D15" type="CSGBox3D" parent="environment"]
-transform = Transform3D(-4.37114e-08, -0.345413, 0.938451, 1, -1.50985e-08, 4.1021e-08, 0, 0.938451, 0.345413, -77.9756, 0.535667, -55.1411)
-material_override = SubResource("StandardMaterial3D_x5fsk")
-use_collision = true
-size = Vector3(0.489258, 2, 20.277)
-
 [node name="CSGBox3D17" type="CSGBox3D" parent="environment"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -17.4967, 14.0643, 9.90538)
 material_override = SubResource("StandardMaterial3D_x5fsk")
@@ -406,6 +398,12 @@ transform = Transform3D(-0.0525102, 4.44991e-08, 0.998621, 0.998621, -4.29093e-0
 material_override = SubResource("StandardMaterial3D_x5fsk")
 use_collision = true
 size = Vector3(0.489258, 2, 20.4287)
+
+[node name="CSGBox3D37" type="CSGBox3D" parent="environment"]
+transform = Transform3D(-4.37114e-08, 0.866025, -0.5, -1, -3.78552e-08, 2.18557e-08, 0, 0.5, 0.866026, -75.9415, 19.1, 5.78676)
+material_override = SubResource("StandardMaterial3D_x5fsk")
+use_collision = true
+size = Vector3(0.489258, 2, 13)
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="environment"]
 transform = Transform3D(-1.13133e-08, -0.258819, 0.965926, 1, -4.37114e-08, 0, 4.2222e-08, 0.965926, 0.258819, -26.6203, 0.453149, 7.21101)
@@ -653,6 +651,12 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 61, 0.
 [node name="barge 2" parent="environment" instance=ExtResource("17_7nqxv")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 45, 2, 14)
 
+[node name="small box" parent="environment" instance=ExtResource("18_4v1lm")]
+transform = Transform3D(0.973367, 0, -0.229251, 0, 1, 0, 0.229251, 0, 0.973367, -73.3429, 19.3526, 7.44804)
+
+[node name="medium box" parent="environment" instance=ExtResource("17_38q6u")]
+transform = Transform3D(0.905072, 0, 0.425258, 0, 1, 0, -0.425258, 0, 0.905072, -75.1863, 19.4084, 9.64611)
+
 [node name="boat" parent="." instance=ExtResource("10_yoke6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.90317, -0.63791, 16.5936)
 
@@ -677,6 +681,7 @@ shape = SubResource("BoxShape3D_olo65")
 
 [node name="Camera3D" type="Camera3D" parent="boat2/robot2"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.879607, 1.19299, 0)
+cull_mask = 1048567
 
 [node name="dialouge" type="Control" parent="boat2/robot2"]
 visible = false
@@ -812,19 +817,48 @@ script = ExtResource("23_2pd21")
 [node name="spots" type="Node" parent="fishrad"]
 
 [node name="radspot1" type="Marker3D" parent="fishrad/spots"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 0, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.1332, 0, 2.42264)
 script = ExtResource("23_nau6h")
 rad_strength = 3.0
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="fishrad/spots/radspot1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+layers = 8
+mesh = SubResource("SphereMesh_bsar0")
+
 [node name="radspot2" type="Marker3D" parent="fishrad/spots"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8212, 0, 10.5848)
 script = ExtResource("23_nau6h")
 rad_strength = 1.0
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="fishrad/spots/radspot2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+layers = 8
+mesh = SubResource("SphereMesh_bsar0")
+
 [node name="radspot3" type="Marker3D" parent="fishrad/spots"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8086, 0, -52.0328)
 script = ExtResource("23_nau6h")
 rad_strength = 6.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="fishrad/spots/radspot3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+layers = 16
+mesh = SubResource("SphereMesh_bsar0")
+
+[node name="radspot4" type="Marker3D" parent="fishrad/spots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83, 0, 0)
+script = ExtResource("23_nau6h")
+rad_strength = 10.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="fishrad/spots/radspot4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+layers = 16
+mesh = SubResource("SphereMesh_bsar0")
 
 [node name="Control" type="Control" parent="fishrad"]
 visible = false
@@ -934,6 +968,7 @@ shape = SubResource("BoxShape3D_olo65")
 
 [node name="Camera3D" type="Camera3D" parent="robot/robot"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.879607, 1.19299, 0)
+cull_mask = 1048567
 
 [node name="dialouge" type="Control" parent="robot/robot"]
 visible = false
@@ -1041,6 +1076,61 @@ transform = Transform3D(-5.24537e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24537e-08, 
 
 [node name="crashed cargo" parent="." instance=ExtResource("44_1q07m")]
 transform = Transform3D(-0.0408298, 0.14941, -0.987932, -0.662193, 0.736379, 0.138734, 0.74822, 0.659866, 0.0688725, 2.63131, -4.43596, -90.2066)
+
+[node name="map" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 320.0
+mouse_filter = 2
+script = ExtResource("45_bsar0")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="map"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.575
+offset_top = -97.1
+offset_right = 121.425
+offset_bottom = 99.9
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="map/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+canvas_cull_mask = 4294967288
+size = Vector2i(263, 197)
+render_target_update_mode = 4
+
+[node name="Camera3D2" type="Camera3D" parent="map/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -11.5881, 963.468, -21.2576)
+cull_mask = 1048568
+fov = 10.4
+size = 100.0
+
+[node name="map" type="TextureRect" parent="map"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = -120.0
+offset_right = 145.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("46_5moxj")
+expand_mode = 1
 
 [connection signal="body_entered" from="MeshInstance3D/Area3D" to="MeshInstance3D" method="_on_area_3d_body_entered"]
 [connection signal="pressed" from="boat2/robot2/dialouge/HBoxContainer/decline" to="boat2/robot2/Area3D" method="_on_decline_pressed"]

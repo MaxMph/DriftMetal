@@ -144,13 +144,20 @@ pitch_scale = 1.33
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="songs"]
 stream = ExtResource("6_6csgp")
-unit_size = 0.2
+volume_db = -15.0
 autoplay = true
+max_distance = 40.0
 
 [node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="songs"]
 stream = ExtResource("7_wedu8")
-unit_size = 0.2
+volume_db = -15.0
+max_distance = 40.0
 
 [node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="songs"]
 stream = ExtResource("8_h1c6y")
-unit_size = 0.2
+volume_db = -15.0
+max_distance = 40.0
+
+[connection signal="finished" from="songs/AudioStreamPlayer3D" to="Cube/StaticBody3D" method="_on_audio_stream_player_3d_finished"]
+[connection signal="finished" from="songs/AudioStreamPlayer3D2" to="Cube/StaticBody3D" method="_on_audio_stream_player_3d_2_finished"]
+[connection signal="finished" from="songs/AudioStreamPlayer3D3" to="Cube/StaticBody3D" method="_on_audio_stream_player_3d_3_finished"]

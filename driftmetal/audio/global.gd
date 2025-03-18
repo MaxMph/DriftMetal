@@ -16,7 +16,7 @@ var in_menu = false
 
 @export var Player: CharacterBody3D
 
-var money = 200
+var money = 0
 
 var sense = 0.008
 

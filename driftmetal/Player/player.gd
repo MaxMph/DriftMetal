@@ -7,6 +7,7 @@ var JUMP_VELOCITY = 4.5
 
 var acc = 20
 var fric = 20
+var base_fric = 20
 
 @onready var head_holder = $head_holder
 @onready var head: Node3D = $head_holder/sub_holder_1/sub_holder_2/head
@@ -66,11 +67,13 @@ func _physics_process(delta: float) -> void:
 	$"../fishrad".find_spot(global_position)
 	
 	if not is_on_floor():
+		fric = base_fric / 4
 		landed = false
 		velocity += get_gravity() * delta
 
 	if is_on_floor():
 		if landed == false:
+			fric = base_fric
 			cam_player_2.play("land")
 			landed = true
 
@@ -86,9 +89,7 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction := (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = move_toward(velocity.x, direction.x * SPEED, acc * delta)
-		velocity.z = move_toward(velocity.z, direction.z * SPEED, acc * delta)
-		
+		velocity = velocity.move_toward(Vector3(direction.x * SPEED, velocity.y, direction.z * SPEED), acc * delta)
 		$"UI and Menus/hand/AnimationPlayer".speed_scale = 0.8
 		$"UI and Menus/hand/AnimationPlayer".play("crawl_2")
 		
@@ -104,8 +105,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		cam_player.speed_scale = 1
 		cam_player.pause()
-		velocity.x = move_toward(velocity.x, 0, fric * delta)
-		velocity.z = move_toward(velocity.z, 0, fric * delta)
+		velocity = velocity.move_toward(Vector3(0, velocity.y, 0), fric * delta)
 		
 		#$"UI and Menus/hand/AnimationPlayer".speed_scale = 2
 
