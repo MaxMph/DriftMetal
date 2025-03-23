@@ -21,6 +21,8 @@ func _process(delta: float) -> void:
 	depth = water_level - global_position.y
 	if depth > water_level:
 		if gotten_wet == false:
+			$"line running".stop()
+			
 			fish_wait(5)
 			gotten_wet = true
 		underwater = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://icneu4u2nv6f"]
+[gd_scene load_steps=78 format=4 uid="uid://icneu4u2nv6f"]
 
 [ext_resource type="Script" uid="uid://b4f01ka5fwhbm" path="res://Player/player.gd" id="1_2n4kb"]
 [ext_resource type="Script" uid="uid://cxuok8x1jkbs2" path="res://Player/control.gd" id="2_6n7t3"]
@@ -46,6 +46,7 @@
 [ext_resource type="Script" uid="uid://b5kvt5vqm0c0h" path="res://Player/coin.gd" id="43_dy65m"]
 [ext_resource type="AudioStream" uid="uid://c7b2nq65iqhjo" path="res://audio/sound effects/whoosh.mp3" id="45_maysp"]
 [ext_resource type="AudioStream" uid="uid://dfts3n1ae4lyu" path="res://audio/sound effects/beeeeeeeeeeeeeeeeep.wav" id="46_1l10g"]
+[ext_resource type="AudioStream" uid="uid://i4kmqxopiurm" path="res://audio/sound effects/line reeling 1.mp3" id="48_wvbyc"]
 
 [sub_resource type="Animation" id="Animation_0iva5"]
 length = 0.001
@@ -1356,6 +1357,10 @@ volume_db = -10.0
 
 [node name="beeeep" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("46_1l10g")
+
+[node name="line reeling" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("48_wvbyc")
+pitch_scale = 1.8
 
 [node name="map_marker" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.79917, 0, 0, 0, 2.79917, 0, 0, 0, 2.79917, 0, 8, 0)

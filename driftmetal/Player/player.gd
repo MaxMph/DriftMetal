@@ -154,9 +154,20 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("reel") and fish_on:
 		pull_force += 3 * delta
+		
+		#audio
+		#$"audio/line reeling".pitch_scale = 0.8 + (line_strength.value / 100)
+		#if $"audio/line reeling".playing == false:
+		#	$"audio/line reeling".play()
+		#	$"audio/line running".stream_paused = true
 	elif fish_on:
 		pull_force = -4 * delta
-
+		#$"audio/line running".play()
+		#$"audio/line reeling".stop()
+	#else:
+		#$"audio/line running".stream_paused = true
+		#$"audio/line reeling".stop()
+	
 	if Input.is_action_just_pressed("reel") and fish_on == false:
 		if casted:
 			match Global.selected_bait:
@@ -182,6 +193,14 @@ func _physics_process(delta: float) -> void:
 		if catch_prog.value >= catch_prog.max_value -  0.5:
 			fish_caught()
 			catch_prog.value = 0
+		
+		#audio
+		$"audio/line reeling".pitch_scale = 0.6 + (line_strength.value / 100)
+		$"audio/line reeling".volume_db = -20 + (line_strength.value / 5)
+		if $"audio/line reeling".playing == false:
+			$"audio/line reeling".play()
+	else:
+		$"audio/line reeling".stop()
 	
 	move_and_slide()
 

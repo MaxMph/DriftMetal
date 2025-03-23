@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bw5hqaeu4u8e5"]
+[gd_scene load_steps=9 format=3 uid="uid://bw5hqaeu4u8e5"]
 
 [ext_resource type="Script" uid="uid://6sh15qsjm3yg" path="res://textures/shaders/water stuff/rigid_body_3d.gd" id="1_waxhx"]
+[ext_resource type="AudioStream" uid="uid://bmemwt1roamrc" path="res://audio/sound effects/line running.mp3" id="2_rxorb"]
+[ext_resource type="AudioStream" uid="uid://byyvb5tod38dh" path="res://audio/sound effects/line stopping.mp3" id="3_1waj6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ar6he"]
 friction = 0.2
@@ -35,3 +37,16 @@ material_override = SubResource("StandardMaterial3D_tgscv")
 mesh = SubResource("SphereMesh_yrkq1")
 
 [node name="wait_timer" type="Timer" parent="."]
+
+[node name="line running" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rxorb")
+volume_db = 10.0
+pitch_scale = 1.6
+autoplay = true
+
+[node name="line stop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1waj6")
+volume_db = 8.0
+autoplay = true
+
+[node name="splash" type="AudioStreamPlayer3D" parent="."]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://byyvb5tod38dh"
+path="res://.godot/imported/line stopping.mp3-d036eca9f570f101470cb3c26f61adaf.mp3str"
+
+[deps]
+
+source_file="res://audio/sound effects/line stopping.mp3"
+dest_files=["res://.godot/imported/line stopping.mp3-d036eca9f570f101470cb3c26f61adaf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
