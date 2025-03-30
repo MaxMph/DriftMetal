@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bspvr2a2wnqs3"
+path="res://.godot/imported/water splash 2.mp3-77f4cdf5fb5cff7eb55e3de54acc7ab3.mp3str"
+
+[deps]
+
+source_file="res://audio/sound effects/water splash 2.mp3"
+dest_files=["res://.godot/imported/water splash 2.mp3-77f4cdf5fb5cff7eb55e3de54acc7ab3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

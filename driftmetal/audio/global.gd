@@ -16,9 +16,12 @@ var in_menu = false
 
 @export var Player: CharacterBody3D
 
-var money = 222
+var money = 0
 
 var sense = 0.008
+
+@onready var ocean_sound1: AudioStreamPlayer = $audio/AudioStreamPlayer
+var play_oceansound = false
 
 func save_quit():
 	var config = ConfigFile.new()
@@ -66,6 +69,8 @@ func _load():
 		bread = config.get_value("save", "bread")
 		sardines = config.get_value("save", "sardines")
 		selected_bait = config.get_value("save", "sel_bait")
+		
+		play_oceansound = true
 	else:
 		Player.play_comic()
 	

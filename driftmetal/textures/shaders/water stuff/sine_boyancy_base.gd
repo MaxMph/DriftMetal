@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 	#get_wave(0)
 	time += delta
 	water.set_shader_parameter("time", time) 
+	
 
 func get_wave(x: float, z: float):
 	#var noise_value = texture(water.get_shader_parameter("noise_texture"), global_position * wave_scale).r;

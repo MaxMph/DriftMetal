@@ -329,7 +329,7 @@ script = ExtResource("1_anpkp")
 
 [node name="fade_ani_player" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_xl2en")
+&"": SubResource("AnimationLibrary_xl2en")
 }
 
 [node name="Panel1" type="Sprite2D" parent="."]

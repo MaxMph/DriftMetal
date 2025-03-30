@@ -28,7 +28,7 @@ func close():
 
 
 func _on_resume_pressed() -> void:
-	await get_tree().create_timer(0.01).timeout
+	await get_tree().create_timer(0.1).timeout
 	close()
 
 

@@ -113,7 +113,8 @@ func _physics_process(delta: float) -> void:
 		global_position = global_position + $"../Path3D".pos_dif
 		print($"../Path3D".pos_dif)
 
-
+	if Input.is_action_just_pressed("money"):
+		Global.money += 10
 
 	if Input.is_action_pressed("cast"):
 		cast_strength = move_toward(cast_strength, 8, 6 * delta)
@@ -215,7 +216,7 @@ func	_unhandled_input(event: InputEvent) -> void:
 		if event is InputEventMouseMotion:
 			head.rotate_y(-event.relative.x * Global.sense)
 			cam.rotate_x(-event.relative.y * Global.sense)
-			cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-60), deg_to_rad(60))
+			cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-70), deg_to_rad(75))
 
 func legchange():
 	legspeed = 0
@@ -353,3 +354,17 @@ func rad_fish_chance():
 		subview.adjustment_brightness = 1 + color_effect
 		subview.adjustment_contrast = 1 + color_effect
 		subview.adjustment_saturation = 1 + color_effect * (7)
+
+
+func hide_ui():
+	$"UI and Menus/Control".hide()
+	$"UI and Menus/limb_UI".hide()
+	$"UI and Menus/rod_hud".hide()
+	$"UI and Menus/fish_caught".hide()
+	$"UI and Menus/pause_menu".hide()
+	$"UI and Menus/buy_menu".hide()
+	$"UI and Menus/lure_ui".hide()
+	$"UI and Menus/comic".hide()
+	$"UI and Menus/hand".hide()
+	$"UI and Menus/settings".hide()
+	

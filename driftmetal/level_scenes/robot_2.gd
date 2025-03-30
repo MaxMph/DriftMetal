@@ -11,6 +11,7 @@ func _process(delta: float) -> void:
 			close()
 
 func interacted():
+	Global.Player.can_cast = false
 	playercam = Global.Player.cam
 	talking = true
 	Global.in_menu = true
@@ -26,6 +27,8 @@ func close():
 	Global.in_menu = false
 	get_tree().paused = false
 	$"../dialouge".visible = false
+	await get_tree().create_timer(0.1).timeout
+	Global.Player.can_cast = true
 
 
 

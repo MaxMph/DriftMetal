@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 	if depth > water_level:
 		if gotten_wet == false:
 			$"line running".stop()
-			
+			$splash.play()
 			fish_wait(5)
 			gotten_wet = true
 		underwater = true
@@ -30,6 +30,10 @@ func _process(delta: float) -> void:
 
 	else:
 		underwater = false
+	
+	await  get_tree().create_timer(0.1).timeout
+	if linear_velocity.y == 0:
+		$"line running".stop()
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if underwater == true:
@@ -41,3 +45,4 @@ func fish_wait(waittime: float):
 	wait_timer.start(randf_range(1, waittime))
 	await wait_timer.timeout
 	player.fish_on_hook()
+	$"line stop".play()

@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 				$"../dialouge/AnimatedSprite2D".frame += 1
 
 func interacted():
+	Global.Player.can_cast = false
 	playercam = Global.Player.cam
 	talking = true
 	Global.in_menu = true
@@ -29,3 +30,5 @@ func close():
 	get_tree().paused = false
 	$"../dialouge".visible = false
 	$"../dialouge/AnimatedSprite2D".frame = 0
+	await get_tree().create_timer(0.1).timeout
+	Global.Player.can_cast = true
