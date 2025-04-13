@@ -41,6 +41,8 @@ func bait_open():
 	$bait.visible = true
 	Global.in_menu = true
 	get_tree().paused = true
+	$bait/HBoxContainer/bread/bread.grab_focus()
+	print("focused")
 
 func prosthetics_open():
 	print("prosthetics")
@@ -48,6 +50,7 @@ func prosthetics_open():
 	$prosthetics.visible = true
 	Global.in_menu = true
 	get_tree().paused = true
+	$"prosthetics/VBoxContainer/leftleg/left leg".grab_focus()
 
 
 

@@ -14,6 +14,8 @@ var max_select = 3
 
 var in_menu = false
 
+var gold_found: Array = []
+
 @export var Player: CharacterBody3D
 
 var money = 0
@@ -37,6 +39,7 @@ func save_quit():
 	#other
 	config.set_value("save", "money", money)
 	config.set_value("save", "sense", sense)
+	config.set_value("save", "goldfound", gold_found)
 	
 	#bait
 	config.set_value("save", "worms", worms)
@@ -64,6 +67,7 @@ func _load():
 		
 		money = config.get_value("save", "money")
 		sense = config.get_value("save", "sense")
+		gold_found = config.get_value("save", "goldfound")
 		
 		worms = config.get_value("save", "worms")
 		bread = config.get_value("save", "bread")

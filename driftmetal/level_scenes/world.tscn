@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=4 uid="uid://kodoglhwq3tu"]
+[gd_scene load_steps=108 format=4 uid="uid://kodoglhwq3tu"]
 
 [ext_resource type="Script" uid="uid://chhbjixmpk3wt" path="res://level_scenes/world.gd" id="1_cl0rx"]
 [ext_resource type="PackedScene" uid="uid://icneu4u2nv6f" path="res://Player/player.tscn" id="2_kdm1h"]
@@ -54,6 +54,11 @@
 [ext_resource type="Texture2D" uid="uid://d2dbv75kfhx2m" path="res://UI and Sprites/map.png" id="46_5moxj"]
 [ext_resource type="AudioStream" uid="uid://do1ssch1ls7g3" path="res://audio/not mine/indian-ocean-sound-from-zanzibar-at-sunrise-190466 (1).mp3" id="53_icq4x"]
 [ext_resource type="Script" uid="uid://cwcof36jq57x7" path="res://level_scenes/audio.gd" id="53_qkitp"]
+[ext_resource type="PackedScene" uid="uid://vejty7ldk377" path="res://models/boxes/medium_box_static.tscn" id="55_alqe6"]
+[ext_resource type="PackedScene" uid="uid://xnb8e6e6f4fk" path="res://models/boxes/small_box_static.tscn" id="56_iaem6"]
+[ext_resource type="PackedScene" uid="uid://d0anf5shrmitg" path="res://models/line_spool.tscn" id="57_iaem6"]
+[ext_resource type="PackedScene" uid="uid://btlsfkscy664t" path="res://models/box_of_gold.tscn" id="58_f03wb"]
+[ext_resource type="PackedScene" uid="uid://dd882ou6q52i3" path="res://controller_mouse.tscn" id="59_nxar4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kxlyf"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -373,7 +378,7 @@ tracks/2/path = NodePath("..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.6, 3.45),
+"times": PackedFloat32Array(0.6, 5.75),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -598,6 +603,9 @@ _data = {
 &"route_p1": SubResource("Animation_s8ikr")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_iaem6"]
+size = Vector3(5.34766, 2.14819, 1.19556)
+
 [node name="World" type="Node3D"]
 script = ExtResource("1_cl0rx")
 metadata/_edit_vertical_guides_ = [797.0]
@@ -676,10 +684,16 @@ use_collision = true
 size = Vector3(9.54346, 1, 11)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="environment"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -36.0095, 0.535669, -1)
+transform = Transform3D(-4.37093e-08, -1, 4.2951e-10, 0.999952, -4.37114e-08, -0.00982605, 0.00982605, 0, 0.999952, -36.0095, 0.634946, -2.31336)
 material_override = SubResource("StandardMaterial3D_x5fsk")
 use_collision = true
-size = Vector3(0.489258, 2, 13)
+size = Vector3(0.489258, 2, 15.6287)
+
+[node name="CSGBox3D50" type="CSGBox3D" parent="environment"]
+transform = Transform3D(-0.331354, -1.4843e-08, -0.943506, 0.943461, 0.00982605, -0.331338, 0.00927094, -0.999952, -0.00325589, -19.6642, 9.66788, -16.5688)
+material_override = SubResource("StandardMaterial3D_x5fsk")
+use_collision = true
+size = Vector3(0.489258, 2, 10.337)
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="environment"]
 transform = Transform3D(-0.0375681, -0.258636, 0.965244, 0.999294, -0.00972338, 0.036288, 4.2222e-08, 0.965926, 0.258819, -71.0095, 1.53567, -34.0093)
@@ -1155,7 +1169,7 @@ transform = Transform3D(0.905072, 0, 0.425258, 0, 1, 0, -0.425258, 0, 0.905072, 
 transform = Transform3D(0.973367, 0, -0.229251, 0, 1, 0, 0.229251, 0, 0.973367, -74.5128, 36.5598, -5.03334)
 
 [node name="small box3" parent="environment" instance=ExtResource("18_4v1lm")]
-transform = Transform3D(0.69809, 0, -0.716009, 0, 1, 0, 0.716009, 0, 0.69809, -75.9906, 38.711, -6.74366)
+transform = Transform3D(0.69809, 0, -0.716009, 0, 1, 0, 0.716009, 0, 0.69809, -76.1574, 38.711, -6.93807)
 
 [node name="small box4" parent="environment" instance=ExtResource("18_4v1lm")]
 transform = Transform3D(-0.898939, 0, -0.438073, 0, 1, 0, 0.438073, 0, -0.898939, -74.8039, 36.0889, -9.44313)
@@ -1168,6 +1182,18 @@ transform = Transform3D(0.950092, 0, 0.31197, 0, 1, 0, -0.31197, 0, 0.950092, -7
 
 [node name="medium box4" parent="environment" instance=ExtResource("17_38q6u")]
 transform = Transform3D(0.970754, 0, -0.240075, 0, 1, 0, 0.240075, 0, 0.970754, -76.2015, 37.6556, -6.82892)
+
+[node name="medium box static" parent="environment" instance=ExtResource("55_alqe6")]
+transform = Transform3D(0.974831, 0, -0.222944, 0, 1, 0, 0.222944, 0, 0.974831, -15.1133, 8.3472, -16.4102)
+
+[node name="small box static" parent="environment" instance=ExtResource("56_iaem6")]
+transform = Transform3D(0.596127, 0, 0.80289, 0, 1, 0, -0.80289, 0, 0.596127, -15.0147, 9.41187, -16.4338)
+
+[node name="small box static2" parent="environment" instance=ExtResource("56_iaem6")]
+transform = Transform3D(0.016161, 0, 0.999869, 0, 1, 0, -0.999869, 0, 0.016161, -14.9618, 10.4038, -16.3406)
+
+[node name="small box static3" parent="environment" instance=ExtResource("56_iaem6")]
+transform = Transform3D(-0.938435, -0.328758, 0.1061, -0.327303, 0.944399, 0.0313428, -0.110505, -0.00531376, -0.993861, -15.8087, 11.8277, -16.0623)
 
 [node name="boat" parent="." instance=ExtResource("10_yoke6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.90317, -0.63791, 16.5936)
@@ -1285,7 +1311,7 @@ transform = Transform3D(0.456974, 0, -0.88948, 0, 1, 0, 0.88948, 0, 0.456974, 1.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, -32)
 
 [node name="floating tent 6" parent="." instance=ExtResource("16_wip1e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 0, -11.6971)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 0, -13.6626)
 
 [node name="floating tent 5" parent="." instance=ExtResource("16_wip1e")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 20, 0, -13)
@@ -1300,13 +1326,13 @@ transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 41, 0, -19)
 
 [node name="medium box" parent="." instance=ExtResource("17_38q6u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5633, 1.00612, -11.4757)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5633, 1.00612, -13.4412)
 
 [node name="small box" parent="." instance=ExtResource("18_4v1lm")]
-transform = Transform3D(0.998234, 0, -0.0594109, 0, 1, 0, 0.0594109, 0, 0.998234, -38.5027, 0.95545, -10.1925)
+transform = Transform3D(0.998234, 0, -0.0594109, 0, 1, 0, 0.0594109, 0, 0.998234, -38.3859, 0.95545, -12.1545)
 
 [node name="small box2" parent="." instance=ExtResource("18_4v1lm")]
-transform = Transform3D(0.99767, 0, -0.0682242, 0, 1, 0, 0.0682242, 0, 0.99767, -36.5889, 0.95545, -12.252)
+transform = Transform3D(0.99767, 0, -0.0682242, 0, 1, 0, 0.0682242, 0, 0.99767, -36.4548, 0.95545, -14.2129)
 
 [node name="medium box2" parent="." instance=ExtResource("17_38q6u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0783, 1.05834, -12.3965)
@@ -1319,6 +1345,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 15)
 
 [node name="raft_2" parent="." instance=ExtResource("19_dkjrj")]
 transform = Transform3D(0.99878, 0, -0.0493727, 0, 1, 0, 0.0493727, 0, 0.99878, 31.4308, 0, -8.26057)
+
+[node name="box of gold" parent="raft_2" instance=ExtResource("58_f03wb")]
+transform = Transform3D(-0.488763, 0, 0.105407, 0, 0.5, 0, -0.105407, 0, -0.488763, 0.158455, 5.69753, -0.249627)
+value = 19
+
+[node name="medium box static" parent="raft_2" instance=ExtResource("55_alqe6")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 5, 0)
 
 [node name="raft_3" parent="." instance=ExtResource("19_dkjrj")]
 transform = Transform3D(0.951969, 0, -0.306194, 0, 1, 0, 0.306194, 0, 0.951969, 54.5538, 0, -29.6302)
@@ -2338,6 +2371,16 @@ speed_scale = 0.6
 [node name="cargo ship" parent="." instance=ExtResource("43_xjdvr")]
 transform = Transform3D(-5.24537e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24537e-08, 24.4404, 1.97806, 34.9154)
 
+[node name="box of gold" parent="cargo ship" instance=ExtResource("58_f03wb")]
+transform = Transform3D(-0.487817, 0, -0.109702, 0, 0.5, 0, 0.109702, 0, -0.487817, -8.04849, 6.31947, 19.6643)
+value = 16
+number = 3
+
+[node name="box of gold2" parent="cargo ship" instance=ExtResource("58_f03wb")]
+transform = Transform3D(-0.414707, 0, 0.0403627, 0, 0.416667, 0, -0.0403627, 0, -0.414707, -42.4684, 4.95916, 35.4863)
+value = 13
+number = 5
+
 [node name="cargo ship2" parent="." instance=ExtResource("43_xjdvr")]
 transform = Transform3D(-5.24537e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24537e-08, -158.56, 1.97806, -84.0846)
 
@@ -2407,6 +2450,65 @@ script = ExtResource("53_qkitp")
 [node name="oceansounds1" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("53_icq4x")
 volume_db = -10.0
+
+[node name="Line Spool Shop" type="Node" parent="."]
+
+[node name="medium box static" parent="Line Spool Shop" instance=ExtResource("55_alqe6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.856, 3.7713, -9.07203)
+
+[node name="medium box static2" parent="Line Spool Shop" instance=ExtResource("55_alqe6")]
+transform = Transform3D(0.983188, 0, 0.182596, 0, 1, 0, -0.182596, 0, 0.983188, -18.0021, 3.7713, -8.96871)
+
+[node name="small box static" parent="Line Spool Shop" instance=ExtResource("56_iaem6")]
+transform = Transform3D(0.992371, 0, 0.12329, 0, 1, 0, -0.12329, 0, 0.992371, -13.987, 3.71549, -9.49677)
+
+[node name="small box static3" parent="Line Spool Shop" instance=ExtResource("56_iaem6")]
+transform = Transform3D(0.996567, 0, -0.0827908, 0, 1, 0, 0.0827908, 0, 0.996567, -16.0473, 3.71549, -7.28117)
+
+[node name="small box static5" parent="Line Spool Shop" instance=ExtResource("56_iaem6")]
+transform = Transform3D(-0.0242228, 0, -0.999707, 0, 1, 0, 0.999707, 0, -0.0242228, -18.6523, 3.71549, -7.35804)
+
+[node name="small box static7" parent="Line Spool Shop" instance=ExtResource("56_iaem6")]
+transform = Transform3D(-0.113879, 0, -0.993495, 0, 1, 0, 0.993495, 0, -0.113879, -19.6877, 3.71549, -7.92864)
+
+[node name="small box static6" parent="Line Spool Shop" instance=ExtResource("56_iaem6")]
+transform = Transform3D(-0.907198, 0, 0.420703, 0, 1, 0, -0.420703, 0, -0.907198, -19.1429, 4.71549, -7.49134)
+
+[node name="small box static2" parent="Line Spool Shop" instance=ExtResource("56_iaem6")]
+transform = Transform3D(0.999649, 0, -0.026491, 0, 1, 0, 0.026491, 0, 0.999649, -13.987, 4.71549, -9.15689)
+
+[node name="small box static4" parent="Line Spool Shop" instance=ExtResource("56_iaem6")]
+transform = Transform3D(0.10057, 0, 0.99493, 0, 1, 0, -0.99493, 0, 0.10057, -18.439, 4.82877, -8.84245)
+
+[node name="robot" parent="Line Spool Shop" instance=ExtResource("28_nqou7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16, 3.67033, -7.39472)
+
+[node name="line spool" parent="Line Spool Shop" instance=ExtResource("57_iaem6")]
+transform = Transform3D(0.970712, 0, 0.240245, 0, 1, 0, -0.240245, 0, 0.970712, -15.2077, 4.4111, -9.24532)
+
+[node name="line spool2" parent="Line Spool Shop" instance=ExtResource("57_iaem6")]
+transform = Transform3D(0.942554, -0.200857, 0.266924, 0.331894, 0.653784, -0.680009, -0.037926, 0.729536, 0.68289, -15.2268, 4.48623, -8.98539)
+
+[node name="line spool3" parent="Line Spool Shop" instance=ExtResource("57_iaem6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2182, 5.28254, -9.28569)
+
+[node name="line spool4" parent="Line Spool Shop" instance=ExtResource("57_iaem6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.379, 4.28254, -6.82769)
+
+[node name="Area3D" type="Area3D" parent="Line Spool Shop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.439, 4.82877, -8.84245)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Line Spool Shop/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.173828, -0.574097, -0.307007)
+shape = SubResource("BoxShape3D_iaem6")
+
+[node name="box of gold2" parent="." instance=ExtResource("58_f03wb")]
+transform = Transform3D(-0.371698, 0.0213449, -0.333744, 0.0103453, 0.499476, 0.0204226, 0.334266, 0.00827677, -0.37175, 61.7619, 1.00288, -46.4441)
+value = 11
+number = 2
+
+[node name="controller_mouse" parent="." instance=ExtResource("59_nxar4")]
 
 [connection signal="body_entered" from="MeshInstance3D/Area3D" to="MeshInstance3D" method="_on_area_3d_body_entered"]
 [connection signal="pressed" from="environment/CSGBox3D42/Node3D/Area3D/dialouge/HBoxContainer/decline" to="environment/CSGBox3D42/Node3D/Area3D" method="_on_decline_pressed"]

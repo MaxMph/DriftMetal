@@ -145,7 +145,6 @@ pitch_scale = 1.33
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="songs"]
 stream = ExtResource("6_6csgp")
 volume_db = -15.0
-autoplay = true
 max_distance = 40.0
 
 [node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="songs"]

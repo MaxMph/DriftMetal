@@ -78,7 +78,7 @@ func _physics_process(delta: float) -> void:
 			landed = true
 
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		if Global.left_leg == true or Global.right_leg == true:
 			if Global.left_leg == true and Global.right_leg == true:
 				velocity.y = JUMP_VELOCITY + 2
@@ -203,6 +203,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		$"audio/line reeling".stop()
 	
+	controller_camrot()
 	move_and_slide()
 
 func _process(delta: float) -> void:
@@ -217,6 +218,22 @@ func	_unhandled_input(event: InputEvent) -> void:
 			head.rotate_y(-event.relative.x * Global.sense)
 			cam.rotate_x(-event.relative.y * Global.sense)
 			cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-70), deg_to_rad(75))
+	
+	
+
+func controller_camrot():
+	var axis_vector = Vector2.ZERO
+	axis_vector.x = Input.get_action_strength("look_right") - Input.get_action_strength("look_left")
+	axis_vector.y = Input.get_action_strength("look_down") - Input.get_action_strength("look_up")
+	if InputEventJoypadMotion:
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			head.rotate_y(-axis_vector.x * (Global.sense * 4))
+			cam.rotate_x(-axis_vector.y * (Global.sense * 4))
+			cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-70), deg_to_rad(75))
+		#else:#axis_vector != Vector2.ZERO:
+			#var new_mousepos = get_viewport().get_mouse_position()
+			#Input.warp_mouse(new_mousepos)
+			#print("cursor")
 
 func legchange():
 	legspeed = 0
@@ -354,6 +371,7 @@ func rad_fish_chance():
 		subview.adjustment_brightness = 1 + color_effect
 		subview.adjustment_contrast = 1 + color_effect
 		subview.adjustment_saturation = 1 + color_effect * (7)
+		
 
 
 func hide_ui():
@@ -368,3 +386,8 @@ func hide_ui():
 	$"UI and Menus/hand".hide()
 	$"UI and Menus/settings".hide()
 	
+
+func coinsfound(amount):
+	$audio/fish_caught.play()
+	$camera_shake_2._shake()
+	$audio/coin.coin_sounds(amount)

@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-var cur_song = 0
+var cur_song = 3
 @onready var cur_player = $"../../songs/AudioStreamPlayer3D"
 var off = false
 

@@ -1,8 +1,6 @@
 extends Control
 
 
-func _ready() -> void:
-	pass # Replace with function body.
 
 
 func _process(delta: float) -> void:
@@ -19,6 +17,7 @@ func open():
 	visible = true
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	$VBoxContainer/resume.grab_focus()
 
 func close():
 	Global.in_menu = false

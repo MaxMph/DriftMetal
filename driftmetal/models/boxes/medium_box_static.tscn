@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=4 uid="uid://vejty7ldk377"]
+
+[ext_resource type="Texture2D" uid="uid://b7fih4a6ebdpw" path="res://models/boxes/brown-worn-rustic-box-with-black-letters-wooden-table-studio-with-white-walls.jpg" id="1_4hrky"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q511x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnb4o"]
+resource_name = "box"
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_q511x")
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_450oi"]
+_surfaces = [{
+"aabb": AABB(-1, -0.556999, -0.644117, 2, 1.114, 1.28823),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAHAAMAAgAGAAcABgAFAAcABgAEAAUABAABAAUABAAAAAEAAgAEAAYAAgAAAAQABwABAAMABwAFAAEA"),
+"name": "box",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP////8AAAAAAAAAAAAAAAD//wAAAAD//wAA//8AAP///////wAA//8AAAAAAAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ug7ra"]
+resource_name = "boxes_Cube_001"
+_surfaces = [{
+"aabb": AABB(-1, -0.556999, -0.644117, 2, 1.114, 1.28823),
+"attribute_data": PackedByteArray("0DYM7uVHwucZOOHm0Dbpl+JCwuoZOOOa0DYM7uVHO5rWcuHm0Dbpl+JCO53WcuOa1pi97VmYwufJXQfq1pial1aTwurJXQme1pi97VmYO5qGmAfq1pial1aTO52GmAme"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AgALAAUAAgAIAAsABgAVAAkABgASABUAFAARABcAFAAOABEADAADAA8ADAAAAAMABwANABMABwABAA0AFgAEAAoAFgAQAAQA"),
+"material": SubResource("StandardMaterial3D_tnb4o"),
+"name": "box",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//E4AAAAAA////PwAAAAD//wAAAAD/////E4AAAP//////vwAA/////wAAAAAAAAAAAAAAAAAAAAD/PwAAAAAAAAAAAAD//wAAAAAAAP//AAD/vwAA//8AAAAA//8AAP//E4D//wAA////P///AAD///+/////////E4D/////////v/////////+///8AAAAAAAD//wAAAAD/P///AAAAAP+//////wAAAAD/////AAD/v/////8AAP+//3//fwAA/3//P/9//3//f////3//P/9/3v/efwAA/3//P/9/3v/ef////3//P/9//3//fwAA/3//fwAA/3//f////3//fwAA3v/efwAA/3//fwAA3v/ef////3//fwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_450oi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vbr1x"]
+albedo_texture = ExtResource("1_4hrky")
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h0wtb"]
+size = Vector3(2.01031, 1.12207, 1)
+
+[node name="medium box static" type="StaticBody3D"]
+
+[node name="Cube_001" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_ug7ra")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_vbr1x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000152588, 0.00244141, 0)
+shape = SubResource("BoxShape3D_h0wtb")

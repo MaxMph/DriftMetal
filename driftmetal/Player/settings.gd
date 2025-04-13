@@ -10,6 +10,7 @@ func open():
 	visible = true
 	get_tree().paused = true
 	Global.in_menu = true
+	$VBoxContainer/exit.grab_focus()
 
 
 func close():

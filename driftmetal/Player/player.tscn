@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=4 uid="uid://icneu4u2nv6f"]
+[gd_scene load_steps=79 format=4 uid="uid://icneu4u2nv6f"]
 
 [ext_resource type="Script" uid="uid://b4f01ka5fwhbm" path="res://Player/player.gd" id="1_2n4kb"]
 [ext_resource type="Script" uid="uid://cxuok8x1jkbs2" path="res://Player/control.gd" id="2_6n7t3"]
@@ -354,6 +354,8 @@ adjustment_enabled = true
 
 [sub_resource type="World3D" id="World3D_luiti"]
 environment = SubResource("Environment_8xxk5")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6rl0i"]
 
 [sub_resource type="Animation" id="Animation_ghv07"]
 length = 0.001
@@ -836,6 +838,7 @@ icon_alignment = 1
 
 [node name="Button" type="Button" parent="UI and Menus/pause_menu/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_6rl0i")
 icon = ExtResource("17_2jnkn")
 flat = true
 icon_alignment = 1
@@ -928,7 +931,6 @@ mouse_filter = 2
 texture = ExtResource("23_3tsb2")
 
 [node name="bait" type="Control" parent="UI and Menus/buy_menu"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -964,6 +966,7 @@ layout_mode = 2
 [node name="worm" type="Button" parent="UI and Menus/buy_menu/bait/HBoxContainer/worm"]
 z_index = 4
 layout_mode = 2
+focus_neighbor_right = NodePath("../../bread/bread")
 theme = ExtResource("4_gcyx6")
 icon = ExtResource("20_fwsra")
 flat = true
@@ -1008,6 +1011,8 @@ layout_mode = 2
 
 [node name="bread" type="Button" parent="UI and Menus/buy_menu/bait/HBoxContainer/bread"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../worm/worm")
+focus_neighbor_right = NodePath("../../sardines/sardines")
 theme = ExtResource("4_gcyx6")
 icon = ExtResource("21_578fh")
 flat = true
@@ -1072,6 +1077,7 @@ layout_mode = 2
 
 [node name="sardines" type="Button" parent="UI and Menus/buy_menu/bait/HBoxContainer/sardines"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../bread/bread")
 theme = ExtResource("4_gcyx6")
 icon = ExtResource("22_ygt81")
 flat = true
